@@ -18,6 +18,15 @@ export default async function CheckoutPage({
 }: {
   searchParams: Promise<{ hata?: string }>;
 }) {
+  if (process.env.NODE_ENV === "production" && process.env.CHECKOUT_ENABLED !== "true") {
+    return (
+      <div className="container-page py-16">
+        <h1 className="text-3xl font-semibold text-ink-900">Sipariş için bize ulaşın</h1>
+        <p className="mt-4 text-ink-500">Online ödeme henüz açılmadı. Seçtiğiniz ürün ve hizmetler için ekibimizle iletişime geçebilirsiniz.</p>
+        <Link href="/iletisim" className="mt-6 inline-block text-brand-500 underline">İletişime geç</Link>
+      </div>
+    );
+  }
   const { hata } = await searchParams;
   const cart = await getCart();
   if (!cart || cart.items.length === 0) redirect("/sepet");

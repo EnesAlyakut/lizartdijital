@@ -1,4 +1,7 @@
 import { PrismaClient } from "@/generated/prisma";
+import { initializeProductionData } from "./production-data";
+
+initializeProductionData();
 
 /**
  * Geliştirmede hot-reload sırasında yeni bağlantı havuzu açılmasını önlemek için

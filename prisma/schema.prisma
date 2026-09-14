@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -23,7 +23,7 @@ model Role {
   key         String   @unique
   name        String
   /// JSON dizi: ["products.write", "orders.read", ...]
-  permissions String   @default("[]")
+  permissions String   @default("[]") @db.VarChar(2000)
   users       User[]
   createdAt   DateTime @default(now())
 }
@@ -103,7 +103,7 @@ model ProductCategory {
   id          String  @id @default(cuid())
   slug        String  @unique
   name        String
-  description String?
+  description String?  @db.Text
   /// website | app | system | template | service — üst ürün türü
   kind        String
   icon        String?
@@ -142,18 +142,18 @@ model Product {
   categoryId    String
   category      ProductCategory @relation(fields: [categoryId], references: [id])
   shortDesc     String 
-  description   String 
+  description   String  @db.Text
   /// JSON dizi: ["Rezervasyon modülü", ...]
-  features      String  @default("[]")
+  features      String  @default("[]") @db.VarChar(3000)
   /// JSON dizi: kullanım senaryoları
-  useCases      String  @default("[]")
+  useCases      String  @default("[]") @db.VarChar(3000)
   /// JSON dizi: dahil modüller
-  modules       String  @default("[]")
+  modules       String  @default("[]") @db.VarChar(3000)
   /// JSON nesne: teknik özellikler tablosu {"Framework":"Next.js 15", ...}
-  techSpecs     String  @default("{}")
-  requirements  String?
-  supportScope  String?
-  updatePolicy  String?
+  techSpecs     String  @default("{}") @db.VarChar(4000)
+  requirements  String? @db.Text
+  supportScope  String? @db.Text
+  updatePolicy  String? @db.Text
 
   /// Fiyatlar kuruş cinsinden tam sayıdır (yuvarlama hatası olmaması için).
   basePrice     Int
@@ -265,7 +265,7 @@ model ProductVersion {
   productId   String
   product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   version     String
-  changelog   String  
+  changelog   String   @db.Text
   releasedAt  DateTime @default(now())
   isPublished Boolean  @default(true)
 
@@ -297,11 +297,11 @@ model ProductLicense {
   /// standart | genisletilmis | ozel
   key          String
   name         String
-  description  String 
+  description  String  @db.Text
   /// Taban fiyata eklenen fark (kuruş).
   priceDelta   Int     @default(0)
   /// JSON dizi: kapsam maddeleri
-  bullets      String  @default("[]")
+  bullets      String  @default("[]") @db.VarChar(3000)
   domainLimit  Int     @default(1)
   supportMonths Int    @default(3)
   updateMonths  Int    @default(6)
@@ -320,7 +320,7 @@ model AddOnService {
   id          String  @id @default(cuid())
   slug        String  @unique
   name        String
-  description String
+  description String  @db.Text
   price       Int
   /// Ek teslim süresi (gün)
   extraDays   Int     @default(0)
@@ -463,7 +463,7 @@ model Order {
   coupon      Coupon? @relation(fields: [couponId], references: [id], onDelete: SetNull)
 
   estimatedDays Int  @default(1)
-  note        String?
+  note        String? @db.Text
 
   items       OrderItem[]
   payments    Payment[]
@@ -521,7 +521,7 @@ model Payment {
   /// Sağlayıcıdaki işlem kimliği. Kart bilgisi ASLA saklanmaz.
   providerRef  String?
   /// Webhook doğrulaması sonrası kaydedilen ham olay özeti (hassas alanlar temizlenmiş).
-  rawEvent     String?
+  rawEvent     String? @db.Text
   installment  Int    @default(1)
   createdAt    DateTime @default(now())
 
@@ -551,7 +551,7 @@ model LicenseKey {
   licenseType String
   domainLimit Int     @default(1)
   /// JSON dizi: etkinleştirilmiş alan adları
-  domains    String   @default("[]")
+  domains    String   @default("[]") @db.VarChar(2000)
   validUntil DateTime?
   isActive   Boolean  @default(true)
   createdAt  DateTime @default(now())
@@ -594,7 +594,7 @@ model Project {
   /// Aşama anahtarı — PROJECT_STAGES ile eşleşir
   currentStage String @default("odeme-alindi")
   /// Müşteri bilgi formu (domain, marka, renkler...) JSON
-  briefData String   @default("{}")
+  briefData String   @default("{}") @db.VarChar(4000)
   stages    ProjectStage[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -610,7 +610,7 @@ model ProjectStage {
   name        String
   sortOrder   Int
   completedAt DateTime?
-  note        String?
+  note        String?   @db.Text
 
   @@index([projectId])
 }
@@ -640,7 +640,7 @@ model TicketMessage {
   authorId  String
   /// musteri | ekip
   authorRole String
-  body      String  
+  body      String   @db.Text
   createdAt DateTime @default(now())
 
   @@index([ticketId])
@@ -656,9 +656,9 @@ model Offer {
   phone     String?
   company   String?
   /// Sihirbaz cevapları JSON
-  answers   String   @default("{}")
+  answers   String   @default("{}") @db.VarChar(4000)
   budget    String?
-  message   String? 
+  message   String?  @db.Text
   /// yeni | incelemede | teklif-gonderildi | kazanildi | kaybedildi
   status    String   @default("yeni")
   amount    Int?
@@ -670,7 +670,7 @@ model Notification {
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   title     String
-  body      String  
+  body      String   @db.Text
   href      String?
   readAt    DateTime?
   createdAt DateTime @default(now())
@@ -692,7 +692,7 @@ model Review {
   authorTitle String?
   rating    Int
   title     String?
-  body      String  
+  body      String   @db.Text
   /// Yalnızca satın almış kullanıcı yorumları "onaylı alıcı" rozetini alır.
   isVerified Boolean @default(false)
   isApproved Boolean @default(false)
@@ -712,8 +712,8 @@ model BlogPost {
   id          String   @id @default(cuid())
   slug        String   @unique
   title       String
-  excerpt     String  
-  body        String  
+  excerpt     String   @db.Text
+  body        String   @db.LongText
   coverImage  String
   authorName  String
   authorTitle String?
@@ -737,24 +737,24 @@ model PortfolioProject {
   sector       String
   /// web | eticaret | mobil | yazilim | seo | sosyal | reklam | marka
   category     String
-  summary      String 
-  problem      String 
-  solution     String 
+  summary      String  @db.Text
+  problem      String  @db.Text
+  solution     String  @db.Text
   /// JSON dizi
-  services     String  @default("[]")
-  technologies String  @default("[]")
+  services     String  @default("[]") @db.VarChar(2000)
+  technologies String  @default("[]") @db.VarChar(2000)
   /// JSON dizi: [{"label":"Dönüşüm artışı","value":"%38"}]
-  results      String  @default("[]")
+  results      String  @default("[]") @db.VarChar(2000)
   coverImage   String
   /// Mobil ekran görüntüsü (referans sitelerde cihaz mockup'ı için)
   mobileImage  String?
   /// Projenin yayındaki adresi
   liveUrl      String?
   /// JSON dizi: teslim edilen iş kalemleri
-  deliverables String  @default("[]")
+  deliverables String  @default("[]") @db.VarChar(2000)
   /// JSON dizi görsel url
-  gallery      String  @default("[]")
-  testimonial  String?
+  gallery      String  @default("[]") @db.VarChar(4000)
+  testimonial  String? @db.Text
   isFeatured   Boolean @default(false)
   completedAt  DateTime @default(now())
 }
@@ -764,7 +764,7 @@ model Faq {
   /// satin-alma | odeme | lisans | indirme | kurulum | teslimat | guncelleme | destek | ozellestirme | iade
   category  String
   question  String
-  answer    String 
+  answer    String  @db.Text
   sortOrder Int     @default(0)
   productId String?
   product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
@@ -776,7 +776,7 @@ model Page {
   id          String   @id @default(cuid())
   slug        String   @unique
   title       String
-  body        String  
+  body        String   @db.LongText
   /// yasal | kurumsal | destek
   group       String   @default("yasal")
   metaTitle       String?
@@ -786,7 +786,7 @@ model Page {
 
 model Setting {
   key   String @id
-  value String
+  value String @db.Text
 }
 
 model AuditLog {
@@ -797,7 +797,7 @@ model AuditLog {
   entity    String
   entityId  String?
   /// Hassas alanlar temizlenmiş değişiklik özeti (JSON)
-  meta      String   @default("{}")
+  meta      String   @default("{}") @db.VarChar(4000)
   ipHash    String?
   createdAt DateTime @default(now())
 
@@ -819,7 +819,7 @@ model ContactMessage {
   phone      String?
   department String
   subject    String
-  body       String  
+  body       String   @db.Text
   isRead     Boolean  @default(false)
   createdAt  DateTime @default(now())
 }

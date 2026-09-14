@@ -44,6 +44,9 @@ async function nextOrderNumber() {
  * Tutarlar istemciden değil, sepetteki ürünlerin güncel fiyatlarından hesaplanır.
  */
 export async function placeOrder(formData: FormData): Promise<CheckoutResult> {
+  if (process.env.NODE_ENV === "production" && process.env.CHECKOUT_ENABLED !== "true") {
+    return { ok: false, error: "Online ödeme henüz açılmadı. Siparişiniz için bizimle iletişime geçebilirsiniz." };
+  }
   const parsed = checkoutSchema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) return { ok: false, error: parsed.error.issues[0].message };
   const data = parsed.data;

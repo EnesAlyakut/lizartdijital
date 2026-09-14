@@ -3,6 +3,7 @@ import type { Transporter } from "nodemailer";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import { dataPath } from "../production-data";
 import type { MailProvider, MailMessage } from "./types";
 
 /**
@@ -55,7 +56,7 @@ export class SmtpMailProvider implements MailProvider {
 
     // SMTP yapılandırılmamışsa veya hata oluştuysa yerel kayıt tut
     const id = crypto.randomBytes(6).toString("hex");
-    const dir = path.join(process.cwd(), ".mail-outbox");
+    const dir = dataPath(".mail-outbox");
     await fs.mkdir(dir, { recursive: true });
     const file = path.join(dir, `${Date.now()}-${id}.html`);
     await fs.writeFile(

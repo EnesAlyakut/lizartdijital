@@ -22,6 +22,7 @@ export class MockPaymentProvider implements PaymentProvider {
   }
 
   async init(input: PaymentInitInput): Promise<PaymentInitResult> {
+    if (process.env.NODE_ENV === "production") throw new Error("Ödeme simülasyonu canlı ortamda kapalıdır.");
     const providerRef = `mock_${crypto.randomBytes(8).toString("hex")}`;
     const params = new URLSearchParams({
       ref: providerRef,
@@ -46,6 +47,7 @@ export class MockPaymentProvider implements PaymentProvider {
   }
 
   async verify(payload: unknown, signature: string | null): Promise<PaymentVerifyResult> {
+    if (process.env.NODE_ENV === "production") throw new Error("Ödeme simülasyonu canlı ortamda kapalıdır.");
     if (!signature) throw new Error("Ödeme bildirimi imzasız geldi.");
     const body = payload as {
       ref: string;

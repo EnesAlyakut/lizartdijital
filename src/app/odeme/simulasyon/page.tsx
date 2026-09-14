@@ -22,6 +22,7 @@ export default async function PaymentSimulationPage({
 }: {
   searchParams: Promise<{ ref?: string; orderId?: string; amount?: string }>;
 }) {
+  if (process.env.NODE_ENV === "production") notFound();
   if (process.env.PAYMENT_PROVIDER && process.env.PAYMENT_PROVIDER !== "mock") notFound();
 
   const { ref, orderId } = await searchParams;
@@ -32,6 +33,7 @@ export default async function PaymentSimulationPage({
 
   async function complete(formData: FormData) {
     "use server";
+    if (process.env.NODE_ENV === "production") notFound();
     const outcome = formData.get("sonuc") === "basarili" ? "basarili" : "basarisiz";
     const provider = new MockPaymentProvider();
     const body = {

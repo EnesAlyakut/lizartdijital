@@ -15,7 +15,7 @@ export class LocalStorageProvider implements StorageProvider {
   readonly name = "local";
 
   private get root() {
-    return path.join(process.cwd(), process.env.PRIVATE_FILES_DIR ?? "private-files");
+    return path.resolve(process.cwd(), process.env.PRIVATE_FILES_DIR ?? "private-files");
   }
 
   private get secret() {

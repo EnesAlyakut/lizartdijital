@@ -45,3 +45,7 @@ next-env.d.ts
 private-files/
 public/gorseller/
 src/generated/
+prisma/bootstrap.db
+*.db
+*.db-*
+.deployment/

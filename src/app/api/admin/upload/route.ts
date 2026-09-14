@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 import { getCurrentUser, isStaff } from "@/lib/auth";
+import { dataPath } from "@/lib/production-data";
 
 export const dynamic = "force-dynamic";
 
@@ -56,7 +57,7 @@ export async function POST(request: Request) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    const uploadsDir = path.join(process.cwd(), "public", "uploads");
+    const uploadsDir = process.env.LIZART_DATA_DIR ? dataPath("uploads") : path.join(process.cwd(), "public", "uploads");
     await mkdir(uploadsDir, { recursive: true });
 
     const rawExt = path.extname(file.name) || ".png";
