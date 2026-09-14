@@ -1,0 +1,623 @@
+/** Yorumlar, blog yazıları, portföy projeleri, SSS ve yasal sayfa şablonları. */
+
+export const REVIEWS = [
+  {
+    product: "vitrin-eticaret-sitesi",
+    authorName: "Elif Karaca",
+    authorTitle: "Kurucu, Moda Butik",
+    rating: 5,
+    title: "İki günde satışa başladık",
+    body: "Ürünlerimizi yükledikten sonra ikinci gün ilk siparişi aldık. Sanal POS entegrasyonu ekstra hizmet olarak alındı, kurulumu bizim yerimize yaptılar. Panel gerçekten öğrenmesi kolay.",
+  },
+  {
+    product: "atlas-kurumsal-web-sitesi",
+    authorName: "Mehmet Aydın",
+    authorTitle: "Genel Müdür, Aydın Mühendislik",
+    rating: 5,
+    title: "Kurumsal görünüm tam istediğimiz gibi",
+    body: "Eski sitemiz mobilde çok yavaştı. Yeni site hem hızlı hem de referanslarımızı düzgün gösteriyor. Logo ve renk uyarlamasını ek hizmet olarak aldık, iki gün içinde tamamlandı.",
+  },
+  {
+    product: "medica-klinik-web-sitesi",
+    authorName: "Dr. Zeynep Şahin",
+    authorTitle: "Diş Hekimi",
+    rating: 5,
+    title: "Randevu trafiği belirgin arttı",
+    body: "Hastalar artık telefonla aramak yerine siteden randevu alıyor. Arapça dil desteği sayesinde yurt dışından da talep geliyor. KVKK metinleri hazır gelmesi işimizi kolaylaştırdı.",
+  },
+  {
+    product: "sepetim-eticaret-mobil-uygulamasi",
+    authorName: "Burak Demirtaş",
+    authorTitle: "E-ticaret Müdürü, Tekno Mağaza",
+    rating: 4,
+    title: "Uygulama mağazada yayında",
+    body: "Kaynak kod dahil geldiği için kendi ekibimiz de üzerinde çalışabiliyor. Yayın sürecini ek hizmet olarak aldık. Tek eksik gördüğümüz nokta bildirim şablonlarının biraz sade olması.",
+  },
+  {
+    product: "baslangic-dijital-paketi",
+    authorName: "Selin Yılmaz",
+    authorTitle: "Kurucu, Selin Danışmanlık",
+    rating: 5,
+    title: "İlk siteme başlamak için doğru paket",
+    body: "Neye ihtiyacım olduğunu bilmiyordum, süreç boyunca yönlendirdiler. Logo, site ve temel SEO ayarları bir hafta içinde bitti. Sorularıma bir ay boyunca cevap verdiler.",
+  },
+  {
+    product: "pusula-crm-sistemi",
+    authorName: "Ahmet Korkmaz",
+    authorTitle: "Satış Direktörü, Korkmaz Yapı",
+    rating: 5,
+    title: "Satış ekibimiz artık tek ekranda",
+    body: "Excel dosyalarıyla takip ettiğimiz teklifleri sisteme taşıdık. Huni görünümü sayesinde hangi işin nerede kaldığı belli oluyor. Kurulum ve eğitim desteği aldık, ekip hızlı adapte oldu.",
+  },
+];
+
+export const BLOG_CATEGORIES = [
+  { slug: "eticaret", name: "E-Ticaret" },
+  { slug: "seo", name: "SEO" },
+  { slug: "sosyal-medya", name: "Sosyal Medya" },
+  { slug: "web-tasarim", name: "Web Tasarım" },
+  { slug: "mobil-uygulama", name: "Mobil Uygulama" },
+  { slug: "yazilim", name: "Yazılım" },
+  { slug: "reklam-yonetimi", name: "Reklam Yönetimi" },
+  { slug: "yapay-zeka", name: "Yapay Zekâ" },
+  { slug: "saglik-turizmi", name: "Sağlık Turizmi" },
+  { slug: "dijital-pazarlama", name: "Dijital Pazarlama" },
+];
+
+export const BLOG_POSTS = [
+  {
+    slug: "hazir-web-sitesi-mi-ozel-tasarim-mi",
+    title: "Hazır Web Sitesi mi, Özel Tasarım mı? Karar Rehberi",
+    category: "web-tasarim",
+    excerpt:
+      "Bütçe, süre ve esneklik açısından iki yaklaşımı karşılaştırdık. Hangi işletme hangisini seçmeli, somut örneklerle anlattık.",
+    author: "Enes Alyakut",
+    authorTitle: "Kurucu",
+    readMinutes: 7,
+    body: `## Kısa cevap
+
+Süreçleriniz standartsa hazır bir web sitesi çoğu zaman doğru seçimdir. Rakiplerinizde olmayan bir iş akışınız varsa özel geliştirme gerekir.
+
+## Hazır web sitesi ne zaman mantıklı?
+
+Kurumsal tanıtım, restoran menüsü, klinik randevusu, portföy gibi ihtiyaçlar sektörde büyük ölçüde standartlaşmıştır. Bu ihtiyaçlar için hazır bir paket:
+
+- Günler içinde yayına girer.
+- Maliyeti özel geliştirmenin genellikle üçte biri kadardır.
+- Yüzlerce kurulumda test edildiği için daha az hata barındırır.
+
+## Özel geliştirme ne zaman gerekir?
+
+- İş akışınız sektöre özgü ve hazır ürünlerde karşılığı yoksa,
+- Mevcut ERP, muhasebe veya üretim sistemlerinize derin entegrasyon gerekiyorsa,
+- Ürününüzün kendisi yazılımsa (SaaS iş modeli),
+
+özel geliştirme yatırımı geri döner.
+
+## Ara yol: hazır ürün + özel modül
+
+Uygulamada en sık önerdiğimiz yol budur. Hazır bir ürünü temel alıp yalnızca size özgü kısmı özel modül olarak geliştiririz. Böylece hem hızlı yayına girersiniz hem de kritik ihtiyacınız karşılanır.
+
+## Karar verirken sorulacak üç soru
+
+1. Bu işi bugün nasıl yapıyorum ve hangi adım gerçekten bana özgü?
+2. Altı ay sonra kaç kullanıcı ve kaç kayıt olacak?
+3. Yayına ne zaman girmem gerekiyor?
+
+Bu üç sorunun cevabı, kararı çoğu zaman kendiliğinden ortaya çıkarır.`,
+  },
+  {
+    slug: "eticaret-sitesinde-donusum-artiran-7-duzenleme",
+    title: "E-Ticaret Sitesinde Dönüşüm Artıran 7 Düzenleme",
+    category: "eticaret",
+    excerpt:
+      "Trafiğinizi artırmadan satışı yükseltmenin yolları var. Sepet terk oranını düşüren yedi somut düzenlemeyi listeledik.",
+    author: "Elif Demir",
+    authorTitle: "E-Ticaret Danışmanı",
+    readMinutes: 6,
+    body: `## 1. Kargo ücretini en baştan gösterin
+
+Sepet terk sebeplerinin başında ödeme adımında beliren sürpriz kargo ücreti gelir. Ücreti ürün sayfasında yazın.
+
+## 2. Üyeliksiz ödemeye izin verin
+
+Zorunlu üyelik, ilk kez alışveriş yapan kullanıcıyı caydırır. Sipariş sonrası hesap oluşturmayı teklif edin.
+
+## 3. Ödeme adımını tek sayfaya indirin
+
+Çok adımlı formlar mobilde terk oranını artırır. Fatura ve teslimat bilgisini tek ekranda toplayın.
+
+## 4. Ürün görsellerini gerçek kullanımda gösterin
+
+Stüdyo çekimi güven verir, kullanım görseli satın aldırır. İkisini birlikte kullanın.
+
+## 5. İade koşullarını gizlemeyin
+
+Açık bir iade politikası satın alma riskini düşürür. Ürün sayfasından bağlantı verin.
+
+## 6. Site hızını ölçün
+
+Mobilde üç saniyeyi aşan açılış süresi, ziyaretçilerin önemli bir kısmını kaybettirir. Görselleri optimize edin.
+
+## 7. Terk edilen sepeti hatırlatın
+
+Basit bir e-posta hatırlatması, kaybedilen siparişlerin bir kısmını geri getirir. Rahatsız edici sıklıkta göndermeyin.`,
+  },
+  {
+    slug: "teknik-seo-kontrol-listesi",
+    title: "Yeni Yayına Alınan Sitede Teknik SEO Kontrol Listesi",
+    category: "seo",
+    excerpt:
+      "Site yayına girdikten sonraki ilk hafta yapılması gerekenler: indeksleme, sitemap, schema ve hız kontrolleri.",
+    author: "Mert Sarı",
+    authorTitle: "SEO Uzmanı",
+    readMinutes: 5,
+    body: `## Yayın öncesi
+
+- robots.txt dosyasının arama motorlarını engellemediğini doğrulayın.
+- Test ortamındaki "noindex" etiketlerinin kaldırıldığından emin olun.
+- Her sayfanın özgün başlık ve açıklamaya sahip olduğunu kontrol edin.
+
+## Yayın sonrası ilk hafta
+
+- XML sitemap'i arama konsoluna gönderin.
+- Canonical adreslerin doğru sayfayı işaret ettiğini kontrol edin.
+- Ürün, makale ve SSS sayfalarına schema.org işaretlemesi ekleyin.
+- Eski siteden gelen adresler için 301 yönlendirmelerini tanımlayın.
+
+## Ölçüm
+
+İlk ayda sıralama yerine indekslenme ve tarama hatalarına bakın. Sıralama etkisi genellikle ikinci aydan itibaren görünür hale gelir.`,
+  },
+  {
+    slug: "mobil-uygulama-yayinlama-sureci",
+    title: "Mobil Uygulamanızı Mağazalarda Yayınlama Süreci",
+    category: "mobil-uygulama",
+    excerpt:
+      "Geliştirici hesabı açmaktan inceleme sürecini geçmeye kadar adım adım yayın rehberi ve sık yapılan hatalar.",
+    author: "Can Öztürk",
+    authorTitle: "Mobil Geliştirici",
+    readMinutes: 8,
+    body: `## Hesap hazırlığı
+
+Yayın için iki geliştirici hesabı gerekir; kurumsal başvurularda şirket doğrulaması birkaç gün sürebilir. Bu süreyi projenin takvimine ekleyin.
+
+## Mağaza içeriği
+
+- Uygulama adı ve kısa açıklama
+- En az beş ekran görüntüsü (her cihaz boyutu için)
+- Gizlilik politikası adresi (zorunlu)
+- Veri toplama beyanı
+
+## Sık reddedilme sebepleri
+
+1. Gizlilik politikası adresinin çalışmaması
+2. Test hesabı verilmemesi
+3. Uygulamanın yalnızca web sitesinin çerçeve içine alınmış hali olması
+4. Eksik veri toplama beyanı
+
+## Süre
+
+İlk yayın incelemesi genellikle birkaç gün sürer. Reddedilme halinde düzeltip yeniden göndermek süreci uzatır; bu yüzden ilk gönderimi eksiksiz hazırlamak önemlidir.`,
+  },
+  {
+    slug: "kucuk-isletmeler-icin-reklam-butcesi",
+    title: "Küçük İşletmeler Reklam Bütçesini Nasıl Planlamalı?",
+    category: "reklam-yonetimi",
+    excerpt:
+      "Aylık bütçenin kanallar arasında nasıl dağıtılacağı, test dönemi ve ölçümlenmesi gereken metrikler.",
+    author: "Deniz Aksoy",
+    authorTitle: "Performans Pazarlama Uzmanı",
+    readMinutes: 6,
+    body: `## Test dönemiyle başlayın
+
+İlk ay öğrenme dönemidir. Bütçenin tamamını tek kanala vermek yerine iki kanalda küçük bütçelerle test edin.
+
+## Dağıtım önerisi
+
+Hizmet sektöründe arama ağı genellikle daha hızlı sonuç verir; görsel ağırlıklı ürünlerde sosyal medya öne çıkar. Başlangıç için dengeli bir dağıtım kurup ilk ayın verisine göre kaydırmak en güvenli yöntemdir.
+
+## Ölçülmesi gereken metrikler
+
+- Dönüşüm başına maliyet
+- Formu dolduranların gerçekten müşteriye dönüşme oranı
+- Kanal bazında müşteri kazanım maliyeti
+
+Tıklama sayısı tek başına anlamlı bir metrik değildir; ölçümü satış tarafına kadar taşıyın.`,
+  },
+  {
+    slug: "yapay-zeka-destekli-musteri-hizmetleri",
+    title: "Yapay Zekâ Destekli Müşteri Hizmetleri Ne Zaman İşe Yarar?",
+    category: "yapay-zeka",
+    excerpt:
+      "Otomatik yanıt sistemleri hangi durumda müşteri memnuniyetini artırır, hangi durumda zarar verir?",
+    author: "Enes Alyakut",
+    authorTitle: "Kurucu",
+    readMinutes: 6,
+    body: `## İşe yaradığı yerler
+
+Tekrar eden ve cevabı belli sorular: kargo nerede, çalışma saatleri, iade nasıl yapılır. Bu sorular toplam trafiğin büyük kısmını oluşturur ve otomatik yanıtla anında çözülür.
+
+## Zarar verdiği yerler
+
+Şikâyet ve iade talepleri. Sorunu olan bir müşteriyi otomatik yanıt döngüsünde tutmak memnuniyetsizliği büyütür.
+
+## Doğru kurgu
+
+1. Sık sorulan soruları otomatik yanıtlayın.
+2. Duygu yoğunluğu yüksek mesajları anında insana aktarın.
+3. Otomatik sistemin cevap veremediği durumu açıkça belirtip yönlendirin.
+
+Kurallar netse otomasyon ekibinizin yükünü azaltır; kurallar belirsizse müşteriyi kaybettirir.`,
+  },
+];
+
+export const PORTFOLIO = [
+  {
+    slug: "moda-butik-eticaret-donusumu",
+    title: "Moda Butik E-Ticaret Dönüşümü",
+    client: "Moda Butik",
+    sector: "Perakende",
+    category: "eticaret",
+    summary: "Instagram üzerinden satış yapan butiğin kendi e-ticaret altyapısına geçişi.",
+    problem:
+      "Siparişler sosyal medya mesajlarından manuel toplanıyordu. Stok takibi yapılamadığı için satılan ürünler tekrar satılıyor, müşteri iptalleri yaşanıyordu.",
+    solution:
+      "Vitrin E-Ticaret Sitesi kuruldu, ürün girişleri ve varyasyon yapısı tarafımızca oluşturuldu. Sanal POS ve kargo entegrasyonu tamamlandı, terk edilen sepet hatırlatması devreye alındı.",
+    services: ["E-ticaret kurulumu", "Ürün girişi", "Ödeme entegrasyonu", "Kargo entegrasyonu"],
+    technologies: ["WordPress", "WooCommerce", "PHP"],
+    results: [
+      { label: "Aylık sipariş", value: "3,4 kat" },
+      { label: "Sipariş hatası", value: "%92 azalma" },
+      { label: "Yayına alma", value: "9 gün" },
+    ],
+    testimonial: "Siparişleri artık tek panelden yönetiyoruz, stok karışıklığı tamamen bitti.",
+    isFeatured: true,
+  },
+  {
+    slug: "dis-klinigi-saglik-turizmi",
+    title: "Diş Kliniği Sağlık Turizmi Projesi",
+    client: "Dentaline Klinik",
+    sector: "Sağlık",
+    category: "saglik",
+    summary: "Yurt dışı hasta adayı toplamak için çok dilli site ve reklam yönetimi.",
+    problem:
+      "Klinik yalnızca yerel hastalara hizmet veriyordu. Yurt dışı talebi için ne bir dil altyapısı ne de takip edilebilir bir başvuru akışı vardı.",
+    solution:
+      "Medica Klinik Web Sitesi dört dilde kuruldu. Hasta adayı formu CRM'e bağlandı, WhatsApp yönlendirmesi eklendi ve hedef ülkelerde reklam kampanyaları yürütüldü.",
+    services: ["Çok dilli site kurulumu", "Reklam yönetimi", "CRM entegrasyonu", "SEO"],
+    technologies: ["Next.js", "PostgreSQL", "React"],
+    results: [
+      { label: "Aylık hasta adayı", value: "0 → 140" },
+      { label: "Form dönüşüm oranı", value: "%6,2" },
+      { label: "Hedef ülke", value: "4 ülke" },
+    ],
+    testimonial: "Yurt dışı başvuruları artık düzenli geliyor ve hepsini tek yerden takip edebiliyoruz.",
+    isFeatured: true,
+  },
+  {
+    slug: "restoran-zinciri-siparis-uygulamasi",
+    title: "Restoran Zinciri Sipariş Uygulaması",
+    client: "Sofra Lezzet",
+    sector: "Yiyecek & İçecek",
+    category: "mobil",
+    summary: "Beş şubeli restoran zinciri için kendi sipariş uygulaması.",
+    problem:
+      "Siparişlerin tamamı aracı platformlar üzerinden geliyordu ve her siparişte yüksek komisyon ödeniyordu. Müşteri verisine erişim yoktu.",
+    solution:
+      "Hızlı Sipariş Restoran Uygulaması beş şube için yapılandırıldı. Mutfak ekranı ve kurye takibi devreye alındı, mağaza yayın süreçleri tamamlandı.",
+    services: ["Mobil uygulama kurulumu", "Mağaza yayını", "Eğitim", "Teknik destek"],
+    technologies: ["Flutter", "Node.js", "PostgreSQL"],
+    results: [
+      { label: "Komisyonsuz sipariş payı", value: "%38" },
+      { label: "Ortalama teslim süresi", value: "7 dk kısaldı" },
+      { label: "Uygulama indirme", value: "12.400" },
+    ],
+    testimonial: "Kendi müşterimizi tanımaya başladık, kampanyaları artık doğrudan biz kurguluyoruz.",
+    isFeatured: true,
+  },
+  {
+    slug: "muhendislik-firmasi-kurumsal-site",
+    title: "Mühendislik Firması Kurumsal Site Yenileme",
+    client: "Aydın Mühendislik",
+    sector: "Sanayi",
+    category: "web",
+    summary: "On yıllık kurumsal sitenin yenilenmesi ve arama görünürlüğünün artırılması.",
+    problem:
+      "Mevcut site mobil uyumlu değildi, mobilde açılış süresi sekiz saniyeyi aşıyordu. Referans projeler siteye girilememişti.",
+    solution:
+      "Atlas Kurumsal Web Sitesi kuruldu, 42 referans projesi görselleriyle sisteme aktarıldı. Teknik SEO çalışması yapıldı ve İngilizce dil desteği eklendi.",
+    services: ["Kurumsal site kurulumu", "İçerik girişi", "SEO", "Çoklu dil"],
+    technologies: ["WordPress", "PHP", "MySQL"],
+    results: [
+      { label: "Mobil açılış süresi", value: "8,1 sn → 1,4 sn" },
+      { label: "Organik trafik", value: "%210 artış" },
+      { label: "Teklif talebi", value: "Aylık 6 → 23" },
+    ],
+    testimonial: "Site artık firmamızı hak ettiği gibi temsil ediyor.",
+    isFeatured: false,
+  },
+  {
+    slug: "yapi-firmasi-crm-kurulumu",
+    title: "Yapı Firması CRM Kurulumu",
+    client: "Korkmaz Yapı",
+    sector: "İnşaat",
+    category: "yazilim",
+    summary: "Satış ekibinin teklif ve müşteri takibinin sisteme taşınması.",
+    problem:
+      "Teklifler farklı bilgisayarlardaki tablolarda tutuluyordu. Bir satış temsilcisi ayrıldığında müşteri geçmişi kayboluyordu.",
+    solution:
+      "Pusula CRM Sistemi kuruldu, mevcut 1.800 müşteri kaydı sisteme aktarıldı. Ekibe iki oturumluk eğitim verildi ve teklif şablonları firmaya uyarlandı.",
+    services: ["CRM kurulumu", "Veri aktarımı", "Özel modül geliştirme", "Eğitim"],
+    technologies: ["Next.js", "PostgreSQL", "TypeScript"],
+    results: [
+      { label: "Teklif hazırlama süresi", value: "45 dk → 8 dk" },
+      { label: "Takip edilen fırsat", value: "1.800 kayıt" },
+      { label: "Kapanan satış", value: "%19 artış" },
+    ],
+    testimonial: "Hangi teklifin nerede kaldığını artık herkes görüyor.",
+    isFeatured: false,
+  },
+  {
+    slug: "spor-salonu-uyelik-uygulamasi",
+    title: "Spor Salonu Üyelik Uygulaması",
+    client: "Formda Spor",
+    sector: "Spor & Sağlık",
+    category: "mobil",
+    summary: "Üye takibi ve abonelik yenilemesinin uygulamaya taşınması.",
+    problem:
+      "Üyelik yenilemeleri telefonla hatırlatılıyor, ölçüm kayıtları kâğıt üzerinde tutuluyordu. Yenilenmeyen üyelikler geç fark ediliyordu.",
+    solution:
+      "Formda Fitness Uygulaması kuruldu. Abonelik satışı uygulamaya taşındı, antrenörler için plan atama ve ölçüm takibi devreye alındı.",
+    services: ["Mobil uygulama kurulumu", "Ödeme entegrasyonu", "Mağaza yayını", "Bakım"],
+    technologies: ["React Native", "Node.js", "PostgreSQL"],
+    results: [
+      { label: "Üyelik yenileme oranı", value: "%54 → %78" },
+      { label: "Aktif kullanıcı", value: "2.100" },
+      { label: "Kâğıt kayıt", value: "Tamamen kaldırıldı" },
+    ],
+    testimonial: "Üyelerimiz gelişimlerini görünce salona bağlılıkları arttı.",
+    isFeatured: false,
+  },
+];
+
+export const FAQS = [
+  { category: "satin-alma", question: "Ürünü satın aldıktan sonra ne oluyor?", answer: "Ödeme onaylandığı anda hesabınıza sipariş özeti, lisans anahtarı ve indirme bağlantısı tanımlanır. Kurulum hizmeti seçtiyseniz ekibimiz aynı iş günü içinde proje bilgi formunu göndererek süreci başlatır." },
+  { category: "satin-alma", question: "Satın almadan önce ürünü deneyebilir miyim?", answer: "Evet. Demo Merkezi üzerinden ürünlerin canlı demosunu, yönetim paneli demosunu ve mobil görünümünü inceleyebilirsiniz. Demo hesapları gerçek sistemden izole çalışır ve düzenli olarak sıfırlanır." },
+  { category: "satin-alma", question: "Fatura kesiliyor mu?", answer: "Evet, tüm siparişler için e-fatura veya e-arşiv fatura düzenlenir. Ödeme sayfasında kurumsal müşteri seçeneğini işaretleyip vergi bilgilerinizi girmeniz yeterlidir." },
+  { category: "odeme", question: "Hangi ödeme yöntemlerini kullanabilirim?", answer: "Kredi ve banka kartıyla online ödeme ile havale/EFT seçenekleri sunulur. Kart bilgileriniz sistemimizde saklanmaz; ödeme, lisanslı ödeme kuruluşunun güvenli sayfası üzerinden tamamlanır." },
+  { category: "odeme", question: "Taksit imkânı var mı?", answer: "Kartınızın bankasına ve tutara bağlı olarak taksit seçenekleri ödeme adımında görüntülenir. Taksit seçenekleri bankalar tarafından belirlenir." },
+  { category: "lisans", question: "Lisans türleri arasındaki fark nedir?", answer: "Standart lisans tek bir domain veya proje içindir. Genişletilmiş lisans daha geniş ticari kullanım ve daha uzun destek sunar. Size Özel lisansta ürün markanıza uyarlanır ve talebe bağlı olarak kaynak kodun tam devri ile ürünün satıştan kaldırılması seçenekleri değerlendirilir." },
+  { category: "lisans", question: "Aldığım ürünü başka müşterilere satabilir miyim?", answer: "Standart ve genişletilmiş lisanslar yeniden satış hakkı içermez. Yeniden satış veya devir gerektiren durumlar yalnızca Size Özel lisans kapsamında, ayrı bir sözleşmeyle değerlendirilir." },
+  { category: "lisans", question: "Lisansımı başka bir domaine taşıyabilir miyim?", answer: "Evet. Hesabım > Lisanslarım bölümünden mevcut domaini kaldırıp yenisini tanımlayabilirsiniz. Lisansın izin verdiği domain sayısı lisans türüne göre değişir." },
+  { category: "indirme", question: "İndirme bağlantım ne kadar süre geçerli?", answer: "İndirme bağlantıları hesabınıza bağlıdır ve süreli çalışır. Bağlantının süresi dolduğunda Hesabım > İndirmelerim bölümünden yeni bir bağlantı oluşturabilirsiniz. Her indirme işlemi güvenlik amacıyla kayıt altına alınır." },
+  { category: "kurulum", question: "Kurulumu kendim yapabilir miyim?", answer: "Evet. Her üründe adım adım kurulum dokümanı ve kurulum videosu bulunur. Kendiniz yapmak istemiyorsanız, sepete eklerken profesyonel kurulum hizmetini seçebilirsiniz." },
+  { category: "kurulum", question: "Kurulum için hangi bilgileri vermem gerekiyor?", answer: "Domain adı, hosting erişim bilgileri, logo, kurumsal renkler ve iletişim bilgileri yeterlidir. Bu bilgileri sipariş sonrası açılan proje bilgi formundan güvenli şekilde iletebilirsiniz." },
+  { category: "teslimat", question: "Teslim süresi ne kadar?", answer: "Yalnızca dosya teslimi seçilen ürünlerde teslimat ödeme onayının hemen ardından yapılır. Kurulum ve ek hizmet seçilen siparişlerde tahmini süre ürün sayfasında ve sepette gösterilir; ek hizmet ekledikçe süre güncellenir." },
+  { category: "guncelleme", question: "Güncellemeler ücretsiz mi?", answer: "Lisansınızın kapsadığı güncelleme süresi boyunca yeni sürümler ücretsizdir. Süre dolduktan sonra ürünü kullanmaya devam edebilir, dilerseniz güncelleme sürenizi uzatabilirsiniz." },
+  { category: "destek", question: "Teknik destek neleri kapsıyor?", answer: "Destek; kurulum sorunları, ürün hataları ve kullanım soruları ile sınırlıdır. Yeni özellik geliştirme ve tasarım değişiklikleri özelleştirme hizmeti kapsamında ayrıca fiyatlandırılır." },
+  { category: "iade", question: "Dijital ürünlerde iade mümkün mü?", answer: "Dijital ürünlerde indirme başlatıldıktan veya lisans anahtarı kullanıldıktan sonra mevzuat gereği cayma hakkı kullanılamaz. Ürün tanıtımıyla uyuşmayan veya çalışmayan bir durum söz konusuysa öncelikle destek kaydı açmanızı, çözülemezse iade talebi oluşturmanızı rica ederiz." },
+];
+
+/**
+ * Yasal sayfa şablonları.
+ * ÖNEMLİ: Bu metinler bilgilendirme amaçlı taslaklardır, hukuki danışmanlık değildir.
+ * Yayına almadan önce faaliyet modelinize göre bir hukuk uzmanı tarafından incelenmelidir.
+ */
+const LEGAL_NOTE =
+  "\n\n> **Not:** Bu metin genel bir taslaktır ve hukuki danışmanlık niteliği taşımaz. Yayına almadan önce şirketinizin faaliyet modeline göre bir hukuk uzmanı tarafından gözden geçirilmelidir.";
+
+export const PAGES = [
+  {
+    slug: "gizlilik-politikasi",
+    title: "Gizlilik Politikası",
+    group: "yasal",
+    body: `## Toplanan veriler
+
+Site üzerinden ad, soyad, e-posta, telefon, fatura bilgileri ve sipariş kayıtları toplanır. Ödeme kartı bilgileri sistemimizde saklanmaz; ödeme işlemi lisanslı ödeme kuruluşu tarafından yürütülür.
+
+## Verilerin kullanım amacı
+
+Veriler sipariş oluşturma, dijital teslimat, fatura düzenleme, teknik destek ve yasal yükümlülüklerin yerine getirilmesi amacıyla işlenir.
+
+## Saklama süresi
+
+Sipariş ve fatura kayıtları ilgili mevzuatın öngördüğü süre boyunca saklanır. Bu sürenin sonunda veriler silinir veya anonim hale getirilir.
+
+## Haklarınız
+
+Verilerinize erişme, düzeltme, silme ve işlenmesine itiraz etme haklarına sahipsiniz. Taleplerinizi iletişim sayfasındaki adrese iletebilirsiniz.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "kvkk-aydinlatma-metni",
+    title: "KVKK Aydınlatma Metni",
+    group: "yasal",
+    body: `## Veri sorumlusu
+
+Kişisel verileriniz, veri sorumlusu sıfatıyla Lizart Dijital tarafından işlenmektedir.
+
+## İşlenen veriler ve hukuki sebep
+
+Kimlik, iletişim, müşteri işlem ve işlem güvenliği verileri; sözleşmenin kurulması ve ifası, hukuki yükümlülüklerin yerine getirilmesi ve meşru menfaat hukuki sebeplerine dayanılarak işlenir.
+
+## Aktarım
+
+Veriler; ödeme hizmet sağlayıcıları, e-fatura entegratörü, barındırma hizmeti sağlayıcıları ve yetkili kamu kurumlarıyla, yalnızca hizmetin gerektirdiği ölçüde paylaşılır.
+
+## İlgili kişi hakları
+
+KVKK'nın 11. maddesi kapsamındaki haklarınızı kullanmak için başvurularınızı yazılı olarak iletebilirsiniz.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "cerez-politikasi",
+    title: "Çerez Politikası",
+    group: "yasal",
+    body: `## Kullanılan çerezler
+
+**Zorunlu çerezler:** Oturum yönetimi ve sepetin çalışması için gereklidir, devre dışı bırakılamaz.
+
+**Tercih çerezleri:** Dil ve görünüm tercihlerinizi hatırlar.
+
+**Analitik çerezler:** Site kullanımını ölçmek için kullanılır ve yalnızca onayınızla çalışır.
+
+## Tercihlerinizi yönetme
+
+Çerez tercihlerinizi sayfanın alt kısmındaki çerez tercihleri bağlantısından veya tarayıcı ayarlarınızdan istediğiniz zaman değiştirebilirsiniz.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "kullanim-kosullari",
+    title: "Kullanım Koşulları",
+    group: "yasal",
+    body: `## Kapsam
+
+Bu koşullar, siteyi ziyaret eden ve sitede satılan dijital ürün ve hizmetleri satın alan tüm kullanıcılar için geçerlidir.
+
+## Kullanıcı yükümlülükleri
+
+Hesap bilgilerinizin güvenliğinden siz sorumlusunuz. Satın alınan ürünlerin lisans koşullarına aykırı şekilde çoğaltılması, dağıtılması veya yeniden satılması yasaktır.
+
+## Hizmetin sürekliliği
+
+Planlı bakım çalışmaları önceden duyurulur. Teknik zorunluluk hallerinde hizmete kısa süreli ara verilebilir.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "mesafeli-satis-sozlesmesi",
+    title: "Mesafeli Satış Sözleşmesi",
+    group: "yasal",
+    body: `## Taraflar ve konu
+
+İşbu sözleşme, satıcı Lizart Dijital ile alıcı arasında, sipariş formunda belirtilen dijital ürün ve hizmetlerin satışına ilişkin olarak düzenlenmiştir.
+
+## Ürün bilgileri ve bedel
+
+Satın alınan ürünün adı, lisans türü, seçilen ek hizmetler ve KDV dahil toplam bedel sipariş özetinde yer alır.
+
+## Teslimat
+
+Dijital ürünler, ödemenin onaylanmasının ardından alıcının hesabına tanımlanan güvenli indirme bağlantısı ve lisans anahtarı ile teslim edilir. Kurulum içeren siparişlerde teslim, kurulumun tamamlanmasıyla gerçekleşir.
+
+## Cayma hakkı
+
+Elektronik ortamda anında ifa edilen ve tüketiciye anında teslim edilen gayrimaddi mallarda, ifaya başlanmasının ardından cayma hakkı kullanılamaz.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "on-bilgilendirme-formu",
+    title: "Ön Bilgilendirme Formu",
+    group: "yasal",
+    body: `## Satıcı bilgileri
+
+Unvan, adres ve iletişim bilgileri iletişim sayfasında yer almaktadır.
+
+## Sipariş konusu
+
+Sipariş özetinde belirtilen dijital ürün, lisans türü ve ek hizmetler.
+
+## Ödeme ve teslimat
+
+Ödeme, online kart ödemesi veya havale/EFT ile yapılır. Teslimat, ödeme onayının ardından dijital ortamda gerçekleştirilir.
+
+## Cayma hakkına ilişkin bilgilendirme
+
+Dijital içeriklerin ifasına başlanmasının ardından cayma hakkının kullanılamayacağı hususunda bilgilendirilmiş sayılırsınız.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "iptal-ve-iade-politikasi",
+    title: "İptal ve İade Politikası",
+    group: "yasal",
+    body: `## İptal
+
+Ödemesi tamamlanmamış siparişler hesabınızdan iptal edilebilir.
+
+## İade
+
+İndirme başlatılmamış ve lisans anahtarı kullanılmamış siparişlerde iade talebi değerlendirilir. Ürünün tanıtımında belirtilen şekilde çalışmadığı ve teknik destekle çözülemediği durumlarda iade yapılır.
+
+## Hizmet siparişleri
+
+Başlanmış hizmet siparişlerinde, tamamlanan iş kalemleri düşülerek kalan tutar iade edilir.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "dijital-urun-teslimat-politikasi",
+    title: "Dijital Ürün Teslimat Politikası",
+    group: "yasal",
+    body: `## Teslim yöntemi
+
+Dijital ürünler, müşteri hesabına tanımlanan süreli ve imzalı indirme bağlantıları ile teslim edilir. Dosyalar herkese açık bağlantılarda tutulmaz.
+
+## İndirme koşulları
+
+Her indirme bağlantısı belirli bir süre ve indirme sayısı ile sınırlıdır. Limit dolduğunda hesabınızdan yeni bağlantı oluşturabilirsiniz.
+
+## Kurulum içeren siparişler
+
+Kurulum hizmeti seçilen siparişlerde teslim, kurulumun tamamlanıp müşteri onayının alınmasıyla gerçekleşir.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "dijital-hizmet-kullanim-kosullari",
+    title: "Dijital Hizmet Kullanım Koşulları",
+    group: "yasal",
+    body: `## Hizmet kapsamı
+
+Her hizmet paketinin kapsamı, teslim süresi ve revizyon hakkı ilgili ürün sayfasında belirtilir.
+
+## Müşteri sorumlulukları
+
+Hizmetin zamanında tamamlanabilmesi için gerekli içerik, erişim ve onayların süresi içinde iletilmesi gerekir. Gecikmeler teslim süresini uzatır.
+
+## Fikri mülkiyet
+
+Hizmet kapsamında üretilen özgün çalışmaların kullanım hakkı, bedelin tamamının ödenmesiyle müşteriye geçer.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "lisans-sozlesmesi",
+    title: "Lisans Sözleşmesi",
+    group: "yasal",
+    body: `## Standart lisans
+
+Tek domain veya tek proje için kullanım hakkı verir. Yeniden satış ve dağıtım hakkı içermez.
+
+## Genişletilmiş lisans
+
+Daha geniş ticari kullanım, daha uzun destek ve güncelleme süresi sağlar. Ürünün olduğu gibi yeniden satışına izin vermez.
+
+## Size özel lisans
+
+Ürünün markanıza uyarlanmasını kapsar. Talebe bağlı olarak kaynak kodun tam devri ve ürünün mağazadan kaldırılması ayrı bir sözleşmeyle değerlendirilir.
+
+## Ortak hükümler
+
+Lisans devredilemez; lisans koşullarına aykırı kullanım tespit edildiğinde lisans iptal edilebilir.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "uyelik-sozlesmesi",
+    title: "Üyelik Sözleşmesi",
+    group: "yasal",
+    body: `## Üyelik
+
+Üyelik, formun doldurulup koşulların onaylanmasıyla kurulur. Verdiğiniz bilgilerin doğruluğundan siz sorumlusunuz.
+
+## Hesap güvenliği
+
+Şifrenizi üçüncü kişilerle paylaşmayınız. Hesabınız üzerinden yapılan işlemlerden siz sorumlu tutulursunuz.
+
+## Üyeliğin sona ermesi
+
+Üyeliğinizi istediğiniz zaman sonlandırabilirsiniz. Satın alınmış ürünlere ilişkin kayıtlar yasal saklama süresi boyunca korunur.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "acik-riza-metni",
+    title: "Açık Rıza Metni",
+    group: "yasal",
+    body: `Ticari elektronik ileti gönderilmesi ve pazarlama amaçlı analiz çalışmaları yapılabilmesi için kişisel verilerimin işlenmesine açık rıza veriyorum.
+
+Bu rızayı istediğim zaman geri çekebileceğimi, geri çekmemin sipariş ve destek süreçlerini etkilemeyeceğini biliyorum. Rıza geri çekildiğinde ticari ileti gönderimi durdurulur.${LEGAL_NOTE}`,
+  },
+  {
+    slug: "cerez-tercihleri",
+    title: "Çerez Tercihleri",
+    group: "yasal",
+    body: `Çerez tercihlerinizi bu sayfadan veya sayfanın altında yer alan çerez tercihleri bağlantısından yönetebilirsiniz.
+
+Zorunlu çerezler sitenin çalışması için gereklidir ve kapatılamaz. Analitik ve pazarlama çerezleri yalnızca onay verdiğinizde çalışır; onayınızı istediğiniz zaman geri alabilirsiniz.${LEGAL_NOTE}`,
+  },
+];

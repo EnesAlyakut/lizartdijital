@@ -1,0 +1,825 @@
+// Lizart Dijital — Veritabanı şeması
+// Aktif yerel geliştirme için SQLite kullanılır.
+// MySQL + phpMyAdmin hazırlığı docker-compose.yml ve .env.example içinde tutulur.
+// Enum yerine String + uygulama katmanında Zod doğrulaması kullanıldı.
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// ---------------------------------------------------------------------------
+/// Kullanıcılar ve yetkilendirme
+/// ---------------------------------------------------------------------------
+
+model Role {
+  id          String   @id @default(cuid())
+  /// admin | editor | support | customer
+  key         String   @unique
+  name        String
+  /// JSON dizi: ["products.write", "orders.read", ...]
+  permissions String   @default("[]")
+  users       User[]
+  createdAt   DateTime @default(now())
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  fullName      String
+  phone         String?
+  /// bireysel | kurumsal
+  customerType  String    @default("bireysel")
+  companyName   String?
+  taxOffice     String?
+  taxNumber     String?
+  emailVerified DateTime?
+  isActive      Boolean   @default(true)
+  roleId        String
+  role          Role      @relation(fields: [roleId], references: [id])
+
+  sessions      Session[]
+  addresses     Address[]
+  carts         Cart[]
+  favorites     Favorite[]
+  comparisons   Comparison[]
+  orders        Order[]
+  downloads     Download[]
+  licenseKeys   LicenseKey[]
+  reviews       Review[]
+  projects      Project[]
+  tickets       SupportTicket[]
+  offers        Offer[]
+  notifications Notification[]
+  auditLogs     AuditLog[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([roleId])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  /// Çerezde tutulan tokenin SHA-256 özeti — token'ın kendisi saklanmaz.
+  tokenHash String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userAgent String?
+  ipHash    String?
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model Address {
+  id         String  @id @default(cuid())
+  userId     String
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title      String
+  fullName   String
+  phone      String
+  city       String
+  district   String
+  line1      String
+  postalCode String?
+  isDefault  Boolean @default(false)
+
+  @@index([userId])
+}
+
+/// ---------------------------------------------------------------------------
+/// Ürün kataloğu
+/// ---------------------------------------------------------------------------
+
+model ProductCategory {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  name        String
+  description String?
+  /// website | app | system | template | service — üst ürün türü
+  kind        String
+  icon        String?
+  sortOrder   Int     @default(0)
+  parentId    String?
+  parent      ProductCategory?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children    ProductCategory[] @relation("CategoryTree")
+  products    Product[]
+
+  @@index([kind])
+  @@index([parentId])
+}
+
+model Technology {
+  id       String               @id @default(cuid())
+  slug     String               @unique
+  name     String
+  /// cms | frontend | backend | mobile | other
+  group    String
+  products ProductTechnology[]
+}
+
+model Platform {
+  id       String            @id @default(cuid())
+  slug     String            @unique
+  name     String
+  products ProductPlatform[]
+}
+
+model Product {
+  id            String  @id @default(cuid())
+  slug          String  @unique
+  name          String
+  /// website | app | webapp | saas | system | template | service
+  type          String
+  categoryId    String
+  category      ProductCategory @relation(fields: [categoryId], references: [id])
+  shortDesc     String 
+  description   String 
+  /// JSON dizi: ["Rezervasyon modülü", ...]
+  features      String  @default("[]")
+  /// JSON dizi: kullanım senaryoları
+  useCases      String  @default("[]")
+  /// JSON dizi: dahil modüller
+  modules       String  @default("[]")
+  /// JSON nesne: teknik özellikler tablosu {"Framework":"Next.js 15", ...}
+  techSpecs     String  @default("{}")
+  requirements  String?
+  supportScope  String?
+  updatePolicy  String?
+
+  /// Fiyatlar kuruş cinsinden tam sayıdır (yuvarlama hatası olmaması için).
+  basePrice     Int
+  comparePrice  Int?
+  /// standart | genisletilmis | ozel — varsayılan lisans
+  currency      String  @default("TRY")
+  vatRate       Int     @default(20)
+
+  coverImage    String
+  demoUrl       String?
+  adminDemoUrl  String?
+  demoUser      String?
+  demoPassword  String?
+  videoUrl      String?
+
+  /// tasarım stili filtresi: minimal | kurumsal | renkli | koyu | premium
+  designStyle   String?
+  /// Teslim süresi (gün)
+  deliveryDays  Int     @default(1)
+  isResponsive  Boolean @default(true)
+  hasAdminPanel Boolean @default(false)
+  includesSetup Boolean @default(false)
+  includesSource Boolean @default(false)
+  multiLanguage Boolean @default(false)
+  hasPayment    Boolean @default(false)
+
+  isFeatured    Boolean @default(false)
+  isBestSeller  Boolean @default(false)
+  isNew         Boolean @default(false)
+  isPublished   Boolean @default(true)
+
+  viewCount     Int     @default(0)
+  demoCount     Int     @default(0)
+  salesCount    Int     @default(0)
+  ratingAvg     Float   @default(0)
+  ratingCount   Int     @default(0)
+
+  metaTitle       String?
+  metaDescription String?
+
+  images       ProductImage[]
+  videos       ProductVideo[]
+  technologies ProductTechnology[]
+  platforms    ProductPlatform[]
+  versions     ProductVersion[]
+  files        ProductFile[]
+  licenses     ProductLicense[]
+  addOns       ProductAddOn[]
+  faqs         Faq[]
+  reviews      Review[]
+  cartItems    CartItem[]
+  orderItems   OrderItem[]
+  favorites    Favorite[]
+  comparisons  ComparisonItem[]
+  licenseKeys  LicenseKey[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([type])
+  @@index([categoryId])
+  @@index([isPublished, isFeatured])
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String
+  /// desktop | tablet | mobile | admin
+  viewport  String  @default("desktop")
+  sortOrder Int     @default(0)
+
+  @@index([productId])
+}
+
+model ProductVideo {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  title     String
+  url       String
+  poster    String?
+
+  @@index([productId])
+}
+
+model ProductTechnology {
+  productId    String
+  technologyId String
+  product      Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+
+  @@id([productId, technologyId])
+}
+
+model ProductPlatform {
+  productId  String
+  platformId String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  platform   Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+
+  @@id([productId, platformId])
+}
+
+model ProductVersion {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  version     String
+  changelog   String  
+  releasedAt  DateTime @default(now())
+  isPublished Boolean  @default(true)
+
+  files ProductFile[]
+
+  @@index([productId])
+}
+
+model ProductFile {
+  id         String  @id @default(cuid())
+  productId  String
+  product    Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  versionId  String?
+  version    ProductVersion? @relation(fields: [versionId], references: [id])
+  label      String
+  /// Depolama anahtarı — herkese açık URL DEĞİLDİR. İndirme imzalı bağlantıyla yapılır.
+  storageKey String
+  sizeBytes  Int
+  checksum   String?
+  downloads  Download[]
+
+  @@index([productId])
+}
+
+model ProductLicense {
+  id           String  @id @default(cuid())
+  productId    String
+  product      Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  /// standart | genisletilmis | ozel
+  key          String
+  name         String
+  description  String 
+  /// Taban fiyata eklenen fark (kuruş).
+  priceDelta   Int     @default(0)
+  /// JSON dizi: kapsam maddeleri
+  bullets      String  @default("[]")
+  domainLimit  Int     @default(1)
+  supportMonths Int    @default(3)
+  updateMonths  Int    @default(6)
+  resaleRights  Boolean @default(false)
+  sourceIncluded Boolean @default(false)
+  sortOrder    Int     @default(0)
+
+  cartItems  CartItem[]
+  orderItems OrderItem[]
+
+  @@unique([productId, key])
+  @@index([productId])
+}
+
+model AddOnService {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  name        String
+  description String
+  price       Int
+  /// Ek teslim süresi (gün)
+  extraDays   Int     @default(0)
+  /// kurulum | icerik | entegrasyon | yayin | destek
+  group       String
+  isActive    Boolean @default(true)
+
+  products      ProductAddOn[]
+  cartItemAddOns CartItemAddOn[]
+  orderItemAddOns OrderItemAddOn[]
+}
+
+model ProductAddOn {
+  productId  String
+  addOnId    String
+  product    Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  addOn      AddOnService @relation(fields: [addOnId], references: [id], onDelete: Cascade)
+  isRecommended Boolean   @default(false)
+
+  @@id([productId, addOnId])
+}
+
+/// ---------------------------------------------------------------------------
+/// Sepet, favoriler, karşılaştırma
+/// ---------------------------------------------------------------------------
+
+model Cart {
+  id        String     @id @default(cuid())
+  /// Misafir sepetleri için imzalı çerezde tutulan anahtar.
+  token     String     @unique
+  userId    String?
+  user      User?      @relation(fields: [userId], references: [id], onDelete: SetNull)
+  couponId  String?
+  coupon    Coupon?    @relation(fields: [couponId], references: [id], onDelete: SetNull)
+  items     CartItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@index([userId])
+}
+
+model CartItem {
+  id        String @id @default(cuid())
+  cartId    String
+  cart      Cart   @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  licenseId String
+  license   ProductLicense @relation(fields: [licenseId], references: [id])
+  quantity  Int    @default(1)
+  addOns    CartItemAddOn[]
+
+  @@index([cartId])
+}
+
+model CartItemAddOn {
+  cartItemId String
+  addOnId    String
+  cartItem   CartItem     @relation(fields: [cartItemId], references: [id], onDelete: Cascade)
+  addOn      AddOnService @relation(fields: [addOnId], references: [id], onDelete: Cascade)
+
+  @@id([cartItemId, addOnId])
+}
+
+model Favorite {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model Comparison {
+  id        String           @id @default(cuid())
+  token     String           @unique
+  userId    String?
+  user      User?            @relation(fields: [userId], references: [id], onDelete: SetNull)
+  items     ComparisonItem[]
+  updatedAt DateTime         @updatedAt
+}
+
+model ComparisonItem {
+  comparisonId String
+  productId    String
+  comparison   Comparison @relation(fields: [comparisonId], references: [id], onDelete: Cascade)
+  product      Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([comparisonId, productId])
+}
+
+/// ---------------------------------------------------------------------------
+/// Sipariş, ödeme, teslimat
+/// ---------------------------------------------------------------------------
+
+model Coupon {
+  id           String    @id @default(cuid())
+  code         String    @unique
+  /// yuzde | tutar
+  type         String
+  /// yuzde ise 0-100, tutar ise kuruş
+  value        Int
+  minSubtotal  Int       @default(0)
+  maxUses      Int?
+  usedCount    Int       @default(0)
+  startsAt     DateTime?
+  endsAt       DateTime?
+  isActive     Boolean   @default(true)
+  carts        Cart[]
+  orders       Order[]
+}
+
+model Order {
+  id          String @id @default(cuid())
+  /// İnsan tarafından okunabilir sipariş numarası: LZ-2026-000123
+  orderNumber String @unique
+  userId      String?
+  user        User?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  /// bekliyor | odendi | hazirlaniyor | teslim | iptal | iade
+  status      String @default("bekliyor")
+  email       String
+  fullName    String
+  phone       String
+  customerType String @default("bireysel")
+  companyName String?
+  taxOffice   String?
+  taxNumber   String?
+  billingCity String?
+  billingDistrict String?
+  billingLine1 String?
+
+  subtotal    Int
+  discount    Int    @default(0)
+  vatTotal    Int
+  total       Int
+  couponId    String?
+  coupon      Coupon? @relation(fields: [couponId], references: [id], onDelete: SetNull)
+
+  estimatedDays Int  @default(1)
+  note        String?
+
+  items       OrderItem[]
+  payments    Payment[]
+  invoices    Invoice[]
+  licenseKeys LicenseKey[]
+  downloads   Download[]
+  projects    Project[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+}
+
+model OrderItem {
+  id          String  @id @default(cuid())
+  orderId     String
+  order       Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   String
+  product     Product @relation(fields: [productId], references: [id])
+  licenseId   String
+  license     ProductLicense @relation(fields: [licenseId], references: [id])
+  /// Sipariş anındaki bilgiler kopyalanır — ürün sonradan değişse bile fatura bozulmaz.
+  productName String
+  licenseName String
+  unitPrice   Int
+  quantity    Int     @default(1)
+  addOnTotal  Int     @default(0)
+  lineTotal   Int
+  addOns      OrderItemAddOn[]
+
+  @@index([orderId])
+}
+
+model OrderItemAddOn {
+  id          String @id @default(cuid())
+  orderItemId String
+  orderItem   OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Cascade)
+  addOnId     String
+  addOn       AddOnService @relation(fields: [addOnId], references: [id])
+  name        String
+  price       Int
+}
+
+model Payment {
+  id           String @id @default(cuid())
+  orderId      String
+  order        Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  /// mock | iyzico | paytr | havale
+  provider     String
+  /// beklemede | basarili | basarisiz | iade
+  status       String @default("beklemede")
+  amount       Int
+  /// Sağlayıcıdaki işlem kimliği. Kart bilgisi ASLA saklanmaz.
+  providerRef  String?
+  /// Webhook doğrulaması sonrası kaydedilen ham olay özeti (hassas alanlar temizlenmiş).
+  rawEvent     String?
+  installment  Int    @default(1)
+  createdAt    DateTime @default(now())
+
+  @@index([orderId])
+}
+
+model Invoice {
+  id         String   @id @default(cuid())
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  number     String   @unique
+  issuedAt   DateTime @default(now())
+  total      Int
+  vatTotal   Int
+  storageKey String?
+}
+
+model LicenseKey {
+  id         String   @id @default(cuid())
+  key        String   @unique
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id])
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  licenseType String
+  domainLimit Int     @default(1)
+  /// JSON dizi: etkinleştirilmiş alan adları
+  domains    String   @default("[]")
+  validUntil DateTime?
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  @@index([orderId])
+}
+
+model Download {
+  id          String   @id @default(cuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  fileId      String
+  file        ProductFile @relation(fields: [fileId], references: [id])
+  /// İzin verilen toplam indirme sayısı
+  maxCount    Int      @default(5)
+  usedCount   Int      @default(0)
+  expiresAt   DateTime
+  lastIpHash  String?
+  lastAt      DateTime?
+  createdAt   DateTime @default(now())
+
+  @@index([orderId])
+  @@index([userId])
+}
+
+/// ---------------------------------------------------------------------------
+/// Projeler, destek, teklifler
+/// ---------------------------------------------------------------------------
+
+model Project {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orderId   String?
+  order     Order?   @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  title     String
+  /// Aşama anahtarı — PROJECT_STAGES ile eşleşir
+  currentStage String @default("odeme-alindi")
+  /// Müşteri bilgi formu (domain, marka, renkler...) JSON
+  briefData String   @default("{}")
+  stages    ProjectStage[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model ProjectStage {
+  id          String    @id @default(cuid())
+  projectId   String
+  project     Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  key         String
+  name        String
+  sortOrder   Int
+  completedAt DateTime?
+  note        String?
+
+  @@index([projectId])
+}
+
+model SupportTicket {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subject   String
+  /// kurulum | lisans | odeme | teknik | diger
+  topic     String
+  /// acik | yanitlandi | kapali
+  status    String   @default("acik")
+  priority  String   @default("normal")
+  messages  TicketMessage[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model TicketMessage {
+  id        String   @id @default(cuid())
+  ticketId  String
+  ticket    SupportTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  authorId  String
+  /// musteri | ekip
+  authorRole String
+  body      String  
+  createdAt DateTime @default(now())
+
+  @@index([ticketId])
+}
+
+model Offer {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  fullName  String
+  email     String
+  phone     String?
+  company   String?
+  /// Sihirbaz cevapları JSON
+  answers   String   @default("{}")
+  budget    String?
+  message   String? 
+  /// yeni | incelemede | teklif-gonderildi | kazanildi | kaybedildi
+  status    String   @default("yeni")
+  amount    Int?
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String  
+  href      String?
+  readAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+/// ---------------------------------------------------------------------------
+/// İçerik
+/// ---------------------------------------------------------------------------
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  authorName String
+  authorTitle String?
+  rating    Int
+  title     String?
+  body      String  
+  /// Yalnızca satın almış kullanıcı yorumları "onaylı alıcı" rozetini alır.
+  isVerified Boolean @default(false)
+  isApproved Boolean @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+}
+
+model BlogCategory {
+  id    String     @id @default(cuid())
+  slug  String     @unique
+  name  String
+  posts BlogPost[]
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String  
+  body        String  
+  coverImage  String
+  authorName  String
+  authorTitle String?
+  categoryId  String
+  category    BlogCategory @relation(fields: [categoryId], references: [id])
+  readMinutes Int      @default(4)
+  isPublished Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  metaTitle       String?
+  metaDescription String?
+
+  @@index([categoryId])
+}
+
+model PortfolioProject {
+  id           String  @id @default(cuid())
+  slug         String  @unique
+  title        String
+  client       String
+  sector       String
+  /// web | eticaret | mobil | yazilim | seo | sosyal | reklam | marka
+  category     String
+  summary      String 
+  problem      String 
+  solution     String 
+  /// JSON dizi
+  services     String  @default("[]")
+  technologies String  @default("[]")
+  /// JSON dizi: [{"label":"Dönüşüm artışı","value":"%38"}]
+  results      String  @default("[]")
+  coverImage   String
+  /// Mobil ekran görüntüsü (referans sitelerde cihaz mockup'ı için)
+  mobileImage  String?
+  /// Projenin yayındaki adresi
+  liveUrl      String?
+  /// JSON dizi: teslim edilen iş kalemleri
+  deliverables String  @default("[]")
+  /// JSON dizi görsel url
+  gallery      String  @default("[]")
+  testimonial  String?
+  isFeatured   Boolean @default(false)
+  completedAt  DateTime @default(now())
+}
+
+model Faq {
+  id        String  @id @default(cuid())
+  /// satin-alma | odeme | lisans | indirme | kurulum | teslimat | guncelleme | destek | ozellestirme | iade
+  category  String
+  question  String
+  answer    String 
+  sortOrder Int     @default(0)
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([category])
+}
+
+model Page {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  body        String  
+  /// yasal | kurumsal | destek
+  group       String   @default("yasal")
+  metaTitle       String?
+  metaDescription String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Setting {
+  key   String @id
+  value String
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action    String
+  entity    String
+  entityId  String?
+  /// Hassas alanlar temizlenmiş değişiklik özeti (JSON)
+  meta      String   @default("{}")
+  ipHash    String?
+  createdAt DateTime @default(now())
+
+  @@index([entity, entityId])
+}
+
+model NewsletterSubscriber {
+  id         String   @id @default(cuid())
+  email      String   @unique
+  isActive   Boolean  @default(true)
+  source     String?
+  createdAt  DateTime @default(now())
+}
+
+model ContactMessage {
+  id         String   @id @default(cuid())
+  fullName   String
+  email      String
+  phone      String?
+  department String
+  subject    String
+  body       String  
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}

@@ -1,0 +1,462 @@
+/**
+ * Hizmet sayfalarının içeriği.
+ * Ürün kataloğundan farklı olarak bunlar tanıtım sayfalarıdır; satın alma
+ * akışı ilgili hizmet paketleri üzerinden veya teklif formuyla yürür.
+ */
+
+export type Service = {
+  slug: string;
+  title: string;
+  metaTitle: string;
+  summary: string;
+  hero: string;
+  image?: string;
+  gallery?: string[];
+  category?: string;
+  badge?: string;
+  benefits: { title: string; body: string }[];
+  process: string[];
+  packages: { name: string; price: string; bullets: string[]; highlighted?: boolean }[];
+  faqs: { question: string; answer: string }[];
+  /** İlgili ürünlerin slug listesi */
+  relatedProducts: string[];
+  portfolioCategory?: string;
+};
+
+export const SERVICES: Service[] = [
+  {
+    slug: "web-sitesi-kurulumu",
+    title: "Web Sitesi Kurulumu",
+    metaTitle: "Web Sitesi Kurulumu — Hazır siteyi biz kuralım",
+    summary: "Seçtiğiniz hazır web sitesini sunucunuza kurar, yayına alır ve teslim ederiz.",
+    hero: "Teknik ekibiniz yoksa kurulum sizi durdurmasın. Domain bağlantısından SSL sertifikasına, içerik girişinden yayına almaya kadar tüm adımları biz yürütürüz.",
+    benefits: [
+      { title: "Aynı hafta yayında", body: "Standart kurulumlar ortalama 2–3 iş günü içinde tamamlanır." },
+      { title: "Kurumsal kimliğinize uyarlama", body: "Logo, renk ve tipografi düzenlemeleri kurulumla birlikte yapılabilir." },
+      { title: "Teknik yükü biz taşırız", body: "Sunucu ayarları, SSL, performans ve güvenlik yapılandırmaları dahildir." },
+    ],
+    process: [
+      "Ürün ve ek hizmet seçimi",
+      "Domain, hosting ve marka bilgilerinin alınması",
+      "Kurulum ve yapılandırma",
+      "İçerik girişi ve kontrol",
+      "Yayına alma ve teslim",
+    ],
+    packages: [
+      { name: "Temel kurulum", price: "3.500 ₺'den başlayan", bullets: ["Sunucuya kurulum", "SSL ve domain bağlantısı", "Temel yapılandırma"] },
+      { name: "Kurulum + içerik", price: "6.800 ₺'den başlayan", bullets: ["Temel kurulumdaki her şey", "10 sayfaya kadar içerik girişi", "Logo ve renk uyarlaması"], highlighted: true },
+      { name: "Anahtar teslim", price: "12.000 ₺'den başlayan", bullets: ["İçerikli kurulumdaki her şey", "Ödeme ve kargo entegrasyonu", "Eğitim oturumu"] },
+    ],
+    faqs: [
+      { question: "Hosting ve domaini siz mi sağlıyorsunuz?", answer: "Hayır, hosting ve domain size aittir. Dilerseniz uygun sağlayıcılar için tavsiyede bulunur, satın alma sürecinde yönlendiririz." },
+      { question: "Mevcut sitem varsa taşıma yapıyor musunuz?", answer: "Evet. Mevcut içeriklerin yeni siteye aktarılması ve eski adreslerin yönlendirilmesi kurulum kapsamında planlanır." },
+    ],
+    relatedProducts: ["atlas-kurumsal-web-sitesi", "sofra-restoran-web-sitesi", "studyo-portfoy-sitesi"],
+    portfolioCategory: "web",
+  },
+  {
+    slug: "eticaret-cozumleri",
+    title: "E-Ticaret Çözümleri",
+    metaTitle: "E-Ticaret Çözümleri — Satışa hazır mağaza kurulumu",
+    summary: "Sanal POS, kargo ve stok entegrasyonlarıyla satışa hazır e-ticaret altyapısı.",
+    hero: "Ürünlerinizi satmaya başlamak için gereken her şey: mağaza kurulumu, ödeme ve kargo entegrasyonu, ürün girişi ve dönüşüm odaklı düzenlemeler.",
+    benefits: [
+      { title: "Ödeme altyapısı hazır", body: "Sanal POS ve ödeme kuruluşu entegrasyonlarını başvuru sürecinden yayına kadar biz yürütürüz." },
+      { title: "Kargo otomasyonu", body: "Anlaşmalı kargo firmalarıyla otomatik gönderi oluşturma ve takip." },
+      { title: "Dönüşüm odaklı kurgu", body: "Sepet ve ödeme adımları terk oranını düşürecek şekilde sadeleştirilir." },
+    ],
+    process: [
+      "İhtiyaç ve ürün yapısı analizi",
+      "Mağaza kurulumu ve tasarım uyarlaması",
+      "Ödeme ve kargo entegrasyonları",
+      "Ürün girişi ve test siparişleri",
+      "Yayına alma ve ekip eğitimi",
+    ],
+    packages: [
+      { name: "Mağaza kurulumu", price: "24.900 ₺'den başlayan", bullets: ["Hazır e-ticaret altyapısı", "Tasarım uyarlaması", "Temel yapılandırma"] },
+      { name: "Satışa hazır paket", price: "38.000 ₺'den başlayan", bullets: ["Mağaza kurulumundaki her şey", "Ödeme ve kargo entegrasyonu", "50 ürün girişi"], highlighted: true },
+      { name: "Pazaryeri altyapısı", price: "54.900 ₺'den başlayan", bullets: ["Çok satıcılı yapı", "Komisyon ve hakediş yönetimi", "Satıcı paneli"] },
+    ],
+    faqs: [
+      { question: "Sanal POS başvurusunu siz mi yapıyorsunuz?", answer: "Başvuru işletmeniz adına yapılır; gerekli teknik belgeleri hazırlar ve süreç boyunca yönlendirme sağlarız." },
+      { question: "Kaç ürüne kadar destekliyor?", answer: "Altyapı on binlerce ürünü destekler. Ürün girişi hizmeti paket bazında 50 ürünle sınırlıdır, ek ürünler için fiyatlandırma yapılır." },
+    ],
+    relatedProducts: ["vitrin-eticaret-sitesi", "pazar-cok-saticili-pazaryeri", "sepetim-eticaret-mobil-uygulamasi"],
+    portfolioCategory: "eticaret",
+  },
+  {
+    slug: "mobil-uygulama-gelistirme",
+    title: "Mobil Uygulama Geliştirme",
+    metaTitle: "Mobil Uygulama Geliştirme — iOS ve Android",
+    summary: "Hazır uygulama altyapılarını markanıza uyarlıyor, mağazalarda yayına alıyoruz.",
+    hero: "Sıfırdan geliştirme aylar sürer. Hazır uygulama altyapılarımızı markanıza uyarlayarak haftalar içinde mağazada olmanızı sağlıyoruz.",
+    benefits: [
+      { title: "Hızlı yayın", body: "Hazır altyapı sayesinde geliştirme süresi belirgin şekilde kısalır." },
+      { title: "Mağaza süreçleri dahil", body: "App Store ve Google Play yayın süreçlerini biz yürütürüz." },
+      { title: "Kaynak kod sizin olabilir", body: "Size Özel lisansla kaynak kodun tam devri değerlendirilir." },
+    ],
+    process: [
+      "İhtiyaç analizi ve ekran planı",
+      "Marka uyarlaması ve arayüz düzenlemeleri",
+      "API entegrasyonu ve testler",
+      "Mağaza gönderimi ve inceleme süreci",
+      "Yayın ve bakım dönemi",
+    ],
+    packages: [
+      { name: "Uyarlama", price: "32.900 ₺'den başlayan", bullets: ["Hazır uygulama lisansı", "Logo ve renk uyarlaması", "Temel yapılandırma"] },
+      { name: "Yayına hazır", price: "48.000 ₺'den başlayan", bullets: ["Uyarlamadaki her şey", "App Store ve Google Play yayını", "Bildirim altyapısı"], highlighted: true },
+      { name: "Özel geliştirme", price: "Teklife göre", bullets: ["Özel modül geliştirme", "Kaynak kod devri", "12 ay destek"] },
+    ],
+    faqs: [
+      { question: "Geliştirici hesapları kimin adına açılır?", answer: "Hesaplar işletmeniz adına açılır; uygulamanın sahibi her zaman sizsiniz. Kurulum ve yapılandırmayı biz yaparız." },
+      { question: "Uygulama reddedilirse ne oluyor?", answer: "İnceleme geri bildirimlerine göre gerekli düzeltmeleri yapıp yeniden gönderiyoruz. Bu süreç yayın hizmetine dahildir." },
+    ],
+    relatedProducts: ["sepetim-eticaret-mobil-uygulamasi", "hizli-siparis-restoran-uygulamasi", "randevum-mobil-uygulamasi"],
+    portfolioCategory: "mobil",
+  },
+  {
+    slug: "ozel-yazilim-gelistirme",
+    title: "Özel Yazılım Geliştirme",
+    metaTitle: "Özel Yazılım Geliştirme — Süreçlerinize özel çözümler",
+    summary: "Hazır ürünlerin karşılamadığı iş akışları için sıfırdan yazılım geliştiriyoruz.",
+    hero: "İş akışınız size özgüyse hazır ürünü zorlamak yerine ihtiyacınıza uygun yazılımı geliştiririz. Analizden teslime kadar tek ekip.",
+    benefits: [
+      { title: "Analizle başlıyoruz", body: "Kod yazmadan önce süreçlerinizi çıkarır, kapsamı ve maliyeti netleştiririz." },
+      { title: "Aşamalı teslim", body: "Proje parçalara bölünür; her aşamada çalışan bir sürüm görürsünüz." },
+      { title: "Kaynak kod sizin", body: "Özel geliştirmelerde kaynak kodun tamamı size devredilir." },
+    ],
+    process: [
+      "Keşif toplantısı ve süreç analizi",
+      "Kapsam, mimari ve teklif",
+      "Aşamalı geliştirme ve demolar",
+      "Test, veri aktarımı ve eğitim",
+      "Devreye alma ve destek",
+    ],
+    packages: [
+      { name: "Analiz ve yol haritası", price: "18.000 ₺'den başlayan", bullets: ["Süreç analizi", "Teknik mimari", "Kapsam ve maliyet raporu"] },
+      { name: "Modül geliştirme", price: "Teklife göre", bullets: ["Mevcut sisteme özel modül", "Entegrasyonlar", "Test ve devreye alma"], highlighted: true },
+      { name: "Uçtan uca proje", price: "149.000 ₺'den başlayan", bullets: ["Tam kapsamlı geliştirme", "Ekip eğitimi", "12 ay destek"] },
+    ],
+    faqs: [
+      { question: "Proje süresi ne kadar olur?", answer: "Kapsama bağlıdır. Modül geliştirmeler genellikle 2–6 hafta, uçtan uca projeler 3–6 ay sürer. Kesin süre analiz sonrası verilir." },
+      { question: "Mevcut sistemlerimizle entegre olur mu?", answer: "Evet. ERP, muhasebe veya üretim sistemlerinizle API üzerinden entegrasyon planlanır." },
+    ],
+    relatedProducts: ["pusula-crm-sistemi", "depo-stok-siparis-yonetimi", "hasta-takip-sistemi"],
+    portfolioCategory: "yazilim",
+  },
+  {
+    slug: "seo-hizmetleri",
+    title: "SEO Hizmetleri",
+    metaTitle: "SEO Hizmetleri — Organik trafiğinizi büyütün",
+    summary: "Teknik SEO, içerik stratejisi ve ölçümlenebilir raporlama.",
+    hero: "Reklam bütçesi bittiğinde trafiğiniz de bitmesin. Teknik altyapıdan içerik planına kadar organik görünürlüğünüzü büyütüyoruz.",
+    benefits: [
+      { title: "Teknik denetimle başlıyoruz", body: "İlk ay tarama, indeksleme ve hız sorunlarını çıkarıp önceliklendiriyoruz." },
+      { title: "İçerik planı", body: "Arama niyetine göre aylık içerik takvimi hazırlanır." },
+      { title: "Şeffaf raporlama", body: "Aylık sıralama, trafik ve dönüşüm raporu paylaşılır." },
+    ],
+    process: [
+      "Teknik SEO denetimi",
+      "Anahtar kelime araştırması",
+      "Site içi optimizasyon",
+      "İçerik üretimi",
+      "Aylık ölçüm ve raporlama",
+    ],
+    packages: [
+      { name: "Denetim", price: "8.500 ₺", bullets: ["Tek seferlik teknik denetim", "Öncelikli aksiyon listesi", "Uygulama rehberi"] },
+      { name: "Aylık SEO", price: "12.900 ₺/ay", bullets: ["Teknik iyileştirmeler", "Aylık içerik planı", "Sıralama raporu"], highlighted: true },
+      { name: "E-ticaret SEO", price: "19.900 ₺/ay", bullets: ["Kategori ve ürün optimizasyonu", "Yapısal veri", "Rakip analizi"] },
+    ],
+    faqs: [
+      { question: "Ne zaman sonuç alırım?", answer: "Teknik iyileştirmelerin etkisi 4–8 hafta içinde görülmeye başlar; içerik kaynaklı büyüme genellikle 3. aydan itibaren belirginleşir." },
+      { question: "İlk sıra garantisi veriyor musunuz?", answer: "Hayır. Sıralama arama motorunun kararıdır; garanti veren teklifleri güvenilir bulmuyoruz. Biz ölçülebilir iyileşme taahhüt ederiz." },
+    ],
+    relatedProducts: ["seo-hizmet-paketi", "profesyonel-buyume-paketi"],
+    portfolioCategory: "seo",
+  },
+  {
+    slug: "sosyal-medya-yonetimi",
+    title: "Sosyal Medya Yönetimi",
+    metaTitle: "Sosyal Medya Yönetimi — İçerik, takvim ve topluluk",
+    summary: "Aylık içerik üretimi, paylaşım planı ve topluluk yönetimi.",
+    hero: "Düzenli ve markanıza uygun içerikle sosyal medya hesaplarınızı canlı tutuyoruz. Onay her zaman sizde kalır.",
+    benefits: [
+      { title: "Düzenli içerik", body: "Aylık 12 görsel veya video içerik, marka diline uygun şekilde üretilir." },
+      { title: "Planlı paylaşım", body: "Aylık takvim önceden onayınıza sunulur." },
+      { title: "Topluluk yönetimi", body: "Yorum ve mesajlar iş saatleri içinde yanıtlanır." },
+    ],
+    process: ["Marka ve rakip analizi", "İçerik konsepti", "Aylık takvim onayı", "Üretim ve paylaşım", "Performans raporu"],
+    packages: [
+      { name: "Başlangıç", price: "16.900 ₺/ay", bullets: ["2 platform", "8 içerik", "Aylık rapor"] },
+      { name: "Standart", price: "24.900 ₺/ay", bullets: ["3 platform", "12 içerik", "Topluluk yönetimi"], highlighted: true },
+      { name: "Video odaklı", price: "34.900 ₺/ay", bullets: ["Kısa video üretimi", "Kurgu ve altyazı", "Trend takibi"] },
+    ],
+    faqs: [
+      { question: "Çekim yapıyor musunuz?", answer: "Standart paketler mevcut görselleriniz ve profesyonel stok arşivimizle çalışır. İhtiyacınıza göre yerinde profesyonel fotoğraf ve video çekimi ek hizmet olarak planlanır." },
+      { question: "İçerikleri onaylayabiliyor muyuz?", answer: "Kesinlikle evet. Hazırlanan aylık paylaşım takvimi, görsel tasarımları ve metinler yayından önce onayınıza sunulur; onayınız olmadan hiçbir içerik paylaşılmaz." },
+      { question: "Sözleşme taahhüdü var mı, dilediğim zaman iptal edebilir miyim?", answer: "Hizmetlerimiz aylık olarak faturalandırılır. Uzun süreli bağlayıcı taahhüt zorunluluğu yoktur; bir sonraki fatura döneminden önce dilediğiniz zaman durdurabilirsiniz." },
+      { question: "Aylık performans ve büyüme raporu sunuyor musunuz?", answer: "Evet. Her ay sonunda erişim, etkileşim, takipçi artışı ve en başarılı içerik analizlerini içeren detaylı bir performans raporu hazırlarız." },
+    ],
+    relatedProducts: ["sosyal-medya-yonetim-paketi"],
+    portfolioCategory: "sosyal",
+  },
+  {
+    slug: "meta-reklam-yonetimi",
+    title: "Meta Reklam Yönetimi",
+    metaTitle: "Meta Reklam Yönetimi — Instagram ve Facebook reklamları",
+    summary: "Hedefleme, kreatif test ve dönüşüm ölçümü ile sosyal medya reklamları.",
+    hero: "Bütçenizi doğru kitleye harcayın. Kampanya kurulumundan kreatif testlerine, dönüşüm ölçümünden raporlamaya kadar süreci yönetiyoruz.",
+    benefits: [
+      { title: "Ölçüm doğru kurulur", body: "Dönüşüm olayları ve veri paylaşımı en baştan doğru yapılandırılır." },
+      { title: "Kreatif testi", body: "Her ay farklı görsel ve metin varyantları test edilir." },
+      { title: "Şeffaf bütçe", body: "Reklam bütçesi doğrudan platforma ödenir; yönetim ücreti ayrıdır." },
+    ],
+    process: ["Hesap ve piksel kurulumu", "Kitle ve kampanya kurgusu", "Kreatif üretimi", "Test ve optimizasyon", "Aylık raporlama"],
+    packages: [
+      { name: "Kurulum", price: "9.500 ₺", bullets: ["Hesap ve ölçüm kurulumu", "İlk kampanya kurgusu", "Eğitim"] },
+      { name: "Aylık yönetim", price: "14.900 ₺/ay", bullets: ["Kampanya yönetimi", "Kreatif testleri", "Aylık rapor"], highlighted: true },
+      { name: "Büyüme", price: "24.900 ₺/ay", bullets: ["Çoklu kampanya", "Gelişmiş kitleler", "Haftalık optimizasyon"] },
+    ],
+    faqs: [
+      { question: "Reklam bütçesi dahil mi?", answer: "Hayır. Reklam bütçesi doğrudan Meta (Instagram/Facebook) platformuna kendi kurumsal kredi kartınızdan ödenir; biz yalnızca strateji, kreatif ve yönetim hizmeti sunarız." },
+      { question: "Minimum bütçe nedir?", answer: "Anlamlı sonuç ve yapay zeka optimizasyon verisi elde edebilmek için aylık reklam bütçesinin en az 15.000 ₺ olmasını öneriyoruz." },
+      { question: "Reklam görsellerini siz mi hazırlıyorsunuz?", answer: "Evet. Dönüşüm odaklı reklam görselleri, dinamik motion animasyonlar ve ikna edici metin varyasyonları ekibimiz tarafından hazırlanır." },
+      { question: "Dönüşüm ve piksel takibi nasıl kurulur?", answer: "Meta Pixel ve Dönüşüm API (CAPI) entegrasyonu teknik ekibimiz tarafından eksiksiz kurularak iOS gizlilik engellerine karşı maksimum veri toplanır." },
+    ],
+    relatedProducts: ["profesyonel-buyume-paketi"],
+    portfolioCategory: "reklam",
+  },
+  {
+    slug: "google-ads-yonetimi",
+    title: "Google Ads Yönetimi",
+    metaTitle: "Google Ads Yönetimi — Arama ağı ve alışveriş reklamları",
+    summary: "Arama, alışveriş ve yeniden pazarlama kampanyalarının kurulumu ve yönetimi.",
+    hero: "Satın alma niyeti yüksek kullanıcıya doğru anda ulaşın. Arama ağı, alışveriş ve yeniden pazarlama kampanyalarını uçtan uca yönetiyoruz.",
+    benefits: [
+      { title: "Niyet odaklı trafik", body: "Aramada aktif olarak çözüm arayan kullanıcılara ulaşırsınız." },
+      { title: "Ürün akışı yönetimi", body: "E-ticaret için ürün akışı kurulumu ve optimizasyonu yapılır." },
+      { title: "Maliyet kontrolü", body: "Dönüşüm başına maliyet hedefine göre teklif stratejisi kurulur." },
+    ],
+    process: ["Hesap denetimi", "Anahtar kelime araştırması", "Kampanya kurulumu", "Optimizasyon", "Raporlama"],
+    packages: [
+      { name: "Kurulum", price: "9.500 ₺", bullets: ["Hesap kurulumu", "Dönüşüm takibi", "İlk kampanyalar"] },
+      { name: "Aylık yönetim", price: "14.900 ₺/ay", bullets: ["Kampanya optimizasyonu", "Negatif kelime yönetimi", "Aylık rapor"], highlighted: true },
+      { name: "Alışveriş", price: "22.900 ₺/ay", bullets: ["Ürün akışı yönetimi", "Alışveriş kampanyaları", "Rakip fiyat takibi"] },
+    ],
+    faqs: [
+      { question: "Mevcut Google Ads hesabımı devralabilir misiniz?", answer: "Evet. Önce mevcut hesabı ve geçmiş verileri inceler, boşa harcanan negatif aramaları temizleyerek karlı kampanyaları optimize ederiz." },
+      { question: "Sözleşme ve çalışma süresi nasıl işler?", answer: "Google Ads algoritmalarının oturması için minimum 2-3 ay tavsiye edilir; ancak uzun vadeli bağlayıcı taahhüt zorunluluğu yoktur." },
+      { question: "Sahte ve gereksiz tıklamalardan nasıl korunurum?", answer: "Gelişmiş negatif anahtar kelime listeleri, IP engelleme ve hedef kitle filtreleri kurarak bütçenizin sadece gerçek potansiyel müşterilere harcanmasını sağlarız." },
+      { question: "Hangi Google Ads kampanya modellerini yönetiyorsunuz?", answer: "Google Arama Ağı, Google Alışveriş (Performance Max), Yeniden Pazarlama (Remarketing) ve YouTube video reklamlarını uçtan uca yönetiyoruz." },
+    ],
+    relatedProducts: ["profesyonel-buyume-paketi"],
+    portfolioCategory: "reklam",
+  },
+  {
+    slug: "saglik-turizmi-cozumleri",
+    title: "Sağlık Turizmi Çözümleri",
+    metaTitle: "Sağlık Turizmi Çözümleri — Yurt dışı hasta adayı toplama",
+    summary: "Çok dilli site, hasta adayı akışı ve hedef ülke reklamları.",
+    hero: "Yurt dışından hasta adayı toplamak için gereken dijital altyapıyı kuruyor, kampanyaları yönetiyoruz.",
+    benefits: [
+      { title: "Çok dilli altyapı", body: "TR, EN, AR ve DE dillerinde site ve form akışı kurulur." },
+      { title: "Takip edilebilir başvuru", body: "Her hasta adayı CRM'e düşer; kaynağı ve durumu izlenir." },
+      { title: "Mevzuata uygun formlar", body: "KVKK ve GDPR onay metinleriyle uyumlu form yapısı." },
+    ],
+    process: ["Hedef ülke ve tedavi analizi", "Çok dilli site kurulumu", "Form ve CRM entegrasyonu", "Reklam kampanyaları", "Dönüşüm raporlaması"],
+    packages: [
+      { name: "Site kurulumu", price: "89.000 ₺", bullets: ["4 dilde site", "Hasta adayı formu", "WhatsApp entegrasyonu"] },
+      { name: "Kurulum + yönetim", price: "89.000 ₺ + 24.900 ₺/ay", bullets: ["Site kurulumu", "Reklam yönetimi", "Aylık dönüşüm raporu"], highlighted: true },
+      { name: "Özel proje", price: "Teklife göre", bullets: ["Çoklu klinik yapısı", "Özel CRM entegrasyonu", "Ülke bazlı stratejiler"] },
+    ],
+    faqs: [
+      { question: "Hangi dilleri destekliyorsunuz?", answer: "Standart pakette Türkçe, İngilizce, Arapça ve Almanca yer alır. Ek diller talep üzerine eklenebilir." },
+      { question: "Hasta adayı garantisi veriyor musunuz?", answer: "Hayır. Adaylar reklam bütçesi, tedavi türü ve rekabete göre değişir. Gerçekçi hedefleri ilk görüşmede paylaşırız." },
+    ],
+    relatedProducts: ["saglik-turizmi-dijital-paketi", "medica-klinik-web-sitesi"],
+    portfolioCategory: "saglik",
+  },
+  {
+    slug: "grafik-tasarim",
+    title: "Grafik Tasarım",
+    metaTitle: "Grafik Tasarım — Dijital ve basılı tasarım hizmetleri",
+    summary: "Sosyal medya görselleri, katalog, broşür ve dijital reklam tasarımları.",
+    hero: "Markanızın görsel dilini tutarlı tutan tasarımlar. Tek seferlik işlerden aylık tasarım desteğine kadar.",
+    benefits: [
+      { title: "Marka tutarlılığı", body: "Tüm tasarımlar kurumsal kimliğinize uygun üretilir." },
+      { title: "Hızlı teslim", body: "Standart işler 2–3 iş günü içinde teslim edilir." },
+      { title: "Kaynak dosya sizin", body: "Tasarımların kaynak dosyaları teslimle birlikte verilir." },
+    ],
+    process: ["Brief alınması", "Konsept çalışması", "Revizyon", "Teslim", "Kaynak dosya aktarımı"],
+    packages: [
+      { name: "Tek iş", price: "1.500 ₺'den başlayan", bullets: ["Tek tasarım", "2 revizyon", "Kaynak dosya"] },
+      { name: "Aylık paket", price: "12.900 ₺/ay", bullets: ["Aylık 15 tasarım", "Öncelikli teslim", "Sınırsız küçük revizyon"], highlighted: true },
+      { name: "Katalog / broşür", price: "8.900 ₺'den başlayan", bullets: ["Çok sayfalı tasarım", "Baskıya hazır dosya", "3 revizyon"] },
+    ],
+    faqs: [
+      { question: "Kaç revizyon hakkım var?", answer: "Tek işlerde 2 tur revizyon dahildir. Aylık pakette küçük düzenlemeler sınırsızdır." },
+      { question: "Baskı işini de yapıyor musunuz?", answer: "Baskıya hazır dosyayı biz hazırlıyoruz; baskı süreci için anlaşmalı matbaalara yönlendirme yapabiliriz." },
+    ],
+    relatedProducts: ["baslangic-dijital-paketi"],
+    portfolioCategory: "marka",
+  },
+  {
+    slug: "kurumsal-kimlik",
+    title: "Kurumsal Kimlik",
+    metaTitle: "Kurumsal Kimlik — Logo ve marka kimliği tasarımı",
+    summary: "Logo, renk paleti, tipografi ve marka kullanım kılavuzu.",
+    hero: "Markanızın nasıl göründüğü, nasıl hatırlandığını belirler. Logodan kullanım kılavuzuna kadar bütünlüklü bir kimlik oluşturuyoruz.",
+    benefits: [
+      { title: "Kullanım kılavuzu", body: "Logonun nerede nasıl kullanılacağı belgelenir; tutarlılık korunur." },
+      { title: "Dijital ve basılı uyum", body: "Tüm ölçülerde ve ortamlarda çalışan bir kimlik tasarlanır." },
+      { title: "Tam devir", body: "Tüm kaynak dosyalar ve kullanım hakları size devredilir." },
+    ],
+    process: ["Marka keşfi", "Konsept sunumu", "Revizyon ve seçim", "Kimlik uygulamaları", "Kılavuz teslimi"],
+    packages: [
+      { name: "Logo", price: "8.500 ₺", bullets: ["3 konsept", "2 revizyon", "Tüm dosya formatları"] },
+      { name: "Kurumsal kimlik", price: "18.900 ₺", bullets: ["Logo tasarımı", "Renk ve tipografi sistemi", "Kartvizit ve antetli kağıt"], highlighted: true },
+      { name: "Marka kılavuzu", price: "29.900 ₺", bullets: ["Kurumsal kimlikteki her şey", "Detaylı kullanım kılavuzu", "Sosyal medya şablonları"] },
+    ],
+    faqs: [
+      { question: "Logo tescili yapıyor musunuz?", answer: "Tescil işlemi marka vekilleri tarafından yürütülür; süreçte yönlendirme yapar ve gerekli dosyaları hazırlarız." },
+      { question: "Beğenmezsem ne olur?", answer: "İlk sunumda 3 farklı konsept sunulur ve 2 tur revizyon hakkınız vardır. Yön belirlemek için önce keşif görüşmesi yaparız." },
+    ],
+    relatedProducts: ["baslangic-dijital-paketi"],
+    portfolioCategory: "marka",
+  },
+  {
+    slug: "video-ve-icerik-uretimi",
+    title: "Video ve İçerik Üretimi",
+    metaTitle: "Video ve İçerik Üretimi — Tanıtım ve sosyal medya videoları",
+    summary: "Tanıtım videoları, kısa sosyal medya içerikleri ve metin üretimi.",
+    hero: "Ürününüzü anlatan videolar ve arama motoruna uygun metinler. Çekimden kurguya, metinden yayına.",
+    benefits: [
+      { title: "Platforma uygun format", body: "Her platformun kendi formatına göre kurgu ve altyazı hazırlanır." },
+      { title: "SEO uyumlu metin", body: "Metinler arama niyetine göre yazılır, anahtar kelimeler doğal kullanılır." },
+      { title: "Hızlı üretim", body: "Aylık paketlerde içerikler takvime bağlı olarak düzenli teslim edilir." },
+    ],
+    process: ["İçerik planı", "Senaryo / brief", "Üretim", "Kurgu ve revizyon", "Teslim"],
+    packages: [
+      { name: "Tanıtım videosu", price: "14.900 ₺'den başlayan", bullets: ["60–90 saniye", "Kurgu ve altyazı", "2 revizyon"] },
+      { name: "Aylık video paketi", price: "22.900 ₺/ay", bullets: ["Aylık 8 kısa video", "Kurgu ve altyazı", "Platform formatları"], highlighted: true },
+      { name: "İçerik yazımı", price: "1.200 ₺/içerik", bullets: ["SEO uyumlu blog yazısı", "Anahtar kelime araştırması", "1 revizyon"] },
+    ],
+    faqs: [
+      { question: "Çekim ekibi geliyor mu?", answer: "Yerinde çekim ayrı planlanır ve fiyatlandırılır. Mevcut görsellerinizle kurgu yapılan paketler daha uygundur." },
+      { question: "İçerikleri yapay zekâ mı yazıyor?", answer: "İçerikler ekibimiz tarafından yazılır ve düzenlenir; araştırma aşamasında yardımcı araçlar kullanılabilir." },
+    ],
+    relatedProducts: ["sosyal-medya-yonetim-paketi"],
+    portfolioCategory: "sosyal",
+  },
+  {
+    slug: "teknik-destek-ve-bakim",
+    title: "Teknik Destek ve Bakım",
+    metaTitle: "Teknik Destek ve Bakım — Siteniz güvende kalsın",
+    summary: "Güncelleme, yedekleme, güvenlik taraması ve öncelikli destek.",
+    hero: "Yayına aldıktan sonrası da önemli. Güncellemeler, yedekler ve güvenlik kontrolleriyle sisteminizi çalışır durumda tutuyoruz.",
+    benefits: [
+      { title: "Düzenli yedekleme", body: "Otomatik yedekler alınır ve geri yükleme testleri yapılır." },
+      { title: "Güvenlik taraması", body: "Bilinen açıklara karşı düzenli tarama ve yama uygulaması." },
+      { title: "Öncelikli destek", body: "Bakım paketi olan müşterilerin talepleri öncelikli sırada değerlendirilir." },
+    ],
+    process: ["Sistem devralma", "Yedekleme kurulumu", "Aylık güncellemeler", "Güvenlik taraması", "Aylık rapor"],
+    packages: [
+      { name: "Temel bakım", price: "1.900 ₺/ay", bullets: ["Aylık güncelleme", "Haftalık yedek", "E-posta desteği"] },
+      { name: "Standart bakım", price: "3.900 ₺/ay", bullets: ["Temel bakımdaki her şey", "Güvenlik taraması", "Aylık 2 saat içerik düzenlemesi"], highlighted: true },
+      { name: "Yıllık destek", price: "14.900 ₺/yıl", bullets: ["12 ay öncelikli destek", "Hata giderme", "Uzaktan müdahale"] },
+    ],
+    faqs: [
+      { question: "Bizden almadığımız bir siteye bakım yapıyor musunuz?", answer: "Evet. Önce bir devralma denetimi yapıyor, sistemin bakıma uygunluğunu raporluyoruz." },
+      { question: "Acil durumlarda ne kadar sürede müdahale ediyorsunuz?", answer: "Site erişilemez durumdaysa bakım paketi müşterileri için iş saatleri içinde 2 saat içinde müdahale hedefliyoruz." },
+    ],
+    relatedProducts: ["baslangic-dijital-paketi", "profesyonel-buyume-paketi"],
+  },
+];
+
+const DEFAULT_SERVICE_META: Record<string, { image: string; category: string; badge: string }> = {
+  "web-sitesi-kurulumu": { image: "/gorseller/hizmetler/web-kurulum-v2-real.jpg", category: "web", badge: "En Çok Tercih Edilen" },
+  "eticaret-cozumleri": { image: "/gorseller/hizmetler/eticaret-real.jpg", category: "web", badge: "Dönüşüm Odaklı" },
+  "mobil-uygulama-gelistirme": { image: "/gorseller/hizmetler/mobil-uygulama-real.jpg", category: "yazilim", badge: "iOS & Android" },
+  "ozel-yazilim-gelistirme": { image: "/gorseller/hizmetler/hizmet-ozel-yazilim.jpg", category: "yazilim", badge: "Kurumsal Çözüm" },
+  "seo-hizmetleri": { image: "/gorseller/ajans/hizmet-seo-analiz-1.svg", category: "buyume", badge: "1. Sıra Odaklı" },
+  "sosyal-medya-yonetimi": { image: "/gorseller/ajans/hizmet-buyume.svg", category: "pazarlama", badge: "Aylık Yönetim" },
+  "meta-reklam-yonetimi": { image: "/gorseller/ajans/sonuclar.svg", category: "pazarlama", badge: "Yüksek ROI" },
+  "google-ads-yonetimi": { image: "/gorseller/ajans/surec.svg", category: "pazarlama", badge: "Arama & Alışveriş" },
+  "saglik-turizmi-cozumleri": { image: "/gorseller/ajans/hizmet-marka.svg", category: "web", badge: "Çok Dilli Altyapı" },
+  "grafik-tasarim": { image: "/gorseller/ajans/hizmet-marka.svg", category: "tasarim", badge: "Kreatif Dil" },
+  "kurumsal-kimlik": { image: "/gorseller/ajans/hizmet-marka.svg", category: "tasarim", badge: "Logo & Kılavuz" },
+  "video-ve-icerik-uretimi": { image: "/gorseller/ajans/hizmet-video-1.svg", category: "tasarim", badge: "4K & Reels" },
+  "teknik-destek-ve-bakim": { image: "/gorseller/ajans/hizmet-yazilim.svg", category: "yazilim", badge: "Kesintisiz Destek" },
+};
+
+export function getSeededServices(): Service[] {
+  return SERVICES.map((s) => {
+    const meta = DEFAULT_SERVICE_META[s.slug];
+    const img = meta?.image || "/logo.svg";
+    return {
+      ...s,
+      image: img,
+      gallery: [img],
+      category: meta?.category || "web",
+      badge: meta?.badge,
+    };
+  });
+}
+
+import fs from "fs";
+import path from "path";
+
+const CUSTOM_SERVICES_FILE = path.join(process.cwd(), "src", "lib", "data", "custom-services.json");
+
+export function getCustomServices(): Service[] {
+  if (typeof window !== "undefined") return [];
+  try {
+    if (fs.existsSync(CUSTOM_SERVICES_FILE)) {
+      const data = fs.readFileSync(CUSTOM_SERVICES_FILE, "utf-8");
+      const parsed = JSON.parse(data);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+    const seeded = getSeededServices();
+    try {
+      fs.writeFileSync(CUSTOM_SERVICES_FILE, JSON.stringify(seeded, null, 2), "utf-8");
+    } catch {}
+    return seeded;
+  } catch {
+    return getSeededServices();
+  }
+}
+
+export function saveCustomService(service: Service, prevSlug?: string) {
+  const current = getCustomServices();
+  const targetSlug = prevSlug || service.slug;
+  const index = current.findIndex((s) => s.slug === targetSlug);
+  if (index >= 0) {
+    current[index] = service;
+  } else {
+    current.unshift(service);
+  }
+  try {
+    fs.writeFileSync(CUSTOM_SERVICES_FILE, JSON.stringify(current, null, 2), "utf-8");
+  } catch (err) {
+    console.error("Failed to save custom service:", err);
+  }
+}
+
+export function removeCustomService(slug: string) {
+  const current = getCustomServices().filter((s) => s.slug !== slug);
+  try {
+    fs.writeFileSync(CUSTOM_SERVICES_FILE, JSON.stringify(current, null, 2), "utf-8");
+  } catch (err) {
+    console.error("Failed to remove custom service:", err);
+  }
+}
+
+export function getAllServices(): Service[] {
+  return getCustomServices();
+}
+
+export function getService(slug: string): Service | undefined {
+  return getAllServices().find((s) => s.slug === slug);
+}

@@ -1,26 +1,628 @@
 @import "tailwindcss";
 
+/* =========================================================
+   Lizart Dijital — Tasarım Sistemi (açık tema)
+
+   Karakter: kırık beyaz zemin, beyaz kartlar, logodan gelen
+   zeytin yeşili vurgu ve ışıkla değil gölgeyle kurulan derinlik.
+
+   Renk kaynağı: marka logosu (yeşil kare #558053, koyu serif "art").
+
+   Katman kuralı (açık temada yükseklik = beyaza yakınlık):
+     canvas    → sayfa zemini, hafif gri-krem
+     surface   → kart / panel, saf beyaz
+     surface-2 → alternatif bölüm zemini, zeminden bir ton koyu
+   ========================================================= */
+
+@theme {
+  /* Metin ve çizgi skalası — nötr, çok hafif yeşil eğilimli */
+  --color-ink-50: #f4f6f3;
+  --color-ink-100: #e7eae4;
+  --color-ink-200: #d4d9d0;
+  --color-ink-300: #b2b9ad;
+  --color-ink-400: #7d857a;
+  --color-ink-500: #5f6a5d;
+  --color-ink-600: #485246;
+  --color-ink-700: #333c32;
+  --color-ink-800: #232a22;
+  --color-ink-900: #141a14;
+  --color-ink-950: #0b0f0b;
+
+  /* Marka — logodaki zeytin yeşili (#558053) merkez alınarak kuruldu */
+  --color-brand-50: #f1f6f1;
+  --color-brand-100: #e0ebdf;
+  --color-brand-200: #c3d9c1;
+  --color-brand-300: #9dbf9a;
+  --color-brand-400: #6b9268;
+  --color-brand-500: #558053;
+  --color-brand-600: #4a7048;
+  --color-brand-700: #3d5c3c;
+  --color-brand-800: #2f472e;
+  --color-brand-900: #223321;
+
+  /* Zeminler */
+  --color-canvas: #fafaf7;
+  --color-surface: #ffffff;
+  --color-surface-2: #f3f5f1;
+
+  /* Yardımcı / etiket renkleri (sınırlı kullanım) */
+  --color-accent-sale: #c0392b;
+  --color-accent-new: #2c5f9e;
+  --color-accent-warn: #9a6b14;
+
+  /* Tipografi */
+  --font-sans: var(--font-sans-var), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Editoryal serif — Hakkımızda / Blog gibi anlatı ağırlıklı sayfalarda başlık vurgusu için */
+  --font-serif: var(--font-serif-var), Georgia, "Times New Roman", serif;
+
+  /* Yarıçap */
+  --radius-card: 0.75rem;
+  --radius-pill: 999px;
+
+  /* Gölge — açık temada derinlik yumuşak gölgeyle kurulur */
+  --shadow-card:
+    0 1px 2px rgb(20 26 20 / 0.05),
+    0 12px 28px -20px rgb(20 26 20 / 0.2);
+  --shadow-lift:
+    0 2px 6px rgb(20 26 20 / 0.07),
+    0 28px 56px -26px rgb(20 26 20 / 0.32);
+  --shadow-brand: 0 12px 30px -14px rgb(85 128 83 / 0.5);
+
+  /* Animasyon */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100vw;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-canvas);
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgb(85 128 83 / 0.045), transparent 70%);
+  color: var(--color-ink-600);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  max-width: 100vw;
+  position: relative;
 }
+
+/* Mobil yatay taşma (kayma) engeli */
+main,
+#icerik {
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
+/* iOS Safari form odaklanmalarında sayfa yakınlaşmasını (auto-zoom) engelleme */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Başlıklarda sıkı harf aralığı — kurumsal ve dengeli duruş */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
+
+/* Erişilebilir odak halkası — klavye kullanımı için her yerde görünür */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* İçerik atlama bağlantısı */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-ink-900);
+  color: var(--color-canvas);
+  border-radius: 0.75rem;
+}
+
+/* Seçim rengi markayla uyumlu */
+::selection {
+  background: color-mix(in srgb, var(--color-brand-500) 22%, transparent);
+  color: var(--color-ink-900);
+}
+
+* {
+  scrollbar-color: var(--color-ink-300) transparent;
+}
+
+/* ------------------------------------------------------------ Yardımcılar */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 82rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 1024px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility text-balance-title {
+  text-wrap: balance;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Başlıkta koyudan marka yeşiline geçiş (yalnızca vurgulu başlıklarda) */
+@utility text-gradient-brand {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-ink-900) 0%,
+    var(--color-ink-900) 34%,
+    var(--color-brand-500) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Marka ışıması — CTA ve öne çıkan kartlarda */
+@utility glow-brand {
+  box-shadow: var(--shadow-brand);
+}
+
+@utility tech-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    radial-gradient(ellipse 60% 40% at 50% -5%, rgba(85, 128, 83, 0.08), transparent 65%),
+    linear-gradient(160deg, #0e1e17 0%, #111e18 45%, #0a1510 100%);
+  color: #eef2ea;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.04) inset,
+    0 40px 80px -40px rgba(4, 14, 10, 0.7);
+}
+
+@utility sharp-card {
+  border-radius: var(--radius-card);
+  border: 1px solid color-mix(in srgb, var(--color-ink-200) 80%, transparent);
+  background: var(--color-surface);
+  box-shadow: 0 18px 50px -46px rgb(20 26 20 / 0.45);
+}
+
+.tech-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    radial-gradient(ellipse 60% 40% at 50% -5%, rgba(85, 128, 83, 0.08), transparent 65%),
+    linear-gradient(160deg, #0e1e17 0%, #111e18 45%, #0a1510 100%);
+  color: #eef2ea;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.04) inset,
+    0 40px 80px -40px rgba(4, 14, 10, 0.7);
+}
+
+/* ------------------------------------------------------------- Geçişler */
+
+/* Bölümler arası yumuşak akış: kenarlarda zemine karışır */
+@utility section-blend {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-canvas) 0%,
+    var(--color-surface-2) 18%,
+    var(--color-surface-2) 82%,
+    var(--color-canvas) 100%
+  );
+}
+
+/* Bölüm başında ince marka aydınlatması */
+@utility section-glow {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(
+      55% 45% at 50% 0%,
+      color-mix(in srgb, var(--color-brand-500) 8%, transparent) 0%,
+      transparent 70%
+    );
+  }
+}
+
+/* Ortası marka rengiyle parlayan ince ayırıcı */
+@utility divider-fade {
+  height: 1px;
+  border: 0;
+  background-image: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--color-ink-200) 25%,
+    color-mix(in srgb, var(--color-brand-500) 55%, transparent) 50%,
+    var(--color-ink-200) 75%,
+    transparent 100%
+  );
+}
+
+@utility transition-soft {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: var(--ease-out-soft);
+}
+
+/* ------------------------------------------------------------- Admin */
+
+.admin-readable {
+  color: #1a1a1a;
+  font-size: 0.9375rem;
+}
+
+.admin-readable * {
+  letter-spacing: 0;
+}
+
+.admin-readable h1 {
+  color: #111111;
+  font-size: 1.875rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.admin-readable h2 {
+  color: #111111;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.admin-readable h3 {
+  color: #111111;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.admin-readable .text-ink-900,
+.admin-readable .text-ink-800,
+.admin-readable .text-slate-950,
+.admin-readable .text-slate-900 {
+  color: #111111;
+}
+
+.admin-readable .text-ink-700,
+.admin-readable .text-ink-600,
+.admin-readable .text-slate-700,
+.admin-readable .text-slate-600 {
+  color: #333333;
+}
+
+.admin-readable .text-ink-500,
+.admin-readable .text-slate-500 {
+  color: #555555;
+}
+
+.admin-readable .text-ink-400,
+.admin-readable .text-slate-400 {
+  color: #777777;
+}
+
+.admin-readable .bg-surface,
+.admin-readable .bg-white {
+  background-color: #ffffff;
+}
+
+.admin-readable .bg-surface-2,
+.admin-readable .bg-slate-50,
+.admin-readable .bg-ink-50 {
+  background-color: #f5f7fa;
+}
+
+.admin-readable .border-ink-100,
+.admin-readable .border-slate-200,
+.admin-readable .border-slate-100 {
+  border-color: #e5e7eb;
+}
+
+.admin-readable .rounded-\[var\(--radius-card\)\] {
+  border-radius: 1rem;
+}
+
+.admin-readable li.rounded-\[var\(--radius-card\)\],
+.admin-readable .sharp-card,
+.admin-readable table,
+.admin-readable form,
+.admin-readable section {
+  font-size: 0.9375rem;
+}
+
+.admin-readable li.rounded-\[var\(--radius-card\)\],
+.admin-readable .rounded-2xl,
+.admin-readable .rounded-\[1\.5rem\] {
+  border-color: #e5e7eb;
+}
+
+.admin-readable input,
+.admin-readable textarea,
+.admin-readable select {
+  color: #111111;
+  background-color: #ffffff;
+  font-size: 0.9375rem;
+  border-color: #e5e7eb;
+}
+
+.admin-readable table {
+  color: #1a1a1a;
+  font-size: 0.9375rem;
+}
+
+.admin-readable th {
+  color: #555555;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-readable td {
+  color: #1a1a1a;
+  font-size: 0.9375rem;
+}
+
+.admin-readable p,
+.admin-readable td,
+.admin-readable li {
+  line-height: 1.7;
+}
+
+/* ----------------------------------------------------------- Animasyonlar */
+
+@keyframes lz-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-rise {
+  animation: lz-rise 0.6s var(--ease-out-soft) both;
+}
+
+@keyframes lz-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@utility animate-marquee {
+  animation: lz-marquee 36s linear infinite;
+}
+
+@keyframes lz-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@utility animate-bob {
+  animation: lz-bob 2s ease-in-out infinite;
+}
+
+/* WhatsApp çağrısının nabız halkası — yavaş ve rahatsız etmeyen bir ritim */
+@keyframes lz-ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@utility animate-ping-slow {
+  animation: lz-ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* =========================================================
+   Word Doküman Tuvali (WYSIWYG Editorial Canvas)
+   ========================================================= */
+.word-document-canvas {
+  outline: none !important;
+  min-height: 800px;
+  color: #000000 !important;
+}
+
+.word-document-canvas,
+.word-document-canvas * {
+  color: #000000 !important;
+}
+
+.word-document-canvas:empty::before {
+  content: "Word belgenize yazmaya başlayın...";
+  color: #64748b !important;
+  pointer-events: none;
+  display: block;
+}
+
+.word-document-canvas h1 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 900;
+  color: #000000 !important;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.word-document-canvas h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 900;
+  color: #000000 !important;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.word-document-canvas h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 900;
+  color: #000000 !important;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
+}
+
+.word-document-canvas p,
+.word-document-canvas div,
+.word-document-canvas span {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #000000 !important;
+}
+
+.word-document-canvas p {
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.word-document-canvas strong,
+.word-document-canvas b {
+  font-weight: 900;
+  color: #000000 !important;
+}
+
+.word-document-canvas em,
+.word-document-canvas i {
+  font-style: italic;
+  color: #000000 !important;
+}
+
+.word-document-canvas a,
+.word-document-canvas a * {
+  color: #1f7a68 !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(31, 122, 104, 0.5);
+  text-underline-offset: 4px;
+}
+
+.word-document-canvas a:hover,
+.word-document-canvas a:hover * {
+  color: #176956 !important;
+}
+
+.word-document-canvas ul {
+  list-style-type: disc;
+  padding-left: 1.75rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #000000 !important;
+}
+
+.word-document-canvas ol {
+  list-style-type: decimal;
+  padding-left: 1.75rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #000000 !important;
+}
+
+.word-document-canvas li {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.75;
+  color: #000000 !important;
+}
+
+.word-document-canvas blockquote {
+  border-left: 4px solid #1f7a68;
+  background-color: rgba(31, 122, 104, 0.05);
+  padding: 0.85rem 1.25rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+  color: #000000 !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.word-document-canvas figure {
+  margin: 1.5rem 0;
+}
+
+.word-document-canvas figcaption {
+  color: #334155 !important;
+}
+
+.word-document-canvas img {
+  max-width: 100%;
+  height: auto;
+}
+
+@keyframes showcaseProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+

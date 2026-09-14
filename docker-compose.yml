@@ -1,0 +1,60 @@
+# Üretime yakın bir ortamı yerelde ayağa kaldırmak için.
+# MySQL veritabanı phpMyAdmin üzerinden http://localhost:8080 adresinden yönetilebilir.
+
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lizart
+      MYSQL_USER: lizart
+      MYSQL_PASSWORD: lizart
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u lizart -plizart"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  phpmyadmin:
+    image: phpmyadmin:5.2
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: lizart
+      PMA_PASSWORD: lizart
+      UPLOAD_LIMIT: 256M
+    ports:
+      - "8080:80"
+
+  web:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: mysql://lizart:lizart@db:3306/lizart
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      PAYMENT_PROVIDER: mock
+      PAYMENT_WEBHOOK_SECRET: ${PAYMENT_WEBHOOK_SECRET:-degistirin}
+      MAIL_PROVIDER: mock
+      DOWNLOAD_SIGNING_SECRET: ${DOWNLOAD_SIGNING_SECRET:-degistirin}
+      PRIVATE_FILES_DIR: private-files
+    ports:
+      - "3000:3000"
+    volumes:
+      # Dijital ürün dosyaları kalıcı olmalıdır.
+      - private-files:/app/private-files
+
+volumes:
+  db-data:
+  private-files:

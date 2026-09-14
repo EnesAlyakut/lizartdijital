@@ -1,0 +1,121 @@
+{
+  "profesyonel-kurulum": {
+    "image": "/gorseller/ajans/hizmet-web.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg",
+      "/gorseller/ajans/studyo.svg"
+    ]
+  },
+  "domain-baglantisi": {
+    "image": "/gorseller/ajans/hizmet-web.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg"
+    ]
+  },
+  "hosting-kurulumu": {
+    "image": "/gorseller/ajans/hizmet-yazilim.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg"
+    ]
+  },
+  "logo-degisimi": {
+    "image": "/gorseller/ajans/hizmet-marka.svg",
+    "gallery": [
+      "/lizart-logo-original.png"
+    ]
+  },
+  "renk-duzenleme": {
+    "image": "/gorseller/ajans/hizmet-marka.svg",
+    "gallery": [
+      "/gorseller/ajans/hizmet-web.svg"
+    ]
+  },
+  "kurumsal-kimlik-uyarlamasi": {
+    "image": "/gorseller/ajans/hizmet-marka.svg",
+    "gallery": [
+      "/gorseller/ajans/studyo.svg",
+      "/lizart-logo-original.png"
+    ]
+  },
+  "icerik-girisi": {
+    "image": "/gorseller/ajans/hizmet-video-1.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg"
+    ]
+  },
+  "urun-girisi": {
+    "image": "/gorseller/ajans/hizmet-eticaret.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg"
+    ]
+  },
+  "coklu-dil-kurulumu": {
+    "image": "/gorseller/ajans/hizmet-web.svg",
+    "gallery": [
+      "/gorseller/ajans/studyo.svg"
+    ]
+  },
+  "odeme-sistemi-entegrasyonu": {
+    "image": "/gorseller/ajans/hizmet-eticaret.svg",
+    "gallery": [
+      "/gorseller/ajans/sonuclar.svg"
+    ]
+  },
+  "kargo-entegrasyonu": {
+    "image": "/gorseller/ajans/surec.svg",
+    "gallery": [
+      "/gorseller/ajans/hizmet-eticaret.svg"
+    ]
+  },
+  "ek-sayfa-tasarimi": {
+    "image": "/gorseller/ajans/hizmet-web.svg",
+    "gallery": [
+      "/gorseller/ajans/hizmet-marka.svg"
+    ]
+  },
+  "ozel-modul-gelistirme": {
+    "image": "/gorseller/ajans/hizmet-yazilim.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg",
+      "/gorseller/ajans/studyo.svg"
+    ]
+  },
+  "mobil-uygulama-yayinlama": {
+    "image": "/gorseller/ajans/hizmet-mobil.svg",
+    "gallery": [
+      "/gorseller/ajans/sonuclar.svg"
+    ]
+  },
+  "app-store-yayini": {
+    "image": "/gorseller/ajans/hizmet-mobil.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg"
+    ]
+  },
+  "google-play-yayini": {
+    "image": "/gorseller/ajans/hizmet-mobil.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg"
+    ]
+  },
+  "egitim-destegi": {
+    "image": "/gorseller/ajans/studyo.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg",
+      "/gorseller/ajans/hizmet-video-1.svg"
+    ]
+  },
+  "aylik-bakim-paketi": {
+    "image": "/gorseller/ajans/hizmet-yazilim.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg"
+    ]
+  },
+  "yillik-teknik-destek": {
+    "image": "/gorseller/ajans/hizmet-seo-analiz-1.svg",
+    "gallery": [
+      "/gorseller/ajans/surec.svg",
+      "/gorseller/ajans/studyo.svg"
+    ]
+  }
+}
