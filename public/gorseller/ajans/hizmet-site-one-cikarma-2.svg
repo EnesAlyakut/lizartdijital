@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0%" stop-color="#f3f5f1"/><stop offset="55%" stop-color="#ffffff"/><stop offset="100%" stop-color="#f3f5f1"/></linearGradient></defs>
+  <rect width="640" height="440" fill="url(#bg)"/>
+  <text x="60" y="48" font-family="system-ui" font-size="15" font-weight="700" fill="#0f3d1a">Core Web Vitals Optimizasyonu</text>
+  <rect x="60" y="68" width="160" height="120" rx="14" fill="#ffffff"/>
+  <text x="140" y="108" font-family="system-ui" font-size="36" font-weight="800" text-anchor="middle" fill="#3ed57f">98</text>
+  <text x="140" y="128" font-family="system-ui" font-size="11" text-anchor="middle" fill="#888">Performans</text>
+  <circle cx="140" cy="116" r="50" fill="none" stroke="#3ed57f" stroke-width="6" stroke-dasharray="280 40"/>
+  <rect x="236" y="68" width="160" height="120" rx="14" fill="#ffffff"/>
+  <text x="316" y="108" font-family="system-ui" font-size="36" font-weight="800" text-anchor="middle" fill="#3ed57f">100</text>
+  <text x="316" y="128" font-family="system-ui" font-size="11" text-anchor="middle" fill="#888">Erişilebilirlik</text>
+  <circle cx="316" cy="116" r="50" fill="none" stroke="#3ed57f" stroke-width="6" stroke-dasharray="314 0"/>
+  <rect x="412" y="68" width="160" height="120" rx="14" fill="#ffffff"/>
+  <text x="492" y="108" font-family="system-ui" font-size="36" font-weight="800" text-anchor="middle" fill="#f59e0b">89</text>
+  <text x="492" y="128" font-family="system-ui" font-size="11" text-anchor="middle" fill="#888">SEO</text>
+  <circle cx="492" cy="116" r="50" fill="none" stroke="#f59e0b" stroke-width="6" stroke-dasharray="250 60"/>
+  <rect x="60" y="210" width="520" height="60" rx="10" fill="#ffffff"/>
+  <text x="80" y="246" font-family="system-ui" font-size="13" font-weight="700" fill="#0f3d1a">LCP (Largest Contentful Paint)</text>
+  <rect x="340" y="228" width="220" height="16" rx="8" fill="#e8e8e8"/>
+  <rect x="340" y="228" width="88" height="16" rx="8" fill="#3ed57f"/>
+  <text x="575" y="241" font-family="system-ui" font-size="11" fill="#3ed57f" font-weight="700">1.2s</text>
+  <rect x="60" y="282" width="520" height="60" rx="10" fill="#ffffff"/>
+  <text x="80" y="318" font-family="system-ui" font-size="13" font-weight="700" fill="#0f3d1a">CLS (Cumulative Layout Shift)</text>
+  <rect x="340" y="300" width="220" height="16" rx="8" fill="#e8e8e8"/>
+  <rect x="340" y="300" width="22" height="16" rx="8" fill="#3ed57f"/>
+  <text x="575" y="313" font-family="system-ui" font-size="11" fill="#3ed57f" font-weight="700">0.02</text>
+  <rect x="60" y="354" width="520" height="60" rx="10" fill="#ffffff"/>
+  <text x="80" y="390" font-family="system-ui" font-size="13" font-weight="700" fill="#0f3d1a">FID (First Input Delay)</text>
+  <rect x="340" y="372" width="220" height="16" rx="8" fill="#e8e8e8"/>
+  <rect x="340" y="372" width="44" height="16" rx="8" fill="#3ed57f"/>
+  <text x="575" y="385" font-family="system-ui" font-size="11" fill="#3ed57f" font-weight="700">12ms</text>
+</svg>

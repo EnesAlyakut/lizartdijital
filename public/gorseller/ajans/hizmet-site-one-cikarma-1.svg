@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0%" stop-color="#f3f5f1"/><stop offset="55%" stop-color="#ffffff"/><stop offset="100%" stop-color="#f3f5f1"/></linearGradient></defs>
+  <rect width="640" height="440" fill="url(#bg)"/>
+  <text x="60" y="48" font-family="system-ui" font-size="13" font-weight="700" fill="#aaa">ÖNCE</text>
+  <text x="370" y="48" font-family="system-ui" font-size="13" font-weight="700" fill="#3ed57f">SONRA</text>
+  <rect x="60" y="60" width="260" height="340" rx="12" fill="#ffffff" stroke="#e8e8e8" stroke-width="2"/>
+  <rect x="72" y="72" width="236" height="32" rx="6" fill="#f0f0ef"/>
+  <circle cx="92" cy="88" r="5" fill="#ff5f57"/>
+  <circle cx="108" cy="88" r="5" fill="#febc2e"/>
+  <circle cx="124" cy="88" r="5" fill="#28c840"/>
+  <rect x="80" y="116" width="220" height="14" rx="4" fill="#e8e8e8" fill-opacity="0.4"/>
+  <rect x="80" y="136" width="160" height="12" rx="4" fill="#e8e8e8" fill-opacity="0.3"/>
+  <rect x="80" y="160" width="220" height="80" rx="8" fill="#f5f5f5"/>
+  <rect x="80" y="256" width="100" height="12" rx="4" fill="#e8e8e8" fill-opacity="0.4"/>
+  <rect x="80" y="276" width="220" height="10" rx="4" fill="#e8e8e8" fill-opacity="0.3"/>
+  <rect x="80" y="360" width="80" height="24" rx="12" fill="#e8e8e8"/>
+  <rect x="96" y="112" width="60" height="16" rx="4" fill="#f5f5f5"/>
+  <rect x="96" y="112" width="15" height="16" rx="4" fill="#f59e0b"/>
+  <text x="162" y="124" font-family="system-ui" font-size="10" fill="#f59e0b">8.2s</text>
+  <text x="300" y="220" font-family="system-ui" font-size="32" fill="#3ed57f">&#x2192;</text>
+  <rect x="340" y="60" width="260" height="340" rx="12" fill="#ffffff" stroke="#3ed57f" stroke-width="2"/>
+  <rect x="352" y="72" width="236" height="32" rx="6" fill="#f0fdf4"/>
+  <circle cx="372" cy="88" r="5" fill="#ff5f57"/>
+  <circle cx="388" cy="88" r="5" fill="#febc2e"/>
+  <circle cx="404" cy="88" r="5" fill="#28c840"/>
+  <rect x="360" y="112" width="60" height="16" rx="4" fill="#dcfce7"/>
+  <rect x="360" y="112" width="54" height="16" rx="4" fill="#3ed57f"/>
+  <text x="428" y="124" font-family="system-ui" font-size="10" font-weight="700" fill="#3ed57f">0.8s</text>
+  <rect x="360" y="136" width="220" height="12" rx="4" fill="#0f3d1a" fill-opacity="0.15"/>
+  <rect x="360" y="156" width="180" height="12" rx="4" fill="#0f3d1a" fill-opacity="0.1"/>
+  <rect x="360" y="180" width="220" height="80" rx="8" fill="#d6fae2"/>
+  <rect x="360" y="276" width="100" height="12" rx="4" fill="#0f3d1a" fill-opacity="0.2"/>
+  <rect x="360" y="296" width="220" height="10" rx="4" fill="#0f3d1a" fill-opacity="0.1"/>
+  <rect x="360" y="360" width="80" height="24" rx="12" fill="#3ed57f"/>
+</svg>

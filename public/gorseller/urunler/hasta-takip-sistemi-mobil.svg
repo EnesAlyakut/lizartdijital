@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 780" width="390" height="780" role="img" aria-label="Hasta Takip Sistemi mobil görünüm">
+  <rect width="390" height="780" rx="42" fill="#2c3438"/>
+  <rect x="14" y="14" width="362" height="752" rx="32" fill="#ffffff"/>
+  <rect x="150" y="26" width="90" height="18" rx="9" fill="#eceee9"/>
+  <rect x="34" y="72" width="180" height="22" rx="8" fill="#12171a"/>
+  <rect x="34" y="106" width="240" height="12" rx="6" fill="#d8dbd6"/>
+  <rect x="34" y="146" width="322" height="140" rx="16" fill="#3ed57f"/>
+  <rect x="34" y="312" width="322" height="76" rx="14" fill="#f4f5f2"/><rect x="50" y="332" width="150" height="12" rx="6" fill="#12171a" opacity="0.6"/><rect x="50" y="354" width="210" height="10" rx="5" fill="#dfe2dd"/><rect x="34" y="404" width="322" height="76" rx="14" fill="#f4f5f2"/><rect x="50" y="424" width="150" height="12" rx="6" fill="#12171a" opacity="0.6"/><rect x="50" y="446" width="210" height="10" rx="5" fill="#dfe2dd"/><rect x="34" y="496" width="322" height="76" rx="14" fill="#f4f5f2"/><rect x="50" y="516" width="150" height="12" rx="6" fill="#12171a" opacity="0.6"/><rect x="50" y="538" width="210" height="10" rx="5" fill="#dfe2dd"/>
+  <rect x="34" y="604" width="322" height="48" rx="24" fill="#12171a"/>
+  <rect x="34" y="686" width="322" height="60" rx="18" fill="#f1f2ef"/>
+</svg>

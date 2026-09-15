@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Sepetim E-Ticaret Mobil Uygulaması">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b4700a"/><stop offset="100%" stop-color="#5a3805"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <g transform="translate(80 96)">
+    <rect width="640" height="408" rx="18" fill="#ffffff" opacity="0.97"/>
+    <rect width="640" height="44" rx="18" fill="#f1f2f0"/>
+    <rect y="30" width="640" height="14" fill="#f1f2f0"/>
+    <circle cx="26" cy="22" r="6" fill="#d9dcd8"/><circle cx="48" cy="22" r="6" fill="#d9dcd8"/><circle cx="70" cy="22" r="6" fill="#d9dcd8"/>
+    <rect x="104" y="14" width="220" height="16" rx="8" fill="#e7e9e5"/>
+    <rect x="32" y="76" width="300" height="26" rx="8" fill="#5a3805" opacity="0.9"/>
+    <rect x="32" y="116" width="220" height="14" rx="7" fill="#cfd4cf"/>
+    <rect x="32" y="152" width="128" height="34" rx="17" fill="#fdf0d5"/>
+    <rect x="32" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
+       <rect x="44" y="244" width="72" height="12" rx="6" fill="#b4700a" opacity="0.55"/>
+       <rect x="44" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
+       <rect x="44" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="184" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
+       <rect x="196" y="244" width="54" height="12" rx="6" fill="#b4700a" opacity="0.55"/>
+       <rect x="196" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
+       <rect x="196" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="336" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
+       <rect x="348" y="244" width="88" height="12" rx="6" fill="#b4700a" opacity="0.55"/>
+       <rect x="348" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
+       <rect x="348" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="488" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
+       <rect x="500" y="244" width="46" height="12" rx="6" fill="#b4700a" opacity="0.55"/>
+       <rect x="500" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
+       <rect x="500" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/>
+  </g>
+  <text x="80" y="556" font-family="system-ui,Segoe UI,Arial" font-size="26" font-weight="700" fill="#ffffff">Sepetim E-Ticaret Mobil Uygulaması</text>
+  <text x="80" y="584" font-family="system-ui,Segoe UI,Arial" font-size="16" fill="#ffffff" opacity="0.78">iOS ve Android için hazır, mağazanıza bağlanan alışveriş uygulaması.</text>
+</svg>
