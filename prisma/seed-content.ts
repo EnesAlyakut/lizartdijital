@@ -250,6 +250,167 @@ Tekrar eden ve cevabı belli sorular: kargo nerede, çalışma saatleri, iade na
 
 Kurallar netse otomasyon ekibinizin yükünü azaltır; kurallar belirsizse müşteriyi kaybettirir.`,
   },
+  {
+    slug: "sosyal-medya-yonetimi-ve-icerik-stratejisi",
+    title: "2026'da İşletmeler İçin Etkili Sosyal Medya Yönetimi ve İçerik Stratejisi",
+    category: "sosyal-medya",
+    coverImage: "/gorseller/blog/sosyal-medya-yonetimi-ve-icerik-stratejisi.webp",
+    excerpt:
+      "Sosyal medyada var olmak ile satış ve güven üreten bir marka olmak arasındaki fark: Algoritmaları lehinize çevirecek stratejiler ve içerik planlama rehberi.",
+    author: "Elif Demir",
+    authorTitle: "Sosyal Medya Direktörü",
+    readMinutes: 7,
+    body: `## Sosyal medyada görünürlük neden yetmiyor?
+
+Birçok işletme sosyal medyada düzenli paylaşım yapmasına rağmen satış veya müşteri etkileşimi elde edememekten şikayet eder. Bunun temel nedeni, "paylaşım yapmak için paylaşım yapmak" ile "stratejik bir değer sunmak" arasındaki farktır. 2026 algoritmaları, sadece estetik görsellere değil; kullanıcının içeriği kaydetme, paylaşma ve yorum yapma gibi derin etkileşim metriklerine öncelik tanıyor.
+
+## 1. Hedef kitlenin acı noktalarına odaklanın
+
+İçerik takviminizi oluştururken ürün özelliklerini sıralamak yerine, müşterinizin hangi sorununu çözdüğünüzü anlatın:
+
+- **Eğitici İçerikler (How-to):** Sektörünüzle ilgili pratik ipuçları ve kısa rehberler.
+- **Güven Veren Kanıtlar:** Müşteri başarı hikayeleri, öncesi-sonrası karşılaştırmaları ve süreç videoları.
+- **Kulis ve Ekip:** Markanın arkasındaki gerçek insanları ve üretim süreçlerini gösteren şeffaf kesitler.
+
+## 2. Reels ve dikey video formatının gücü
+
+Instagram, TikTok ve YouTube Shorts gibi dikey video platformları organik erişimin en güçlü motorudur. İlk 3 saniyede izleyicinin dikkatini çekecek bir kanca (hook) cümlesi belirleyin. Karmaşık ve pahalı prodüksiyonlar yerine net, samimi ve anlaşılır mobil çekimler çoğu zaman daha yüksek dönüşüm sağlar.
+
+## 3. Topluluk yönetimi: Yorumlar ve direkt mesajlar
+
+Sosyal medya tek yönlü bir yayın organı değil, iki yönlü bir diyalog kanalıdır. Gelen yorumlara ve DM'lere ilk 15 dakika içinde verilen kurumsal ama samimi yanıtlar, müşteri sadakatini doğrudan artırır. DM kutunuzu adeta bir mini satış hunisi (funnel) gibi konumlandırın.
+
+## 4. Ölçümleme ve sürekli optimizasyon
+
+Beğeni sayıları gösteriş metriğidir. Asıl takip etmeniz gereken göstergeler:
+
+- Profil ziyaretinden web sitesine tıklama oranı
+- Gönderi başına kaydetme ve paylaşma adedi
+- Sosyal medyadan gelen form veya sipariş dönüşüm maliyeti
+
+Aylık performans analizleriyle en çok dönüşüm getiren içerik formatlarını belirleyip bütçenizi bu kanallara yoğunlaştırın.`,
+  },
+  {
+    slug: "ozel-yazilim-mi-paket-cozum-mu-rehberi",
+    title: "Özel Yazılım mı, Paket Çözüm mü? İşletmeler İçin Kapsamlı Karar Rehberi",
+    category: "yazilim",
+    coverImage: "/gorseller/blog/ozel-yazilim-mi-paket-cozum-mu-rehberi.webp",
+    excerpt:
+      "Şirketinizin operasyonlarını dijitalleştirirken hazır paket yazılımlar mı yoksa terzi usulü özel yazılım geliştirme mi tercih edilmeli? Maliyet, esneklik ve ölçeklenebilirlik analizi.",
+    author: "Enes Alyakut",
+    authorTitle: "Kurucu & Baş Yazılım Mimarı",
+    readMinutes: 8,
+    body: `## Dijitalleşme yol ayrımı: Hazır mı, özel mi?
+
+Büyüyen her işletme belirli bir aşamada mevcut Excel tablolarının ya da temel CRM araçlarının yetersiz kaldığını fark eder. Bu noktada en kritik soru gündeme gelir: Piyasada satılan hazır bir SaaS paket yazılım mı kiralanmalı, yoksa şirketin iş süreçlerine tam oturan özel bir yazılım mı geliştirilmeli?
+
+## Paket çözümlerin avantajları ve sınırları
+
+Paket yazılımlar (örneğin popüler CRM'ler, genel muhasebe veya standart e-ticaret altyapıları), hızlı kurulum ve düşük başlangıç maliyeti vadeder:
+
+- **Hızlı Devreye Alma:** Günler veya haftalar içinde kullanmaya başlayabilirsiniz.
+- **Öngörülebilir Başlangıç:** Aylık/yıllık kullanıcı başı lisans ücretleriyle başlar.
+- **Sınırlar:** Şirketiniz büyüdükçe kullanıcı başı lisans maliyetleri katlanarak artar. Daha da önemlisi, iş modelinizi yazılımın sınırlarına uydurmak zorunda kalırsınız.
+
+## Özel yazılım geliştirmenin sunduğu stratejik güç
+
+Özel yazılım (Custom Software), işletmenizin DNA'sına göre kodlanır. Rekabet avantajı yaratan özgün süreçleriniz varsa hazır paketler sizi geride bırakabilir:
+
+1. **Tam Süreç Entegrasyonu:** Depo, saha operasyonları, finans ve müşteri yönetimi tek bir merkezi veritabanında kusursuz konuşur.
+2. **Sıfır Kullanıcı Başı Lisans Yükü:** Ekibinize 10 kişi de katılsa 500 kişi de katılsa ek lisans maliyeti ödemezsiniz; sistemin mülkiyeti tamamen sizdedir.
+3. **Maksimum Veri Güvenliği ve Uyumluluk:** Şirketinizin kritik ticari sırları ve müşteri verileri üçüncü taraf genel sunucularda değil, kendi denetiminizdeki bulut mimarisinde saklanır.
+4. **Sınırsız Ölçeklenebilirlik:** İş modeliniz değiştikçe veya yeni bir pazar açıldığında yazılımınızı dilediğiniz gibi genişletebilirsiniz.
+
+## Hangi durumlarda hangisi seçilmeli?
+
+- **Paket Çözüm Seçin:** Süreçleriniz sektör standardıysa, bütçeniz kısıtlıysa ve iş modelinizde yazılım kritik bir rekabet unsuru oluşturmuyorsa.
+- **Özel Yazılım Seçin:** Benzersiz iş akışlarınız varsa, mevcut sistemlerle karmaşık API entegrasyonları gerekiyorsa ve uzun vadede lisans bağımlılığından kurtulup rekabet farkı yaratmak istiyorsanız.`,
+  },
+  {
+    slug: "saglik-turizminde-dijital-donusum-ve-hasta-kazanimi",
+    title: "Sağlık Turizminde Dijital Dönüşüm: Yabancı Hasta Kazanımında 6 Altın Kural",
+    category: "saglik-turizmi",
+    coverImage: "/gorseller/blog/saglik-turizminde-dijital-donusum-ve-hasta-kazanimi.webp",
+    excerpt:
+      "Türkiye'de sağlık turizmi yapan klinik ve hastaneler için dijital pazarlama, çok dilli web sitesi ve CRM süreçleriyle yabancı hasta kazanım rehberi.",
+    author: "Mert Sarı",
+    authorTitle: "Sağlık Turizmi Büyüme Danışmanı",
+    readMinutes: 9,
+    body: `## Sağlık turizminde küresel rekabet ve güven inşası
+
+Türkiye; saç ekimi, diş tedavileri, estetik cerrahi ve genel cerrahi alanlarında dünyanın önde gelen sağlık turizmi merkezlerinden biridir. Ancak sadece kaliteli tıbbi hizmet sunmak uluslararası hasta kazanımı için yeterli değildir. Başka bir ülkeden sağlık hizmeti almayı düşünen potansiyel hasta için en belirleyici faktör dijital temas noktalarında hissettiği "güven" hissiyatıdır.
+
+## 1. Kültürel adaptasyona sahip çok dilli web sitesi
+
+Google Translate ile çevrilmiş web siteleri hasta gözünde güvensizlik oluşturur. Hedef pazarınız İngiltere, Almanya veya Körfez ülkeleri ise:
+
+- Sayfa dili o ülkenin yerel tıbbi terminolojisine ve kültürel diline uygun olmalıdır.
+- Hekimlerin uluslararası akreditasyonları, sertifikaları ve vaka tecrübeleri açıkça vurgulanmalıdır.
+- Sayfa yüklenme hızı global CDN altyapısıyla desteklenmeli, mobil uyumluluk kusursuz olmalıdır.
+
+## 2. Vaka galerisi ve video hasta referansları
+
+Metin tabanlı referanslar yerine hastaların tedavi öncesi ve sonrası yolculuklarını anlatan video içerikler dönüşüm oranını 4 kata kadar artırır. Hastanın ülkesinden gelip havalimanı transferinden taburcu oluşuna kadar geçen süreci samimi bir dille aktaran hikayeler şüpheleri yok eder.
+
+## 3. Çok dilli hasta çağrı merkezi ve CRM otomasyonu
+
+Bir form doldurulduğunda ilk 5 dakika içinde anadiliyle dönüş alan hastanın kliniği seçme olasılığı %80 daha yüksektir:
+
+- WhatsApp Business API entegrasyonuyla anlık yazışma imkanı sunun.
+- Sağlık turizmine özel CRM yazılımı ile hastanın röntgen/fotoğraf yükleme, tedavi planı ve fiyat teklifi aşamalarını anlık takip edin.
+
+## 4. Yetkilendirme ve teşvik yönetimi
+
+Sağlık Bakanlığı Sağlık Turizmi Yetki Belgesi ve Ticaret Bakanlığı destekleri, yurt dışı reklam ve yazılım yatırımlarınızın önemli bir kısmını geri almanızı sağlar. Süreçlerinizi baştan mevzuata ve KVKK / GDPR standartlarına uygun kurun.
+
+## 5. Bütüncül paket deneyimi (Konaklama, Transfer, Tedavi)
+
+Yabancı hastalar sadece bir operasyon değil, sorunsuz bir seyahat deneyimi satın alır. Otel rezervasyonu, VIP transfer, refakatçi ve şehir rehberi gibi detayların dijital teklif aşamasında net ve şeffaf biçimde sunulması dönüşümü belirler.
+
+## 6. Tedavi sonrası (Aftercare) takip sistemi
+
+Ülkesine dönen hastanın iyileşme sürecini otomatik anketler ve hekim görüntülü kontrolleriyle dijital ortamda takip etmek, hem Google inceleme puanlarınızı yükseltir hem de tavsiye ile yeni hastalar kazandırır.`,
+  },
+  {
+    slug: "360-derece-dijital-pazarlama-ve-buyume-rehberi",
+    title: "Büyümek İsteyen Markalar İçin 360 Derece Dijital Pazarlama Yol Haritası",
+    category: "dijital-pazarlama",
+    coverImage: "/gorseller/blog/360-derece-dijital-pazarlama-ve-buyume-rehberi.webp",
+    excerpt:
+      "Yalnızca tek bir kanala bağlı kalmadan; SEO, performans pazarlama, içerik yönetimi ve veri analitiğini bir araya getiren bütünleşik büyüme stratejisi.",
+    author: "Deniz Aksoy",
+    authorTitle: "Performans Pazarlama & Büyüme Uzmanı",
+    readMinutes: 8,
+    body: `## Neden tek bir dijital pazarlama kanalı artık yetersiz?
+
+Birçok işletme dijital pazarlamayı sadece Meta veya Google reklamı vermekle eşdeğer görür. Oysa reklam maliyetlerinin küresel ölçekte arttığı günümüzde, yalnızca tıklama başına maliyete (CPC) dayalı büyüme sürdürülebilir değildir. Başarılı markalar, trafiğin nereden geldiğini ve nasıl sadık bir müşteriye dönüştüğünü 360 derece bütünleşik bir modelle yönetir.
+
+## 360 Derece pazarlamanın 4 temel sacayağı
+
+### 1. Organik Varlık ve SEO (Arama Motoru Optimizasyonu)
+Reklam bütçenizi kapattığınız gün trafiğiniz sıfıra iniyorsa markanız risk altındadır. Sektörünüzle ilgili yüksek niyetli arama terimlerinde ilk sayfada yer almak:
+- Sıfır medya maliyetli, sürekli nitelikli ziyaretçi akışı sağlar.
+- Marka otoritesini ve güvenilirliğini organik olarak pekiştirir.
+
+### 2. Hedefe Yönelik Performans Reklamları (Google, Meta, TikTok)
+Yeni kitlelere hızla ulaşmak ve anında sıcak dönüşüm toplamak için performans reklamları vazgeçilmezdir:
+- Arama niyeti yüksek kullanıcılara Google Arama Ağı ve Alışveriş reklamları,
+- Görsel ve hikaye tabanlı ürün/hizmet tanıtımlarında Meta ve TikTok reklamları,
+- Sitenizi ziyaret edip satın almadan ayrılanlar için dinamik yeniden pazarlama (retargeting) kurguları.
+
+### 3. Değer Odaklı İçerik ve Sosyal Medya
+Kullanıcılar doğrudan bir reklam görmektense sorunlarına çözüm sunan içeriklerle bağ kurar. Düzenli blog yazıları, vaka analizleri ve bilgilendirici sosyal medya paylaşımları soğuk kitleyi sıcak alıcı haline getirir.
+
+### 4. Dönüşüm Oranı Optimizasyonu (CRO) ve Veri Analitiği
+Sitenize 10.000 kişi gelmesi tek başına bir anlam ifade etmez; önemli olan kaç kişinin form doldurduğu veya satın alma yaptığıdır:
+- Isı haritaları ile kullanıcıların nerede takıldığını tespit edin.
+- A/B testleriyle başlık, buton rengi ve form uzunluklarını optimize edin.
+- Google Analytics 4 (GA4) üzerinden gerçek müşteri edinme maliyetinizi (CAC) ve müşteri yaşam boyu değerini (LTV) takip edin.
+
+## Sürdürülebilir büyüme için entegrasyon şart
+
+360 derece dijital pazarlama, tüm bu kanalların bir senfoni orkestrası gibi birbiriyle senkronize çalışmasıdır. SEO ile gelen kullanıcı yeniden pazarlama reklamıyla yakalanır, kaliteli içerikle eğitilir ve CRM üzerinden sadık müşteriye dönüştürülür.`,
+  },
 ];
 
 export const PORTFOLIO = [

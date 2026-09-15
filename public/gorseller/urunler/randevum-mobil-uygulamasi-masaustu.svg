@@ -1,33 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Randevum Mobil Uygulaması">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Randevum Mobil Uygulaması masaüstü görünüm">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0891b2"/><stop offset="100%" stop-color="#054657"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#083f3b"/>
+      <stop offset="100%" stop-color="#0f6b64"/>
     </linearGradient>
   </defs>
-  <rect width="800" height="600" fill="url(#g)"/>
-  <g transform="translate(80 96)">
-    <rect width="640" height="408" rx="18" fill="#ffffff" opacity="0.97"/>
-    <rect width="640" height="44" rx="18" fill="#f1f2f0"/>
-    <rect y="30" width="640" height="14" fill="#f1f2f0"/>
-    <circle cx="26" cy="22" r="6" fill="#d9dcd8"/><circle cx="48" cy="22" r="6" fill="#d9dcd8"/><circle cx="70" cy="22" r="6" fill="#d9dcd8"/>
-    <rect x="104" y="14" width="220" height="16" rx="8" fill="#e7e9e5"/>
-    <rect x="32" y="76" width="300" height="26" rx="8" fill="#054657" opacity="0.9"/>
-    <rect x="32" y="116" width="220" height="14" rx="7" fill="#cfd4cf"/>
-    <rect x="32" y="152" width="128" height="34" rx="17" fill="#cffafe"/>
-    <rect x="32" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="44" y="244" width="72" height="12" rx="6" fill="#0891b2" opacity="0.55"/>
-       <rect x="44" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="44" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="184" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="196" y="244" width="54" height="12" rx="6" fill="#0891b2" opacity="0.55"/>
-       <rect x="196" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="196" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="336" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="348" y="244" width="88" height="12" rx="6" fill="#0891b2" opacity="0.55"/>
-       <rect x="348" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="348" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="488" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="500" y="244" width="46" height="12" rx="6" fill="#0891b2" opacity="0.55"/>
-       <rect x="500" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="500" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="80" y="40" width="1040" height="660" rx="12" fill="#ffffff" filter="url(#f1)"/>
+  <defs>
+    <filter id="f1"><feDropShadow dx="0" dy="10" stdDeviation="20" flood-opacity="0.3"/></filter>
+  </defs>
+  <!-- Browser chrome -->
+  <rect x="80" y="40" width="1040" height="44" rx="12" fill="#f0f0ef"/>
+  <rect x="80" y="72" width="1040" height="12" fill="#f0f0ef"/>
+  <circle cx="106" cy="62" r="7" fill="#ff5f57"/>
+  <circle cx="128" cy="62" r="7" fill="#febc2e"/>
+  <circle cx="150" cy="62" r="7" fill="#28c840"/>
+  <rect x="180" y="52" width="400" height="20" rx="10" fill="#e2e2e0"/>
+  <rect x="198" y="57" width="260" height="10" rx="5" fill="#d0d0ce"/>
+  <!-- Inner page (scaled version) -->
+  <g transform="translate(80, 84) scale(1.04)">
+    
+    <rect x="20" y="56" width="760" height="420" rx="12" fill="#f5f5f5" />
+    
+    <rect x="0" y="0" width="760" height="56" rx="0" fill="#ffffff" />
+    <rect x="20" y="16" width="80" height="24" rx="6" fill="#083f3b" />
+    <rect x="150" y="20" width="60" height="16" rx="4" fill="#e8e8e8" />
+    <rect x="220" y="20" width="60" height="16" rx="4" fill="#e8e8e8" />
+    <rect x="290" y="20" width="60" height="16" rx="4" fill="#e8e8e8" />
+    <rect x="610" y="14" width="100" height="28" rx="14" fill="#2dd4bf" />
+    <rect x="720" y="14" width="26" height="28" rx="14" fill="#f0f0ef" />
+  
+    <rect x="20" y="112" width="280" height="364" rx="16" fill="#ffffff" />
+    <text x="40" y="140" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="700" fill="#083f3b" >Randevu Uygulaması</text>
+    <rect x="36" y="152" width="248" height="300" rx="16" fill="#083f3b" />
+    <rect x="46" y="162" width="228" height="28" rx="10" fill="#2dd4bf" opacity="0.3"/>
+    <rect x="46" y="202" width="228" height="50" rx="10" fill="#ffffff" opacity="0.1"/>
+      <circle cx="68" cy="227" r="14" fill="#2dd4bf" opacity="0.5"/>
+      <rect x="90" y="219" width="130" height="10" rx="4" fill="#ffffff" opacity="0.4"/>
+      <rect x="90" y="234" width="90" height="8" rx="4" fill="#ffffff" opacity="0.2"/><rect x="46" y="260" width="228" height="50" rx="10" fill="#ffffff" opacity="0.1"/>
+      <circle cx="68" cy="285" r="14" fill="#2dd4bf" opacity="0.5"/>
+      <rect x="90" y="277" width="130" height="10" rx="4" fill="#ffffff" opacity="0.4"/>
+      <rect x="90" y="292" width="90" height="8" rx="4" fill="#ffffff" opacity="0.2"/><rect x="46" y="318" width="228" height="50" rx="10" fill="#ffffff" opacity="0.1"/>
+      <circle cx="68" cy="343" r="14" fill="#2dd4bf" opacity="0.5"/>
+      <rect x="90" y="335" width="130" height="10" rx="4" fill="#ffffff" opacity="0.4"/>
+      <rect x="90" y="350" width="90" height="8" rx="4" fill="#ffffff" opacity="0.2"/><rect x="46" y="376" width="228" height="50" rx="10" fill="#ffffff" opacity="0.1"/>
+      <circle cx="68" cy="401" r="14" fill="#2dd4bf" opacity="0.5"/>
+      <rect x="90" y="393" width="130" height="10" rx="4" fill="#ffffff" opacity="0.4"/>
+      <rect x="90" y="408" width="90" height="8" rx="4" fill="#ffffff" opacity="0.2"/>
+    <rect x="314" y="112" width="466" height="364" rx="12" fill="#ffffff" />
+    <text x="334" y="138" font-family="system-ui,Segoe UI,Arial" font-size="14" font-weight="700" fill="#083f3b" >Hizmetlerimiz</text>
+    <rect x="334" y="150" width="280" height="220" rx="12" fill="#ffffff" /><rect x="334" y="150" width="280" height="36" rx="12" fill="#ccfbf1" /><rect x="334" y="174" width="280" height="12" rx="0" fill="#ccfbf1" /><text x="424" y="172" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="600" fill="#083f3b" >Eylül 2026</text><text x="344" y="204" font-family="system-ui,Segoe UI,Arial" font-size="10" font-weight="normal" fill="#aaaaaa" >Pt</text><text x="382" y="204" font-family="system-ui,Segoe UI,Arial" font-size="10" font-weight="normal" fill="#aaaaaa" >Sa</text><text x="420" y="204" font-family="system-ui,Segoe UI,Arial" font-size="10" font-weight="normal" fill="#aaaaaa" >Ça</text><text x="458" y="204" font-family="system-ui,Segoe UI,Arial" font-size="10" font-weight="normal" fill="#aaaaaa" >Pe</text><text x="496" y="204" font-family="system-ui,Segoe UI,Arial" font-size="10" font-weight="normal" fill="#aaaaaa" >Cu</text><text x="534" y="204" font-family="system-ui,Segoe UI,Arial" font-size="10" font-weight="normal" fill="#aaaaaa" >Ct</text><text x="572" y="204" font-family="system-ui,Segoe UI,Arial" font-size="10" font-weight="normal" fill="#aaaaaa" >Pz</text><text x="351" y="239" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >01</text><text x="389" y="239" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >02</text><text x="427" y="239" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >03</text><text x="465" y="239" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >04</text><text x="503" y="239" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >05</text><text x="541" y="239" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >06</text><text x="579" y="239" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >07</text><circle cx="358" cy="264" r="13" fill="#ccfbf1" /><text x="351" y="269" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#083f3b" >08</text><text x="389" y="269" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >09</text><text x="427" y="269" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >10</text><text x="465" y="269" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >11</text><circle cx="510" cy="264" r="13" fill="#ccfbf1" /><text x="503" y="269" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#083f3b" >12</text><text x="541" y="269" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >13</text><text x="579" y="269" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >14</text><circle cx="358" cy="294" r="13" fill="#2dd4bf" /><text x="351" y="299" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="700" fill="#ffffff" >15</text><text x="389" y="299" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >16</text><text x="427" y="299" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >17</text><text x="465" y="299" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >18</text><text x="503" y="299" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >19</text><circle cx="548" cy="294" r="13" fill="#ccfbf1" /><text x="541" y="299" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#083f3b" >20</text><text x="579" y="299" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >21</text><text x="351" y="329" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >22</text><text x="389" y="329" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >23</text><text x="427" y="329" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >24</text><text x="465" y="329" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >25</text><text x="503" y="329" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >26</text><text x="541" y="329" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >27</text><text x="579" y="329" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >28</text><text x="351" y="359" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >29</text><text x="389" y="359" font-family="system-ui,Segoe UI,Arial" font-size="11" font-weight="normal" fill="#555555" >30</text>
+    <rect x="334" y="388" width="446" height="80" rx="10" fill="#f9f9f9" />
+    <rect x="350" y="400" width="200" height="56" rx="10" fill="#2dd4bf" opacity="0.15"/>
+    <rect x="564" y="400" width="200" height="56" rx="10" fill="#eeeeee" />
+  
   </g>
-  <text x="80" y="556" font-family="system-ui,Segoe UI,Arial" font-size="26" font-weight="700" fill="#ffffff">Randevum Mobil Uygulaması</text>
-  <text x="80" y="584" font-family="system-ui,Segoe UI,Arial" font-size="16" fill="#ffffff" opacity="0.78">Masaüstü görünüm</text>
+  <!-- Monitor stand -->
+  <rect x="540" y="700" width="120" height="16" rx="8" fill="#0f6b64" fill-opacity="0.5"/>
+  <rect x="510" y="716" width="180" height="8" rx="4" fill="#0f6b64" fill-opacity="0.3"/>
 </svg>

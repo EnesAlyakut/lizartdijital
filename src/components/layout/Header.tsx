@@ -4,6 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
+import {
+  ArrowRight,
+  BookOpen,
+  Building2,
+  ChevronDown,
+  FolderGit2,
+  Home,
+  Mail,
+  MessageCircle,
+  Phone,
+  Search,
+  Send,
+  ShoppingBag,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { NAV, SITE, whatsappLink } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { SearchBox } from "@/components/layout/SearchBox";
@@ -22,9 +39,15 @@ export function Header({ cartCount }: { cartCount: number }) {
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
   const [openPanel, setOpenPanel] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -40,6 +63,7 @@ export function Header({ cartCount }: { cartCount: number }) {
     setMobileOpen(false);
     setSearchOpen(false);
     setOpenPanel(null);
+    setExpandedMobileItem(null);
   }
 
   useEffect(() => {
@@ -222,82 +246,357 @@ export function Header({ cartCount }: { cartCount: number }) {
         )}
       </div>
 
-      {/* Küçük ekran menüsü */}
-      {mobileOpen && (
-        <div
-          id="mobil-menu"
-          className="animate-rise max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-ink-100 bg-canvas lg:hidden"
-        >
-          <nav aria-label="Mobil menü" className="container-page py-6">
-            <SearchBox placeholder="Ürün ara…" />
+      {/* Mobil Yandan Açılır Menü (Off-Canvas Sheet) - Portal ile body'ye taşınarak tam ekran ve hatasız render edilir */}
+      {mounted &&
+        createPortal(
+          <div
+            className={cn(
+              "fixed inset-0 z-[99999] lg:hidden transition-all duration-300",
+              mobileOpen ? "visible" : "invisible"
+            )}
+            aria-hidden={!mobileOpen}
+          >
+            {/* Karartma Katmanı (Backdrop) */}
+            <div
+              className={cn(
+                "fixed inset-0 bg-ink-950/70 backdrop-blur-sm transition-opacity duration-300 ease-out",
+                mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+              )}
+              onClick={() => setMobileOpen(false)}
+              aria-hidden="true"
+            />
 
-            <ul className="mt-5 space-y-1">
-              {NAV.map((item) => {
-                const columns = ("columns" in item ? item.columns : undefined) as
-                  | readonly NavColumn[]
-                  | undefined;
-                return (
-                  <li key={item.href} className="border-b border-ink-100 pb-2 last:border-0">
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "block rounded-sm px-3 py-3 text-[1.05rem] font-medium transition-soft",
-                        isActive(item.href) ? "text-brand-700" : "text-ink-900 hover:bg-ink-50",
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                    {columns && (
-                      <div className="ml-3 grid gap-x-6 border-l border-ink-100 pl-4 sm:grid-cols-2">
-                        {columns.map((col) => (
-                          <div key={col.title} className="py-1">
-                            <p className="px-1 py-1 text-[0.7rem] font-semibold uppercase tracking-wide text-ink-400">
-                              {col.title}
-                            </p>
-                            <ul>
-                              {col.links.map((c) => (
-                                <li key={c.href}>
-                                  <Link
-                                    href={c.href}
-                                    className="block rounded-lg px-1 py-1.5 text-sm text-ink-600 transition-soft hover:text-brand-700"
-                                  >
-                                    {c.label}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+            {/* Yandan Kayan Panel (Drawer) */}
+            <aside
+              id="mobil-menu"
+              aria-label="Mobil gezinme menüsü"
+              className={cn(
+                "fixed inset-y-0 right-0 z-10 flex h-[100dvh] w-full max-w-[380px] sm:max-w-[420px] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out border-l border-ink-100",
+                mobileOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
+              )}
+            >
+              {/* Üst Bar: Logo ve Kapat Butonu */}
+              <div className="flex h-18 shrink-0 items-center justify-between border-b border-ink-100 px-5 bg-white">
+                <Link
+                  href="/"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center group py-2"
+                  aria-label="Lizart Dijital ana sayfa"
+                >
+                  <Image
+                    src="/logo.svg?v=4"
+                    alt="Lizart Dijital"
+                    width={827}
+                    height={468}
+                    className="h-10 w-auto mix-blend-multiply"
+                  />
+                </Link>
 
-            <div className="mt-6 rounded-[var(--radius-card)] border border-ink-100 bg-surface p-5">
-              <p className="text-sm font-semibold text-ink-900">Bize ulaşın</p>
-              <div className="mt-3 space-y-2 text-sm">
-                <a href={SITE.phoneHref} className="block text-ink-700 hover:text-brand-700">
-                  {SITE.phone}
-                </a>
-                <a href={`mailto:${SITE.email}`} className="block text-ink-700 hover:text-brand-700">
-                  {SITE.email}
-                </a>
-                <p className="text-ink-500">{SITE.address}</p>
+                <button
+                  type="button"
+                  onClick={() => setMobileOpen(false)}
+                  aria-label="Menüyü kapat"
+                  className="grid size-10 place-items-center rounded-full border border-ink-200/80 bg-ink-50/80 text-ink-700 transition-all hover:bg-ink-100 hover:text-ink-950 active:scale-90"
+                >
+                  <X className="size-5" />
+                </button>
               </div>
-              <a
-                href={whatsappLink("Merhaba, bir proje için görüşmek istiyorum.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 block rounded-sm bg-brand-600 px-5 py-3 text-center text-sm font-semibold text-canvas hover:bg-brand-500"
-              >
-                Başlayalım
-              </a>
-            </div>
-          </nav>
-        </div>
-      )}
+
+              {/* Hızlı Arama & Popüler Etiketler */}
+              <div className="shrink-0 border-b border-ink-100/70 bg-ink-50/40 p-3.5 space-y-2.5">
+                <form
+                  role="search"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const input = e.currentTarget.elements.namedItem("q") as HTMLInputElement;
+                    const q = input?.value.trim();
+                    setMobileOpen(false);
+                    window.location.href = q ? `/magaza?q=${encodeURIComponent(q)}` : "/magaza";
+                  }}
+                  className="relative"
+                >
+                  <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-ink-400" />
+                  <input
+                    type="search"
+                    name="q"
+                    placeholder="Hazır site, uygulama, hizmet ara…"
+                    className="w-full rounded-xl border border-ink-200 bg-white py-2.5 pl-10 pr-16 text-sm text-ink-900 placeholder:text-ink-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-lg bg-ink-900 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-600 transition-colors"
+                  >
+                    Ara
+                  </button>
+                </form>
+
+                <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5 text-[11px]">
+                  <span className="shrink-0 font-medium text-ink-400">Popüler:</span>
+                  {[
+                    { label: "E-Ticaret", href: "/magaza?kategori=eticaret" },
+                    { label: "Klinik", href: "/magaza?kategori=saglik" },
+                    { label: "Mobil App", href: "/magaza/mobil-uygulamalar" },
+                    { label: "SEO", href: "/hizmetler/seo-hizmetleri" },
+                  ].map((tag) => (
+                    <Link
+                      key={tag.label}
+                      href={tag.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="shrink-0 rounded-full border border-ink-200 bg-white px-2.5 py-0.5 font-medium text-ink-600 hover:border-brand-300 hover:text-brand-700 transition-colors"
+                    >
+                      {tag.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Kaydırılabilir Navigasyon & Akordeon */}
+              <nav className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-4 no-scrollbar">
+                <div>
+                  <p className="px-2 pb-2 text-[0.7rem] font-bold uppercase tracking-wider text-ink-400">
+                    Ana Menü
+                  </p>
+
+                  <ul className="space-y-1.5">
+                    {NAV.map((item) => {
+                      const columns = ("columns" in item ? item.columns : undefined) as
+                        | readonly NavColumn[]
+                        | undefined;
+                      const highlight = ("highlight" in item ? item.highlight : undefined) as
+                        | NavHighlight
+                        | undefined;
+                      const active = isActive(item.href);
+                      const isExpanded = expandedMobileItem === item.href;
+
+                      const Icon =
+                        item.href === "/"
+                          ? Home
+                          : item.href === "/magaza"
+                          ? ShoppingBag
+                          : item.href === "/hizmetler"
+                          ? Sparkles
+                          : item.href === "/projeler"
+                          ? FolderGit2
+                          : item.href === "/hakkimizda"
+                          ? Building2
+                          : item.href === "/blog"
+                          ? BookOpen
+                          : Send;
+
+                      if (columns) {
+                        return (
+                          <li key={item.href} className="overflow-hidden rounded-2xl border border-ink-100 bg-ink-50/40 transition-colors">
+                            <button
+                              type="button"
+                              onClick={() => setExpandedMobileItem((curr) => (curr === item.href ? null : item.href))}
+                              className={cn(
+                                "flex w-full items-center justify-between px-3.5 py-3 text-left transition-colors",
+                                active ? "text-brand-800 font-bold" : "text-ink-900 font-semibold",
+                                isExpanded && "bg-ink-100/50"
+                              )}
+                              aria-expanded={isExpanded}
+                            >
+                              <span className="flex items-center gap-3">
+                                <span
+                                  className={cn(
+                                    "grid size-8 place-items-center rounded-xl transition-colors",
+                                    active
+                                      ? "bg-brand-500 text-white"
+                                      : "bg-white text-ink-600 border border-ink-100 shadow-2xs"
+                                  )}
+                                >
+                                  <Icon className="size-4" />
+                                </span>
+                                <span className="text-[0.95rem]">{item.label}</span>
+                              </span>
+
+                              <div className="flex items-center gap-2">
+                                <span className="rounded-full bg-ink-100 px-2 py-0.5 text-[10px] font-bold text-ink-600">
+                                  {item.href === "/magaza" ? "6 Ürün Ailesi" : "9 Hizmet"}
+                                </span>
+                                <ChevronDown
+                                  className={cn(
+                                    "size-4 text-ink-400 transition-transform duration-200",
+                                    isExpanded && "rotate-180 text-brand-600"
+                                  )}
+                                />
+                              </div>
+                            </button>
+
+                            {isExpanded && (
+                              <div className="border-t border-ink-100 bg-white p-3 space-y-3.5">
+                                <Link
+                                  href={item.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="flex items-center justify-between rounded-xl bg-brand-50 px-3.5 py-2.5 text-xs font-bold text-brand-800 transition-colors hover:bg-brand-100"
+                                >
+                                  <span>Tüm {item.label} Kataloğu</span>
+                                  <ArrowRight className="size-3.5" />
+                                </Link>
+
+                                {columns.map((col) => (
+                                  <div key={col.title} className="space-y-1">
+                                    <p className="px-2 text-[0.68rem] font-bold uppercase tracking-wider text-ink-400">
+                                      {col.title}
+                                    </p>
+                                    <div className="space-y-0.5">
+                                      {col.links.map((link) => (
+                                        <Link
+                                          key={link.href}
+                                          href={link.href}
+                                          onClick={() => setMobileOpen(false)}
+                                          className={cn(
+                                            "flex items-center justify-between rounded-xl px-3 py-2 text-[0.88rem] transition-colors",
+                                            isActive(link.href)
+                                              ? "bg-brand-50 font-bold text-brand-800"
+                                              : "text-ink-700 hover:bg-ink-50 hover:text-ink-950 font-medium"
+                                          )}
+                                        >
+                                          <span>{link.label}</span>
+                                          <ArrowRight className="size-3 text-ink-300 opacity-60" />
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+
+                                {highlight && (
+                                  <div className="rounded-xl border border-brand-200/80 bg-brand-50/60 p-3">
+                                    <p className="text-xs font-bold text-brand-900">{highlight.title}</p>
+                                    <p className="mt-1 text-[11px] leading-relaxed text-ink-600">
+                                      {highlight.body}
+                                    </p>
+                                    <Link
+                                      href={highlight.href}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-brand-700 hover:text-brand-800"
+                                    >
+                                      {highlight.cta} →
+                                    </Link>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </li>
+                        );
+                      }
+
+                      return (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            onClick={() => setMobileOpen(false)}
+                            className={cn(
+                              "flex items-center justify-between rounded-2xl px-3.5 py-2.5 transition-colors",
+                              active
+                                ? "bg-brand-50 text-brand-800 font-bold"
+                                : "text-ink-800 hover:bg-ink-50 font-semibold"
+                            )}
+                          >
+                            <span className="flex items-center gap-3">
+                              <span
+                                className={cn(
+                                  "grid size-8 place-items-center rounded-xl transition-colors",
+                                  active
+                                    ? "bg-brand-500 text-white"
+                                    : "bg-ink-50 text-ink-600 border border-ink-100"
+                                )}
+                              >
+                                <Icon className="size-4" />
+                              </span>
+                              <span className="text-[0.95rem]">{item.label}</span>
+                            </span>
+                            <ArrowRight className="size-4 text-ink-300" />
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                {/* Hızlı WhatsApp Destek Kutusu */}
+                <div className="rounded-2xl border border-emerald-200/80 bg-emerald-50/50 p-3.5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="relative flex size-2.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex size-2.5 rounded-full bg-emerald-500"></span>
+                    </span>
+                    <span className="text-xs font-bold text-emerald-950">WhatsApp Canlı Destek</span>
+                    <span className="ml-auto text-[10px] font-semibold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded-full">
+                      Çevrimiçi
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-[11px] leading-relaxed text-emerald-800">
+                    Aklınıza takılan sorular için anında uzman ekibimizle görüşün.
+                  </p>
+                  <a
+                    href={whatsappLink("Merhaba, projeleriniz ve hazır sistemler hakkında bilgi almak istiyorum.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2.5 flex items-center justify-center gap-1.5 rounded-xl bg-emerald-600 py-2.5 text-xs font-bold text-white transition-colors hover:bg-emerald-700 shadow-2xs"
+                  >
+                    <MessageCircle className="size-3.5" />
+                    <span>WhatsApp Sohbeti Başlat</span>
+                  </a>
+                </div>
+
+                {/* İletişim Bilgileri */}
+                <div className="rounded-2xl border border-ink-100 bg-surface-2 p-3.5">
+                  <p className="text-[0.7rem] font-bold uppercase tracking-wider text-ink-400">Doğrudan İletişim</p>
+                  <div className="mt-2.5 space-y-2 text-xs text-ink-700">
+                    <a href={SITE.phoneHref} className="flex items-center gap-2.5 hover:text-brand-700 transition-colors">
+                      <Phone className="size-3.5 text-brand-600" />
+                      <span className="font-semibold">{SITE.phone}</span>
+                    </a>
+                    <a href={`mailto:${SITE.email}`} className="flex items-center gap-2.5 hover:text-brand-700 transition-colors">
+                      <Mail className="size-3.5 text-brand-600" />
+                      <span>{SITE.email}</span>
+                    </a>
+                  </div>
+                </div>
+              </nav>
+
+              {/* Sabit Alt Bar: Sepet & Teklif CTA */}
+              <div className="shrink-0 border-t border-ink-100 bg-white p-4 pb-6 space-y-2 shadow-[0_-10px_25px_-5px_rgba(0,0,0,0.06)]">
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/sepet"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-ink-200 bg-white py-3 text-xs font-bold text-ink-900 shadow-2xs hover:bg-ink-50 transition-colors"
+                  >
+                    <ShoppingBag className="size-4 text-ink-600" />
+                    <span>Sepetim</span>
+                    {cartCount > 0 && (
+                      <span className="grid size-5 place-items-center rounded-full bg-brand-600 text-[10px] text-white">
+                        {cartCount}
+                      </span>
+                    )}
+                  </Link>
+
+                  <a
+                    href={whatsappLink("Merhaba, bir proje için görüşmek istiyorum.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-emerald-600 py-3 text-xs font-bold text-white shadow-2xs hover:bg-emerald-700 transition-colors"
+                  >
+                    <MessageCircle className="size-4" />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+
+                <Link
+                  href="/teklif"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 py-3 text-xs font-bold text-white shadow-md shadow-brand-950/15 transition-all active:scale-[0.99]"
+                >
+                  <span>Hemen Başlayalım / Teklif Al</span>
+                  <ArrowRight className="size-3.5" />
+                </Link>
+              </div>
+            </aside>
+          </div>,
+          document.body
+        )}
     </header>
   );
 }

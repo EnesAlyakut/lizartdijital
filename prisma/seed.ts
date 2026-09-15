@@ -399,10 +399,19 @@ async function main() {
     blogCatIds[c.slug] = row.id;
   }
   for (const [i, post] of BLOG_POSTS.entries()) {
-    const cover = `/gorseller/blog/${post.slug}.jpg`;
+    const cover = (post as any).coverImage || `/gorseller/blog/${post.slug}.webp`;
     await prisma.blogPost.upsert({
       where: { slug: post.slug },
-      update: { coverImage: cover },
+      update: {
+        title: post.title,
+        excerpt: post.excerpt,
+        body: post.body,
+        coverImage: cover,
+        authorName: post.author,
+        authorTitle: post.authorTitle,
+        categoryId: blogCatIds[post.category],
+        readMinutes: post.readMinutes,
+      },
       create: {
         slug: post.slug,
         title: post.title,
@@ -567,6 +576,10 @@ async function main() {
             `/gorseller/referanslar/kanat-musavirlik-hakkimizda-masaustu.png`,
           ]);
 
+    const webpGalleryItems = galleryItems.map((item) =>
+      item.replace(/\.(png|jpg|jpeg)$/i, ".webp"),
+    );
+
     const data = {
       title: ref.title,
       client: ref.client,
@@ -580,10 +593,10 @@ async function main() {
       deliverables: JSON.stringify(ref.deliverables),
       // Ölçülebilir sonuç yalnızca müşteriden onaylı veri geldiğinde doldurulur.
       results: JSON.stringify([]),
-      coverImage: galleryItems[0],
-      mobileImage: galleryItems[1],
+      coverImage: webpGalleryItems[0],
+      mobileImage: webpGalleryItems[1],
       liveUrl: ref.liveUrl,
-      gallery: JSON.stringify(galleryItems),
+      gallery: JSON.stringify(webpGalleryItems),
       testimonial: null,
       isFeatured: ref.isFeatured,
       completedAt: new Date(Date.now() - (i) * 34 * 24 * 3600 * 1000),

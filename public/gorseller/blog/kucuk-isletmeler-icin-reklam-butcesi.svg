@@ -1,7 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Küçük İşletmeler Reklam Bütçesini Nasıl Planlamalı?">
-  <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a994c"/><stop offset="100%" stop-color="#0b4f2e"/></linearGradient></defs>
-  <rect width="1200" height="675" fill="url(#cg)"/>
-  <circle cx="936" cy="189.00000000000003" r="202.5" fill="#d6fae2" opacity="0.22"/>
-  <circle cx="240" cy="553.5" r="148.5" fill="#ffffff" opacity="0.12"/>
-  <text x="64" y="611" font-family="system-ui,Segoe UI,Arial" font-size="46" font-weight="700" fill="#ffffff">Küçük İşletmeler Reklam Bütçesini Nasıl Planlamalı?</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#180f2b"/>
+      <stop offset="50%" stop-color="#241242"/>
+      <stop offset="100%" stop-color="#110821"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg3)"/>
+  <circle cx="300" cy="300" r="300" fill="#8b5cf6" opacity="0.1" filter="blur(70px)"/>
+
+  <!-- Sol Bölüm: Reklam Kampanyası & Bütçe Yönetimi Dashboard -->
+  <g transform="translate(100, 100)">
+    <rect width="520" height="475" rx="24" fill="#20133b" stroke="#3c226e" stroke-width="2"/>
+    <rect width="520" height="54" rx="24" fill="#14092b"/>
+    <rect x="0" y="30" width="520" height="24" fill="#14092b"/>
+    <circle cx="28" cy="27" r="6" fill="#ef4444"/>
+    <circle cx="48" cy="27" r="6" fill="#f59e0b"/>
+    <circle cx="68" cy="27" r="6" fill="#10b981"/>
+    <text x="94" y="32" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#c4b5fd">Google &amp; Meta Ads Bütçe Dağılımı</text>
+
+    <!-- 3 Kampanya Kartı -->
+    <g transform="translate(30, 80)">
+      <rect width="460" height="70" rx="14" fill="#150b28"/>
+      <circle cx="35" cy="35" r="18" fill="#3b82f6"/>
+      <text x="35" y="41" text-anchor="middle" font-size="14" font-weight="900" fill="#ffffff">G</text>
+      <text x="68" y="30" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Google Arama Ağı (Niyet Trafiği)</text>
+      <text x="68" y="50" font-family="system-ui,sans-serif" font-size="11" fill="#a78bfa">Aylık Bütçe: ₺15.000 · ROAS: 4.8x</text>
+      <rect x="360" y="24" width="75" height="24" rx="12" fill="#10b981" opacity="0.2"/>
+      <text x="397" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="800" fill="#34d399">AKTİF</text>
+    </g>
+
+    <g transform="translate(30, 165)">
+      <rect width="460" height="70" rx="14" fill="#150b28"/>
+      <circle cx="35" cy="35" r="18" fill="#ec4899"/>
+      <text x="35" y="41" text-anchor="middle" font-size="14" font-weight="900" fill="#ffffff">M</text>
+      <text x="68" y="30" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Instagram Reels &amp; Hikaye Reklamı</text>
+      <text x="68" y="50" font-family="system-ui,sans-serif" font-size="11" fill="#a78bfa">Aylık Bütçe: ₺10.000 · ROAS: 3.9x</text>
+      <rect x="360" y="24" width="75" height="24" rx="12" fill="#10b981" opacity="0.2"/>
+      <text x="397" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="800" fill="#34d399">AKTİF</text>
+    </g>
+
+    <g transform="translate(30, 250)">
+      <rect width="460" height="70" rx="14" fill="#150b28"/>
+      <circle cx="35" cy="35" r="18" fill="#8b5cf6"/>
+      <text x="35" y="41" text-anchor="middle" font-size="14" font-weight="900" fill="#ffffff">🔄</text>
+      <text x="68" y="30" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Yeniden Pazarlama (Retargeting)</text>
+      <text x="68" y="50" font-family="system-ui,sans-serif" font-size="11" fill="#a78bfa">Aylık Bütçe: ₺5.000 · ROAS: 6.2x</text>
+      <rect x="360" y="24" width="75" height="24" rx="12" fill="#10b981" opacity="0.2"/>
+      <text x="397" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="800" fill="#34d399">AKTİF</text>
+    </g>
+
+    <!-- Bütçe Özeti -->
+    <g transform="translate(30, 345)">
+      <rect width="460" height="95" rx="16" fill="url(#purpleGrad)"/>
+      <text x="24" y="36" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#e9d5ff">Önerilen Minimum Başlangıç Bütçesi</text>
+      <text x="24" y="74" font-family="system-ui,sans-serif" font-size="28" font-weight="900" fill="#ffffff">₺30.000 <tspan font-size="14" font-weight="500">/ ay</tspan></text>
+      <text x="435" y="60" text-anchor="end" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">4.9x Ortalama ROAS</text>
+    </g>
+  </g>
+
+  <!-- Sağ Bölüm: Metrikler ve Çubuk Grafikler -->
+  <g transform="translate(670, 120)">
+    <rect width="430" height="435" rx="24" fill="#20133b" stroke="#3c226e" stroke-width="2"/>
+    <text x="36" y="50" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#a78bfa" letter-spacing="1">GELİR &amp; GETİRİ ANALİZİ</text>
+    <text x="36" y="85" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="#ffffff">₺148.500</text>
+    <text x="36" y="110" font-family="system-ui,sans-serif" font-size="13" fill="#c4b5fd">Toplam Reklam Kaynaklı Satış Hacmi</text>
+
+    <!-- Çubuk Grafik -->
+    <g transform="translate(36, 145)">
+      <rect x="0" y="140" width="40" height="80" rx="8" fill="#4c1d95"/>
+      <rect x="65" y="100" width="40" height="120" rx="8" fill="#6d28d9"/>
+      <rect x="130" y="70" width="40" height="150" rx="8" fill="#7c3aed"/>
+      <rect x="195" y="40" width="40" height="180" rx="8" fill="#8b5cf6"/>
+      <rect x="260" y="15" width="40" height="205" rx="8" fill="#a78bfa"/>
+      <rect x="325" y="0" width="40" height="220" rx="8" fill="#34d399"/>
+    </g>
+
+    <!-- Açıklama Notu -->
+    <g transform="translate(36, 385)">
+      <text x="0" y="15" font-family="system-ui,sans-serif" font-size="12" fill="#c4b5fd">💡 Bütçe kademeli artırılarak reklam körlüğü engellenir.</text>
+    </g>
+  </g>
 </svg>

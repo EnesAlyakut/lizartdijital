@@ -14,6 +14,14 @@ export type ReferenceCardData = {
   liveUrl: string | null;
 };
 
+function toFastWebp(src: string): string {
+  if (!src) return src;
+  if (src.startsWith("/gorseller/referanslar/") && (src.endsWith(".png") || src.endsWith(".jpg"))) {
+    return src.replace(/\.(png|jpg)$/i, ".webp");
+  }
+  return src;
+}
+
 export function ReferenceCard({
   project,
   size = "md",
@@ -24,6 +32,9 @@ export function ReferenceCard({
   const host = project.liveUrl
     ? project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
     : null;
+
+  const coverSrc = toFastWebp(project.coverImage);
+  const mobileSrc = project.mobileImage ? toFastWebp(project.mobileImage) : null;
 
   return (
     <article className="group flex flex-col justify-between overflow-hidden rounded-lg border border-[#b9c8b4] bg-white shadow-[0_24px_70px_-56px_rgb(20_31_20/.85)] transition-all duration-300 hover:-translate-y-1 hover:border-[#6f8f68] hover:shadow-[0_36px_86px_-54px_rgb(20_31_20/.95)]">
@@ -69,10 +80,10 @@ export function ReferenceCard({
               aria-hidden
             >
               <Image
-                src={project.coverImage}
+                src={coverSrc}
                 alt={project.title}
                 fill
-                unoptimized
+                loading="lazy"
                 sizes={
                   size === "lg"
                     ? "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 680px"
@@ -83,7 +94,7 @@ export function ReferenceCard({
             </Link>
           </div>
 
-          {project.mobileImage && (
+          {mobileSrc && (
             <div
               className={cn(
                 "absolute hidden overflow-hidden rounded-lg border-[4px] border-[#111811] bg-[#111811] shadow-[0_24px_44px_-28px_rgb(0_0_0/.95)] ring-1 ring-white/80 sm:block transition-transform duration-500 group-hover:-translate-y-1",
@@ -95,10 +106,10 @@ export function ReferenceCard({
               </div>
               <div className="relative aspect-[550/1024] overflow-hidden rounded-md bg-[#0a100b]">
                 <Image
-                  src={project.mobileImage}
+                  src={mobileSrc}
                   alt=""
                   fill
-                  unoptimized
+                  loading="lazy"
                   sizes="160px"
                   className="object-cover object-top"
                 />

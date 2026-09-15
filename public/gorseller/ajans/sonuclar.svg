@@ -1,39 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" width="820" height="520" role="img">
-  <defs>
-    <linearGradient id="lz-bg" x1="0" y1="0" x2="0.35" y2="1">
-      <stop offset="0%" stop-color="#f3f5f1"/>
-      <stop offset="55%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#f3f5f1"/>
-    </linearGradient>
-    <filter id="lz-sh" x="-12%" y="-12%" width="124%" height="128%">
-      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#141a14" flood-opacity="0.13"/>
-    </filter>
-  </defs>
-  <rect width="820" height="520" fill="url(#lz-bg)"/>
-  <g filter="url(#lz-sh)">
-  <circle cx="700" cy="430" r="140" fill="#cfe1cd" opacity="0.5"/>
-  <rect x="70" y="60" width="680" height="380" rx="18" fill="#ffffff" stroke="#c6cec2"/>
-  <rect x="104" y="96" width="150" height="13" rx="6.5" fill="#141a14"/>
-  <rect x="104" y="122" width="228" height="9" rx="4.5" fill="#6b7569" opacity="0.82"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0%" stop-color="#f3f5f1"/><stop offset="55%" stop-color="#ffffff"/><stop offset="100%" stop-color="#f3f5f1"/></linearGradient></defs>
+  <rect width="900" height="600" fill="url(#bg)"/>
+  <text x="50" y="80" font-family="system-ui,Segoe UI,Arial" font-size="28" font-weight="800" fill="#0f3d1a">Ölçülebilir Sonuçlar</text>
   
-    <rect x="104" y="156" width="132" height="76" rx="12" fill="#eaeee7"/>
-    <rect x="120" y="176" width="64" height="15" rx="7.5" fill="#6b9268"/>
-    <rect x="120" y="202" width="88" height="9" rx="4.5" fill="#6b7569" opacity="0.85"/>
-    <rect x="256" y="156" width="132" height="76" rx="12" fill="#eaeee7"/>
-    <rect x="272" y="176" width="48" height="15" rx="7.5" fill="#6b9268"/>
-    <rect x="272" y="202" width="88" height="9" rx="4.5" fill="#6b7569" opacity="0.85"/>
-    <rect x="408" y="156" width="132" height="76" rx="12" fill="#eaeee7"/>
-    <rect x="424" y="176" width="72" height="15" rx="7.5" fill="#6b9268"/>
-    <rect x="424" y="202" width="88" height="9" rx="4.5" fill="#6b7569" opacity="0.85"/>
-
-  <rect x="112" y="330" width="40" height="70" rx="8" fill="#558053" opacity="0.55"/><rect x="174" y="290" width="40" height="110" rx="8" fill="#558053" opacity="0.55"/><rect x="236" y="305" width="40" height="95" rx="8" fill="#558053" opacity="0.55"/><rect x="298" y="250" width="40" height="150" rx="8" fill="#558053" opacity="0.55"/><rect x="360" y="225" width="40" height="175" rx="8" fill="#558053" opacity="0.55"/><rect x="422" y="180" width="40" height="220" rx="8" fill="#6b9268" opacity="1"/>
-  <path d="M132 330 L442 154" stroke="#6b7569" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 12"/>
-  <circle cx="442" cy="154" r="9" fill="#6b9268"/>
-
-  <path d="M104 400 H716" stroke="#c6cec2" stroke-width="3"/>
-  <rect x="536" y="156" width="180" height="76" rx="12" fill="#232a22" stroke="#c6cec2"/>
-  <rect x="556" y="176" width="90" height="14" rx="7" fill="#6b9268"/>
-  <rect x="556" y="200" width="126" height="9" rx="4.5" fill="#6b7569" opacity="0.82"/>
-</g>
+    <rect x="50" y="110" width="185" height="140" rx="14" fill="#ffffff"/>
+    <rect x="50" y="110" width="185" height="4" rx="2" fill="#3ed57f" fill-opacity="0.4"/>
+    <text x="85" y="170" font-family="system-ui,Segoe UI,Arial" font-size="36" font-weight="800" fill="#0f3d1a">148+</text>
+    <rect x="65" y="184" width="150" height="12" rx="4" fill="#d4d4d4"/>
+    <rect x="65" y="204" width="100" height="10" rx="4" fill="#e4e4e4"/>
+  
+    <rect x="255" y="110" width="185" height="140" rx="14" fill="#ffffff"/>
+    <rect x="255" y="110" width="185" height="4" rx="2" fill="#3ed57f" fill-opacity="0.55"/>
+    <text x="290" y="170" font-family="system-ui,Segoe UI,Arial" font-size="36" font-weight="800" fill="#0f3d1a">98%</text>
+    <rect x="270" y="184" width="150" height="12" rx="4" fill="#d4d4d4"/>
+    <rect x="270" y="204" width="100" height="10" rx="4" fill="#e4e4e4"/>
+  
+    <rect x="460" y="110" width="185" height="140" rx="14" fill="#ffffff"/>
+    <rect x="460" y="110" width="185" height="4" rx="2" fill="#3ed57f" fill-opacity="0.7"/>
+    <text x="495" y="170" font-family="system-ui,Segoe UI,Arial" font-size="36" font-weight="800" fill="#0f3d1a">3 Gün</text>
+    <rect x="475" y="184" width="150" height="12" rx="4" fill="#d4d4d4"/>
+    <rect x="475" y="204" width="100" height="10" rx="4" fill="#e4e4e4"/>
+  
+    <rect x="665" y="110" width="185" height="140" rx="14" fill="#ffffff"/>
+    <rect x="665" y="110" width="185" height="4" rx="2" fill="#3ed57f" fill-opacity="0.85"/>
+    <text x="700" y="170" font-family="system-ui,Segoe UI,Arial" font-size="36" font-weight="800" fill="#0f3d1a">24/7</text>
+    <rect x="680" y="184" width="150" height="12" rx="4" fill="#d4d4d4"/>
+    <rect x="680" y="204" width="100" height="10" rx="4" fill="#e4e4e4"/>
+  
+  <rect x="50" y="280" width="800" height="280" rx="14" fill="#ffffff"/>
+  <text x="68" y="314" font-family="system-ui,Segoe UI,Arial" font-size="15" font-weight="700" fill="#0f3d1a">Son 12 Ay Proje Teslimi</text>
+  
+      <rect x="68" y="444" width="102" height="80" rx="4" fill="#d6fae2" />
+    
+      <rect x="176" y="384" width="102" height="140" rx="4" fill="#d6fae2" />
+    
+      <rect x="284" y="424" width="102" height="100" rx="4" fill="#d6fae2" />
+    
+      <rect x="392" y="344" width="102" height="180" rx="4" fill="#3ed57f" />
+    
+      <rect x="500" y="394" width="102" height="130" rx="4" fill="#d6fae2" />
+    
+      <rect x="608" y="364" width="102" height="160" rx="4" fill="#d6fae2" />
+    
+      <rect x="716" y="414" width="102" height="110" rx="4" fill="#d6fae2" />
+    
 </svg>

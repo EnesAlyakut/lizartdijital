@@ -108,10 +108,19 @@ export default async function AdminSeoPage() {
                   </td>
                   <td className="px-5 py-4 text-xs font-black uppercase tracking-wider text-slate-800">{row.type}</td>
                   <td className="px-5 py-4">
-                    <div className="max-w-sm rounded-2xl border border-slate-200 bg-slate-50/90 p-3.5">
+                    <div className="max-w-sm rounded-2xl border border-slate-200 bg-slate-50/90 p-3.5 space-y-1.5">
+                      <div className="flex items-center gap-1.5 text-xs">
+                        <img
+                          src="/logo-kare.svg"
+                          alt="Lizart Dijital"
+                          className="size-4 rounded-full border border-slate-200/80 object-cover shrink-0"
+                        />
+                        <span className="font-semibold text-slate-800 text-[11px]">Lizart Dijital</span>
+                        <span className="text-slate-400">›</span>
+                        <span className="text-[#1f7a68] text-[11px] font-mono truncate">lizartdijital.com/{row.slug}</span>
+                      </div>
                       <p className="truncate text-sm font-black text-blue-700 hover:underline">{row.metaTitle}</p>
-                      <p className="mt-1 truncate text-xs font-black text-[#1f7a68]">lizartdijital.com/{row.slug}</p>
-                      <p className="mt-1 line-clamp-2 text-xs font-semibold leading-relaxed text-slate-600">
+                      <p className="line-clamp-2 text-xs font-semibold leading-relaxed text-slate-600">
                         {row.metaDescription}
                       </p>
                     </div>

@@ -18,23 +18,23 @@ import type { ProductCardData } from "@/lib/data/products";
 
 const HERO_SLIDES = [
   {
-    src: "/gorseller/hero/slide-1.jpg",
+    src: "/gorseller/hero/slide-1.webp",
     alt: "Modern Mimari Tasarım Stüdyosu",
   },
   {
-    src: "/gorseller/hero/slide-2.jpg",
+    src: "/gorseller/hero/slide-2.webp",
     alt: "Minimalist Açık Ofis & Çalışma Alanı",
   },
   {
-    src: "/gorseller/hero/slide-3.jpg",
+    src: "/gorseller/hero/slide-3.webp",
     alt: "Zarif İç Mimari & Ahşap Detaylar",
   },
   {
-    src: "/gorseller/hero/slide-4.jpg",
+    src: "/gorseller/hero/slide-4.webp",
     alt: "Modern Mimari Cam Yapı & Su Yansıması",
   },
   {
-    src: "/gorseller/hero/slide-5.jpg",
+    src: "/gorseller/hero/slide-5.webp",
     alt: "Ferah ve Aydınlık Teknoloji Çalışma Alanı",
   },
 ];
@@ -73,6 +73,7 @@ export function Hero({
                 alt={slide.alt}
                 fill
                 priority={idx === 0}
+                loading={idx === 0 ? "eager" : "lazy"}
                 sizes="100vw"
                 className={cn(
                   "object-cover object-center transition-transform duration-[8000ms] ease-out",

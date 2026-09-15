@@ -72,9 +72,10 @@
       "studyo-portfoy-sitesi"
     ],
     "portfolioCategory": "web",
-    "image": "/gorseller/hizmetler/web-kurulum-v2-real.jpg",
+    "image": "/gorseller/hizmetler/web-kurulum-v2-real.webp",
     "gallery": [
-      "/gorseller/hizmetler/web-kurulum-v2-real.jpg"
+      "/gorseller/hizmetler/web-kurulum-v2-real.webp",
+      "/gorseller/hizmetler/web-tasarim-studio-real.webp"
     ],
     "category": "web",
     "badge": "En Çok Tercih Edilen"
@@ -152,9 +153,10 @@
       "sepetim-eticaret-mobil-uygulamasi"
     ],
     "portfolioCategory": "eticaret",
-    "image": "/gorseller/hizmetler/eticaret-real.jpg",
+    "image": "/gorseller/hizmetler/eticaret-real.webp",
     "gallery": [
-      "/gorseller/hizmetler/eticaret-real.jpg"
+      "/gorseller/hizmetler/eticaret-real.webp",
+      "/gorseller/hizmetler/hero-eticaret-realistic.webp"
     ],
     "category": "web",
     "badge": "Dönüşüm Odaklı"
@@ -232,9 +234,10 @@
       "randevum-mobil-uygulamasi"
     ],
     "portfolioCategory": "mobil",
-    "image": "/gorseller/hizmetler/mobil-uygulama-real.jpg",
+    "image": "/gorseller/hizmetler/mobil-uygulama-real.webp",
     "gallery": [
-      "/gorseller/hizmetler/mobil-uygulama-real.jpg"
+      "/gorseller/hizmetler/mobil-uygulama-real.webp",
+      "/gorseller/hizmetler/hero-mobil-realistic.webp"
     ],
     "category": "yazilim",
     "badge": "iOS & Android"
@@ -312,9 +315,10 @@
       "hasta-takip-sistemi"
     ],
     "portfolioCategory": "yazilim",
-    "image": "/gorseller/hizmetler/hizmet-ozel-yazilim.jpg",
+    "image": "/gorseller/hizmetler/hizmet-ozel-yazilim.webp",
     "gallery": [
-      "/gorseller/hizmetler/hizmet-ozel-yazilim.jpg"
+      "/gorseller/hizmetler/hizmet-ozel-yazilim.webp",
+      "/gorseller/hizmetler/hero-ozel-yazilim-realistic.webp"
     ],
     "category": "yazilim",
     "badge": "Kurumsal Çözüm"
@@ -391,9 +395,10 @@
       "profesyonel-buyume-paketi"
     ],
     "portfolioCategory": "seo",
-    "image": "/gorseller/ajans/hizmet-seo-analiz-1.svg",
+    "image": "/gorseller/hizmetler/hero-seo-realistic.webp",
     "gallery": [
-      "/gorseller/ajans/hizmet-seo-analiz-1.svg"
+      "/gorseller/hizmetler/hero-seo-realistic.webp",
+      "/gorseller/hizmetler/hizmet-seo.webp"
     ],
     "category": "buyume",
     "badge": "1. Sıra Odaklı"
@@ -477,9 +482,10 @@
       "sosyal-medya-yonetim-paketi"
     ],
     "portfolioCategory": "sosyal",
-    "image": "/gorseller/ajans/hizmet-buyume.svg",
+    "image": "/gorseller/hizmetler/hizmet-reklam-pazarlama.webp",
     "gallery": [
-      "/gorseller/ajans/hizmet-buyume.svg"
+      "/gorseller/hizmetler/hizmet-reklam-pazarlama.webp",
+      "/gorseller/hizmetler/hero-reklam-realistic.webp"
     ],
     "category": "pazarlama",
     "badge": "Aylık Yönetim"
@@ -563,9 +569,10 @@
       "profesyonel-buyume-paketi"
     ],
     "portfolioCategory": "reklam",
-    "image": "/gorseller/ajans/sonuclar.svg",
+    "image": "/gorseller/hizmetler/hero-reklam-realistic.webp",
     "gallery": [
-      "/gorseller/ajans/sonuclar.svg"
+      "/gorseller/hizmetler/hero-reklam-realistic.webp",
+      "/gorseller/hizmetler/hizmet-reklam-pazarlama.webp"
     ],
     "category": "pazarlama",
     "badge": "Yüksek ROI"
@@ -649,9 +656,10 @@
       "profesyonel-buyume-paketi"
     ],
     "portfolioCategory": "reklam",
-    "image": "/gorseller/ajans/surec.svg",
+    "image": "/gorseller/hizmetler/google-ads-real.webp",
     "gallery": [
-      "/gorseller/ajans/surec.svg"
+      "/gorseller/hizmetler/google-ads-real.webp",
+      "/gorseller/hizmetler/hero-seo-realistic.webp"
     ],
     "category": "pazarlama",
     "badge": "Arama & Alışveriş"
@@ -728,9 +736,10 @@
       "medica-klinik-web-sitesi"
     ],
     "portfolioCategory": "saglik",
-    "image": "/gorseller/ajans/hizmet-marka.svg",
+    "image": "/gorseller/hizmetler/health-tourism-real.webp",
     "gallery": [
-      "/gorseller/ajans/hizmet-marka.svg"
+      "/gorseller/hizmetler/health-tourism-real.webp",
+      "/gorseller/referanslar/zenitdent-masaustu.webp"
     ],
     "category": "web",
     "badge": "Çok Dilli Altyapı"
@@ -806,9 +815,10 @@
       "baslangic-dijital-paketi"
     ],
     "portfolioCategory": "marka",
-    "image": "/gorseller/ajans/hizmet-marka.svg",
+    "image": "/gorseller/hizmetler/branding-design-real.webp",
     "gallery": [
-      "/gorseller/ajans/hizmet-marka.svg"
+      "/gorseller/hizmetler/branding-design-real.webp",
+      "/gorseller/hizmetler/web-tasarim-studio-real.webp"
     ],
     "category": "tasarim",
     "badge": "Kreatif Dil"
@@ -884,9 +894,10 @@
       "baslangic-dijital-paketi"
     ],
     "portfolioCategory": "marka",
-    "image": "/gorseller/ajans/hizmet-marka.svg",
+    "image": "/gorseller/hizmetler/branding-design-real.webp",
     "gallery": [
-      "/gorseller/ajans/hizmet-marka.svg"
+      "/gorseller/hizmetler/branding-design-real.webp",
+      "/gorseller/hizmetler/hizmet-web-tasarim.webp"
     ],
     "category": "tasarim",
     "badge": "Logo & Kılavuz"
@@ -962,8 +973,9 @@
       "sosyal-medya-yonetim-paketi"
     ],
     "portfolioCategory": "sosyal",
-    "image": "/gorseller/ajans/hizmet-video-1.svg",
+    "image": "/gorseller/hizmetler/video-content-real.webp",
     "gallery": [
+      "/gorseller/hizmetler/video-content-real.webp",
       "/gorseller/ajans/hizmet-video-1.svg"
     ],
     "category": "tasarim",
@@ -1040,9 +1052,10 @@
       "baslangic-dijital-paketi",
       "profesyonel-buyume-paketi"
     ],
-    "image": "/gorseller/ajans/hizmet-yazilim.svg",
+    "image": "/gorseller/hizmetler/hero-ozel-yazilim-realistic.webp",
     "gallery": [
-      "/gorseller/ajans/hizmet-yazilim.svg"
+      "/gorseller/hizmetler/hero-ozel-yazilim-realistic.webp",
+      "/gorseller/hizmetler/web-kurulum-v2-real.webp"
     ],
     "category": "yazilim",
     "badge": "Kesintisiz Destek"

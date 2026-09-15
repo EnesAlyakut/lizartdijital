@@ -1807,14 +1807,16 @@ export function BlogCreateForm({
               {/* Google Kartı */}
               <div className="rounded-xl border border-slate-200/80 bg-white p-3.5 shadow-2xs space-y-1.5">
                 {/* Site URL yolu */}
-                <div className="flex items-center gap-1.5 text-xs text-slate-600">
-                  <div className="grid size-4 place-items-center rounded-full bg-[#1f7a68] text-[9px] font-bold text-white">
-                    L
-                  </div>
+                <div className="flex items-center gap-2 text-xs text-slate-600">
+                  <img
+                    src="/logo-kare.svg"
+                    alt="Lizart Dijital"
+                    className="size-5 rounded-full border border-slate-200/80 object-cover shadow-2xs shrink-0"
+                  />
                   <div className="truncate">
-                    <span className="font-medium text-slate-900">Lizart Dijital</span>
+                    <span className="font-semibold text-slate-900">Lizart Dijital</span>
                     <span className="text-slate-400 mx-1">›</span>
-                    <span className="text-[#1f7a68] font-mono text-[11px] font-bold">blog › {slug || "yazi-adresi"}</span>
+                    <span className="text-[#1f7a68] font-mono text-[11px] font-bold">https://lizartdijital.com/blog/{slug || "yazi-adresi"}</span>
                   </div>
                 </div>
 

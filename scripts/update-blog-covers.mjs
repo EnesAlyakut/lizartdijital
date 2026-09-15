@@ -9,27 +9,27 @@ async function main() {
   const updates = [
     {
       slug: "hazir-web-sitesi-mi-ozel-tasarim-mi",
-      coverImage: "/gorseller/blog/hazir-web-sitesi-mi-ozel-tasarim-mi.jpg",
+      coverImage: "/gorseller/blog/hazir-web-sitesi-mi-ozel-tasarim-mi.svg",
     },
     {
       slug: "eticaret-sitesinde-donusum-artiran-7-duzenleme",
-      coverImage: "/gorseller/blog/eticaret-sitesinde-donusum-artiran-7-duzenleme.jpg",
+      coverImage: "/gorseller/blog/eticaret-sitesinde-donusum-artiran-7-duzenleme.svg",
     },
     {
       slug: "teknik-seo-kontrol-listesi",
-      coverImage: "/gorseller/blog/teknik-seo-kontrol-listesi.jpg",
+      coverImage: "/gorseller/blog/teknik-seo-kontrol-listesi.svg",
     },
     {
       slug: "mobil-uygulama-yayinlama-sureci",
-      coverImage: "/gorseller/blog/mobil-uygulama-yayinlama-sureci.jpg",
+      coverImage: "/gorseller/blog/mobil-uygulama-yayinlama-sureci.svg",
     },
     {
       slug: "kucuk-isletmeler-icin-reklam-butcesi",
-      coverImage: "/gorseller/blog/kucuk-isletmeler-icin-reklam-butcesi.jpg",
+      coverImage: "/gorseller/blog/kucuk-isletmeler-icin-reklam-butcesi.svg",
     },
     {
       slug: "yapay-zeka-destekli-musteri-hizmetleri",
-      coverImage: "/gorseller/blog/yapay-zeka-destekli-musteri-hizmetleri.jpg",
+      coverImage: "/gorseller/blog/yapay-zeka-destekli-musteri-hizmetleri.svg",
     },
   ];
 

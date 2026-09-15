@@ -29,6 +29,19 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/logo-kare.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "tr_TR",
@@ -66,6 +79,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="tr" className={`${sans.variable} ${serif.variable}`} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png" />
+        <link rel="icon" href="/logo-kare.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="preload" as="image" href="/gorseller/hero/slide-1.webp" type="image/webp" fetchPriority="high" />
+      </head>
       <body className="min-h-dvh antialiased" suppressHydrationWarning>
         <a href="#icerik" className="skip-link">
           İçeriğe geç

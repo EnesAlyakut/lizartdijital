@@ -1,51 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img">
   <defs>
-    <linearGradient id="lz-bg" x1="0" y1="0" x2="0.35" y2="1">
-      <stop offset="0%" stop-color="#f3f5f1"/>
-      <stop offset="55%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#f3f5f1"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%" stop-color="#f3f5f1"/><stop offset="55%" stop-color="#ffffff"/><stop offset="100%" stop-color="#f3f5f1"/>
     </linearGradient>
-    <filter id="lz-sh" x="-12%" y="-12%" width="124%" height="128%">
-      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#141a14" flood-opacity="0.13"/>
-    </filter>
   </defs>
-  <rect width="900" height="620" fill="url(#lz-bg)"/>
-  <g filter="url(#lz-sh)">
-  <circle cx="750" cy="110" r="150" fill="#cfe1cd" opacity="0.5"/>
-
-  <!-- masa -->
+  <rect width="900" height="620" fill="url(#bg)"/>
+  <circle cx="750" cy="110" r="150" fill="#d6fae2" fill-opacity="0.5"/>
+  <!-- Desk -->
   <rect x="60" y="470" width="780" height="12" rx="6" fill="#c6cec2"/>
   <rect x="150" y="482" width="14" height="66" fill="#ffffff"/>
   <rect x="736" y="482" width="14" height="66" fill="#ffffff"/>
-
-  <!-- büyük ekran: tasarım -->
-  <rect x="110" y="128" width="440" height="302" rx="14" fill="#232a22" stroke="#c6cec2"/>
+  <!-- Main screen -->
+  <rect x="110" y="128" width="440" height="302" rx="14" fill="#232a22" stroke="#c6cec2" stroke-width="1"/>
   <rect x="122" y="140" width="416" height="278" rx="8" fill="#ffffff"/>
   <rect x="122" y="140" width="416" height="26" rx="8" fill="#eaeee7"/>
   <rect x="122" y="158" width="416" height="8" fill="#eaeee7"/>
-  <circle cx="140" cy="153" r="4" fill="#c6cec2"/><circle cx="154" cy="153" r="4" fill="#c6cec2"/><circle cx="168" cy="153" r="4" fill="#c6cec2"/>
+  <circle cx="140" cy="153" r="4" fill="#c6cec2"/>
+  <circle cx="154" cy="153" r="4" fill="#c6cec2"/>
+  <circle cx="168" cy="153" r="4" fill="#c6cec2"/>
   <rect x="140" y="192" width="152" height="16" rx="6" fill="#141a14"/>
-  <rect x="140" y="220" width="220" height="9" rx="4.5" fill="#6b7569" opacity="0.85"/>
-  <rect x="140" y="238" width="178" height="9" rx="4.5" fill="#6b7569" opacity="0.82"/>
-  <rect x="140" y="266" width="98" height="28" rx="14" fill="#558053"/>
+  <rect x="140" y="220" width="220" height="9" rx="4.5" fill="#6b7569" fill-opacity="0.85"/>
+  <rect x="140" y="238" width="178" height="9" rx="4.5" fill="#6b7569" fill-opacity="0.82"/>
+  <rect x="140" y="266" width="98" height="28" rx="14" fill="#3ed57f"/>
   <rect x="140" y="316" width="120" height="84" rx="10" fill="#eaeee7"/>
   <rect x="272" y="316" width="120" height="84" rx="10" fill="#eaeee7"/>
-  <rect x="404" y="316" width="120" height="84" rx="10" fill="#cfe1cd"/>
+  <rect x="404" y="316" width="120" height="84" rx="10" fill="#d6fae2"/>
   <rect x="330" y="430" width="60" height="40" fill="#ffffff"/>
   <rect x="286" y="464" width="148" height="10" rx="5" fill="#ffffff"/>
-
-  <!-- küçük ekran: kod -->
-  <rect x="586" y="180" width="252" height="250" rx="14" fill="#232a22" stroke="#c6cec2"/>
+  <!-- Secondary screen (code) -->
+  <rect x="586" y="180" width="252" height="250" rx="14" fill="#232a22" stroke="#c6cec2" stroke-width="1"/>
   <rect x="596" y="190" width="232" height="230" rx="8" fill="#ffffff"/>
-  <rect x="614" y="212" width="120" height="9" rx="4.5" fill="#6b9268" opacity="1"/><rect x="628" y="238" width="86" height="9" rx="4.5" fill="#6b7569" opacity="0.7"/><rect x="614" y="264" width="150" height="9" rx="4.5" fill="#6b7569" opacity="0.7"/><rect x="628" y="290" width="64" height="9" rx="4.5" fill="#6b9268" opacity="1"/><rect x="614" y="316" width="108" height="9" rx="4.5" fill="#6b7569" opacity="0.7"/><rect x="628" y="342" width="140" height="9" rx="4.5" fill="#6b7569" opacity="0.7"/><rect x="614" y="368" width="78" height="9" rx="4.5" fill="#6b9268" opacity="1"/>
+  <rect x="614" y="212" width="120" height="9" rx="4.5" fill="#3ed57f" fill-opacity="0.8"/>
+  <rect x="628" y="238" width="86" height="9" rx="4.5" fill="#6b7569" fill-opacity="0.7"/>
+  <rect x="614" y="264" width="150" height="9" rx="4.5" fill="#6b7569" fill-opacity="0.7"/>
+  <rect x="628" y="290" width="64" height="9" rx="4.5" fill="#3ed57f" fill-opacity="0.8"/>
+  <rect x="614" y="316" width="108" height="9" rx="4.5" fill="#6b7569" fill-opacity="0.7"/>
+  <rect x="628" y="342" width="140" height="9" rx="4.5" fill="#6b7569" fill-opacity="0.7"/>
   <rect x="688" y="430" width="48" height="40" fill="#ffffff"/>
   <rect x="652" y="464" width="120" height="10" rx="5" fill="#ffffff"/>
-
-  <!-- klavye ve kupa -->
-  <rect x="230" y="498" width="220" height="42" rx="10" fill="#ffffff" stroke="#c6cec2"/>
+  <!-- Keyboard -->
+  <rect x="230" y="498" width="220" height="42" rx="10" fill="#ffffff" stroke="#c6cec2" stroke-width="1"/>
   <rect x="244" y="510" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="278" y="510" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="312" y="510" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="346" y="510" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="380" y="510" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="414" y="510" width="24" height="8" rx="4" fill="#c6cec2"/>
   <rect x="258" y="524" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="292" y="524" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="326" y="524" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="360" y="524" width="24" height="8" rx="4" fill="#c6cec2"/><rect x="394" y="524" width="24" height="8" rx="4" fill="#c6cec2"/>
-  <rect x="500" y="502" width="44" height="38" rx="8" fill="#558053"/>
-  <path d="M544 512h14a9 9 0 010 18h-14z" fill="none" stroke="#558053" stroke-width="5"/>
-</g>
+  <rect x="500" y="502" width="44" height="38" rx="8" fill="#3ed57f"/>
+  <path d="M544 512h14a9 9 0 010 18h-14z" fill="none" stroke="#3ed57f" stroke-width="5"/>
 </svg>

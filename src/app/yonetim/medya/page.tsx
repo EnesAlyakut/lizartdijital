@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import fs from "node:fs";
+import path from "node:path";
 import { FileImage, GalleryHorizontalEnd, Images, UploadCloud } from "lucide-react";
 import { prisma } from "@/lib/db";
+import { dataPath } from "@/lib/production-data";
 
 export const metadata: Metadata = { title: "Medya Kütüphanesi | Lizart Yönetim", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -13,7 +16,46 @@ export default async function AdminMediaPage() {
     prisma.portfolioProject.findMany({ orderBy: { completedAt: "desc" } }),
   ]);
 
+  // Yüklenen dosyaları tara
+  const uploadedAssets: { id: string; title: string; type: string; url: string; location: string }[] = [];
+  try {
+    const uploadDirs = process.env.LIZART_DATA_DIR
+      ? [dataPath("uploads"), path.join(process.cwd(), "public", "uploads")]
+      : [path.join(process.cwd(), "public", "uploads")];
+    const seen = new Set<string>();
+    for (const uDir of uploadDirs) {
+      if (fs.existsSync(uDir)) {
+        const files = fs.readdirSync(uDir);
+        for (const f of files) {
+          if (!seen.has(f) && /\.(jpg|jpeg|png|webp|svg|gif)$/i.test(f)) {
+            seen.add(f);
+            uploadedAssets.push({
+              id: `upload-${f}`,
+              title: f,
+              type: "Yüklenen Medya",
+              url: `/uploads/${f}`,
+              location: "Doğrudan Yükleme (Admin)",
+            });
+          }
+        }
+      }
+    }
+  } catch {}
+
+  // Ana sayfa ve site zemin görselleri
+  const siteHeroImages = [
+    { id: "hero-1", title: "Hero Slayt 1 (Modern Mimari)", type: "Site Arka Plan", url: "/gorseller/hero/slide-1.jpg", location: "Ana Sayfa Hero" },
+    { id: "hero-2", title: "Hero Slayt 2 (Açık Ofis)", type: "Site Arka Plan", url: "/gorseller/hero/slide-2.jpg", location: "Ana Sayfa Hero" },
+    { id: "hero-3", title: "Hero Slayt 3 (Ahşap Tasarım)", type: "Site Arka Plan", url: "/gorseller/hero/slide-3.jpg", location: "Ana Sayfa Hero" },
+    { id: "hero-4", title: "Hero Slayt 4 (Modern Cam Yapı)", type: "Site Arka Plan", url: "/gorseller/hero/slide-4.jpg", location: "Ana Sayfa Hero" },
+    { id: "hero-5", title: "Hero Slayt 5 (Aydınlık Çalışma)", type: "Site Arka Plan", url: "/gorseller/hero/slide-5.jpg", location: "Ana Sayfa Hero" },
+    { id: "hakkimizda-hero", title: "Hakkımızda Stüdyo Kahraman", type: "Sayfa Arka Plan", url: "/gorseller/hizmetler/hero-web-tasarim-realistic.png", location: "Hakkımızda" },
+    { id: "ajans-cta", title: "Ajans CTA Banner Arka Plan", type: "Banner Görseli", url: "/gorseller/ajans/cta-banner-bg.jpg", location: "Hakkımızda / CTA" },
+  ];
+
   const assets = [
+    ...uploadedAssets,
+    ...siteHeroImages,
     ...products.map((item) => ({ id: `product-cover-${item.id}`, title: item.name, type: "Ürün Kapak", url: item.coverImage, location: `/urun/${item.slug}` })),
     ...productImages.map((item) => ({ id: item.id, title: item.alt || item.product.name, type: `Ürün ${item.viewport}`, url: item.url, location: `/urun/${item.product.slug}` })),
     ...blogs.map((item) => ({ id: `blog-${item.id}`, title: item.title, type: "Blog Kapak", url: item.coverImage, location: `/blog/${item.slug}` })),

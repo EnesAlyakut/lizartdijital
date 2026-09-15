@@ -22,20 +22,85 @@ const CATEGORIES = [
 
 type CatKey = (typeof CATEGORIES)[number]["key"];
 
-const DEFAULT_META: Record<string, { image: string; category: CatKey; badge: string }> = {
-  "web-sitesi-kurulumu":       { image: "/gorseller/ajans/hizmet-web.svg",          category: "web",       badge: "En Çok Tercih Edilen" },
-  "eticaret-cozumleri":        { image: "/gorseller/ajans/hizmet-eticaret.svg",     category: "web",       badge: "Dönüşüm Odaklı" },
-  "mobil-uygulama-gelistirme": { image: "/gorseller/ajans/hizmet-mobil.svg",        category: "yazilim",   badge: "iOS & Android" },
-  "ozel-yazilim-gelistirme":   { image: "/gorseller/ajans/hizmet-yazilim.svg",      category: "yazilim",   badge: "Kurumsal Çözüm" },
-  "seo-hizmetleri":            { image: "/gorseller/ajans/hizmet-seo-analiz-1.svg", category: "buyume",    badge: "1. Sıra Odaklı" },
-  "sosyal-medya-yonetimi":     { image: "/gorseller/ajans/hizmet-buyume.svg",       category: "pazarlama", badge: "Aylık Yönetim" },
-  "meta-reklam-yonetimi":      { image: "/gorseller/ajans/sonuclar.svg",            category: "pazarlama", badge: "Yüksek ROI" },
-  "google-ads-yonetimi":       { image: "/gorseller/ajans/surec.svg",               category: "pazarlama", badge: "Arama & Alışveriş" },
-  "saglik-turizmi-cozumleri":  { image: "/gorseller/ajans/hizmet-marka.svg",        category: "web",       badge: "Çok Dilli Altyapı" },
-  "grafik-tasarim":            { image: "/gorseller/ajans/hizmet-marka.svg",        category: "tasarim",   badge: "Kreatif Dil" },
-  "kurumsal-kimlik":           { image: "/gorseller/ajans/hizmet-marka.svg",        category: "tasarim",   badge: "Logo & Kılavuz" },
-  "video-ve-icerik-uretimi":   { image: "/gorseller/ajans/hizmet-video-1.svg",      category: "tasarim",   badge: "4K & Reels" },
-  "teknik-destek-ve-bakim":    { image: "/gorseller/ajans/hizmet-yazilim.svg",      category: "yazilim",   badge: "Kesintisiz Destek" },
+const DEFAULT_META: Record<string, { image: string; gallery: string[]; category: CatKey; badge: string }> = {
+  "web-sitesi-kurulumu": {
+    image: "/gorseller/hizmetler/web-kurulum-v2-real.webp",
+    gallery: ["/gorseller/hizmetler/web-tasarim-studio-real.webp"],
+    category: "web",
+    badge: "En Çok Tercih Edilen",
+  },
+  "eticaret-cozumleri": {
+    image: "/gorseller/hizmetler/eticaret-real.webp",
+    gallery: ["/gorseller/hizmetler/hero-eticaret-realistic.webp"],
+    category: "web",
+    badge: "Dönüşüm Odaklı",
+  },
+  "mobil-uygulama-gelistirme": {
+    image: "/gorseller/hizmetler/mobil-uygulama-real.webp",
+    gallery: ["/gorseller/hizmetler/hero-mobil-realistic.webp"],
+    category: "yazilim",
+    badge: "iOS & Android",
+  },
+  "ozel-yazilim-gelistirme": {
+    image: "/gorseller/hizmetler/hizmet-ozel-yazilim.webp",
+    gallery: ["/gorseller/hizmetler/hero-ozel-yazilim-realistic.webp"],
+    category: "yazilim",
+    badge: "Kurumsal Çözüm",
+  },
+  "seo-hizmetleri": {
+    image: "/gorseller/hizmetler/hero-seo-realistic.webp",
+    gallery: ["/gorseller/hizmetler/hizmet-seo.webp"],
+    category: "buyume",
+    badge: "1. Sıra Odaklı",
+  },
+  "sosyal-medya-yonetimi": {
+    image: "/gorseller/hizmetler/hizmet-reklam-pazarlama.webp",
+    gallery: ["/gorseller/hizmetler/hero-reklam-realistic.webp"],
+    category: "pazarlama",
+    badge: "Aylık Yönetim",
+  },
+  "meta-reklam-yonetimi": {
+    image: "/gorseller/hizmetler/hero-reklam-realistic.webp",
+    gallery: ["/gorseller/hizmetler/hizmet-reklam-pazarlama.webp"],
+    category: "pazarlama",
+    badge: "Yüksek ROI",
+  },
+  "google-ads-yonetimi": {
+    image: "/gorseller/hizmetler/google-ads-real.webp",
+    gallery: ["/gorseller/hizmetler/hero-seo-realistic.webp"],
+    category: "pazarlama",
+    badge: "Arama & Alışveriş",
+  },
+  "saglik-turizmi-cozumleri": {
+    image: "/gorseller/hizmetler/health-tourism-real.webp",
+    gallery: ["/gorseller/referanslar/zenitdent-masaustu.webp"],
+    category: "web",
+    badge: "Çok Dilli Altyapı",
+  },
+  "grafik-tasarim": {
+    image: "/gorseller/hizmetler/branding-design-real.webp",
+    gallery: ["/gorseller/hizmetler/web-tasarim-studio-real.webp"],
+    category: "tasarim",
+    badge: "Kreatif Dil",
+  },
+  "kurumsal-kimlik": {
+    image: "/gorseller/hizmetler/branding-design-real.webp",
+    gallery: ["/gorseller/hizmetler/hizmet-web-tasarim.webp"],
+    category: "tasarim",
+    badge: "Logo & Kılavuz",
+  },
+  "video-ve-icerik-uretimi": {
+    image: "/gorseller/hizmetler/video-content-real.webp",
+    gallery: ["/gorseller/ajans/hizmet-video-1.svg"],
+    category: "tasarim",
+    badge: "4K & Reels",
+  },
+  "teknik-destek-ve-bakim": {
+    image: "/gorseller/hizmetler/hero-ozel-yazilim-realistic.webp",
+    gallery: ["/gorseller/hizmetler/web-kurulum-v2-real.webp"],
+    category: "yazilim",
+    badge: "Kesintisiz Destek",
+  },
 };
 
 export function ServicesDirectory({ services }: { services: Service[] }) {
@@ -200,13 +265,13 @@ export function ServicesDirectory({ services }: { services: Service[] }) {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((service, index) => {
               const meta = DEFAULT_META[service.slug];
-              const cardImage = service.image || meta?.image || "/gorseller/ajans/hizmet-web.svg";
+              const cardImage = service.image || meta?.image || "/gorseller/hizmetler/web-kurulum-v2-real.webp";
               const badgeText = service.badge || meta?.badge || "Profesyonel";
               const price = service.packages?.[0]?.price || "Teklif Alın";
-              const galleryCount = service.gallery?.length || 0;
               const itemNumber = String(index + 1).padStart(2, "0");
 
-              const allImages = [cardImage, ...(service.gallery || [])].filter(Boolean);
+              const galleryImages = (service.gallery && service.gallery.length > 0 ? service.gallery : meta?.gallery) || [];
+              const allImages = Array.from(new Set([cardImage, ...galleryImages].filter(Boolean)));
 
               return (
                 <article

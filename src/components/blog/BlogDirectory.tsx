@@ -67,9 +67,10 @@ export function BlogDirectory({
       {featuredPost && (
         <article className="group relative overflow-hidden rounded-[2.5rem] border border-ink-100 bg-surface shadow-sm transition-all duration-300 hover:border-brand-400 hover:shadow-xl hover:shadow-brand-500/10 lg:grid lg:grid-cols-12 lg:items-center">
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-ink-50 lg:col-span-7 lg:h-full lg:min-h-[380px]">
-            <Image
+            <BlogCover
               src={featuredPost.coverImage}
               alt={featuredPost.title}
+              slug={featuredPost.slug}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 60vw"
@@ -183,9 +184,10 @@ export function BlogDirectory({
             <div>
               {/* Kapak Görseli */}
               <Link href={`/blog/${post.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-ink-50">
-                <Image
+                <BlogCover
                   src={post.coverImage}
                   alt={post.title}
+                  slug={post.slug}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -218,21 +220,23 @@ export function BlogDirectory({
                   {post.excerpt}
                 </p>
               </div>
-            </div>
 
-            {/* Alt Bilgi & Devamını Oku */}
-            <div className="flex items-center justify-between border-t border-ink-100 p-6 pt-4 text-xs">
-              <div className="flex items-center gap-1.5 text-ink-600 font-medium">
-                <User className="size-3.5 text-ink-400" />
-                <span>{post.authorName}</span>
+              {/* Yazar ve Okuma Bağlantısı */}
+              <div className="flex items-center justify-between border-t border-ink-100/80 px-6 py-4">
+                <div className="flex items-center gap-2 text-xs font-semibold text-ink-700">
+                  <span className="flex size-6 items-center justify-center rounded-full bg-brand-100 font-bold text-brand-800 text-[10px]">
+                    {post.authorName.charAt(0)}
+                  </span>
+                  <span>{post.authorName}</span>
+                </div>
+
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="inline-flex items-center gap-1 text-xs font-bold text-brand-700 group-hover:translate-x-0.5 transition-transform"
+                >
+                  Devamını Oku <ArrowRight className="size-3.5" />
+                </Link>
               </div>
-
-              <Link
-                href={`/blog/${post.slug}`}
-                className="inline-flex items-center gap-1 font-bold text-brand-700 transition-transform group-hover:translate-x-1"
-              >
-                Devamını Oku <ArrowRight className="size-3.5" />
-              </Link>
             </div>
           </article>
         ))}
@@ -260,5 +264,46 @@ export function BlogDirectory({
         </div>
       )}
     </div>
+  );
+}
+
+function BlogCover({
+  src,
+  alt,
+  slug,
+  fill = false,
+  priority = false,
+  sizes,
+  className,
+}: {
+  src: string;
+  alt: string;
+  slug: string;
+  fill?: boolean;
+  priority?: boolean;
+  sizes?: string;
+  className?: string;
+}) {
+  const [imgSrc, setImgSrc] = useState(src || `/gorseller/blog/${slug}.webp`);
+  const [attempt, setAttempt] = useState(0);
+
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      fill={fill}
+      priority={priority}
+      sizes={sizes}
+      className={className}
+      onError={() => {
+        if (attempt === 0) {
+          setAttempt(1);
+          setImgSrc(`/gorseller/blog/${slug}.jpg`);
+        } else if (attempt === 1) {
+          setAttempt(2);
+          setImgSrc(`/gorseller/blog/${slug}.svg`);
+        }
+      }}
+    />
   );
 }

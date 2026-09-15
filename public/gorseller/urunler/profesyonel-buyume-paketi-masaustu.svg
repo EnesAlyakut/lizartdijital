@@ -1,33 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Profesyonel Büyüme Paketi">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Profesyonel Büyüme Paketi masaüstü görünüm">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a994c"/><stop offset="100%" stop-color="#0b4f2e"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1f4f"/>
+      <stop offset="100%" stop-color="#1a3670"/>
     </linearGradient>
   </defs>
-  <rect width="800" height="600" fill="url(#g)"/>
-  <g transform="translate(80 96)">
-    <rect width="640" height="408" rx="18" fill="#ffffff" opacity="0.97"/>
-    <rect width="640" height="44" rx="18" fill="#f1f2f0"/>
-    <rect y="30" width="640" height="14" fill="#f1f2f0"/>
-    <circle cx="26" cy="22" r="6" fill="#d9dcd8"/><circle cx="48" cy="22" r="6" fill="#d9dcd8"/><circle cx="70" cy="22" r="6" fill="#d9dcd8"/>
-    <rect x="104" y="14" width="220" height="16" rx="8" fill="#e7e9e5"/>
-    <rect x="32" y="76" width="300" height="26" rx="8" fill="#0b4f2e" opacity="0.9"/>
-    <rect x="32" y="116" width="220" height="14" rx="7" fill="#cfd4cf"/>
-    <rect x="32" y="152" width="128" height="34" rx="17" fill="#d6fae2"/>
-    <rect x="32" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="44" y="244" width="72" height="12" rx="6" fill="#0a994c" opacity="0.55"/>
-       <rect x="44" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="44" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="184" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="196" y="244" width="54" height="12" rx="6" fill="#0a994c" opacity="0.55"/>
-       <rect x="196" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="196" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="336" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="348" y="244" width="88" height="12" rx="6" fill="#0a994c" opacity="0.55"/>
-       <rect x="348" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="348" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="488" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="500" y="244" width="46" height="12" rx="6" fill="#0a994c" opacity="0.55"/>
-       <rect x="500" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="500" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="80" y="40" width="1040" height="660" rx="12" fill="#ffffff" filter="url(#f1)"/>
+  <defs>
+    <filter id="f1"><feDropShadow dx="0" dy="10" stdDeviation="20" flood-opacity="0.3"/></filter>
+  </defs>
+  <!-- Browser chrome -->
+  <rect x="80" y="40" width="1040" height="44" rx="12" fill="#f0f0ef"/>
+  <rect x="80" y="72" width="1040" height="12" fill="#f0f0ef"/>
+  <circle cx="106" cy="62" r="7" fill="#ff5f57"/>
+  <circle cx="128" cy="62" r="7" fill="#febc2e"/>
+  <circle cx="150" cy="62" r="7" fill="#28c840"/>
+  <rect x="180" y="52" width="400" height="20" rx="10" fill="#e2e2e0"/>
+  <rect x="198" y="57" width="260" height="10" rx="5" fill="#d0d0ce"/>
+  <!-- Inner page (scaled version) -->
+  <g transform="translate(80, 84) scale(1.04)">
+    
+    <rect x="20" y="56" width="760" height="420" rx="12" fill="#ffffff" />
+    <rect x="20" y="56" width="760" height="180" rx="0" fill="#0b1f4f" />
+    <text x="44" y="120" font-family="system-ui,Segoe UI,Arial" font-size="26" font-weight="800" fill="#ffffff" >Profesyonel Büyüme</text>
+    <text x="44" y="148" font-family="system-ui,Segoe UI,Arial" font-size="26" font-weight="800" fill="#4a8fff" >Paketi</text>
+    <text x="44" y="174" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="normal" fill="#aaaacc" >Tam kapsamlı dijital büyüme çözümü.</text>
+    <rect x="44" y="196" width="260" height="32" rx="16" fill="#4a8fff" />
+    <rect x="20" y="252" width="760" height="224" rx="0" fill="#f9f9f9" />
+    <polyline points="40,340 113.33333333333333,376 186.66666666666666,322 260,358 333.3333333333333,304 406.66666666666663,331 480,286" fill="none" stroke="#4a8fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="40,448 40,340 113.33333333333333,376 186.66666666666666,322 260,358 333.3333333333333,304 406.66666666666663,331 480,286 480,448" fill="#4a8fff" fill-opacity="0.1" stroke="none"/>
+    <circle cx="40" cy="340" r="4" fill="#4a8fff" /><circle cx="113.33333333333333" cy="376" r="4" fill="#4a8fff" /><circle cx="186.66666666666666" cy="322" r="4" fill="#4a8fff" /><circle cx="260" cy="358" r="4" fill="#4a8fff" /><circle cx="333.3333333333333" cy="304" r="4" fill="#4a8fff" /><circle cx="406.66666666666663" cy="331" r="4" fill="#4a8fff" /><circle cx="480" cy="286" r="4" fill="#4a8fff" />
+  
+    <rect x="500" y="252" width="280" height="224" rx="12" fill="#ffffff" />
+    <rect x="514" y="264" width="252" height="44" rx="8" fill="#f9f9f9" />
+      <rect x="514" y="264" width="4" height="44" rx="0" fill="#4a8fff" />
+      <rect x="530" y="276" width="160" height="11" rx="4" fill="#d4d4d4" />
+      <rect x="530" y="293" width="100" height="9" rx="4" fill="#e4e4e4" /><rect x="514" y="316" width="252" height="44" rx="8" fill="#f9f9f9" />
+      <rect x="514" y="316" width="4" height="44" rx="0" fill="#4a8fff" />
+      <rect x="530" y="328" width="160" height="11" rx="4" fill="#d4d4d4" />
+      <rect x="530" y="345" width="100" height="9" rx="4" fill="#e4e4e4" /><rect x="514" y="368" width="252" height="44" rx="8" fill="#f9f9f9" />
+      <rect x="514" y="368" width="4" height="44" rx="0" fill="#4a8fff" />
+      <rect x="530" y="380" width="160" height="11" rx="4" fill="#d4d4d4" />
+      <rect x="530" y="397" width="100" height="9" rx="4" fill="#e4e4e4" /><rect x="514" y="420" width="252" height="44" rx="8" fill="#f9f9f9" />
+      <rect x="514" y="420" width="4" height="44" rx="0" fill="#4a8fff" />
+      <rect x="530" y="432" width="160" height="11" rx="4" fill="#d4d4d4" />
+      <rect x="530" y="449" width="100" height="9" rx="4" fill="#e4e4e4" />
+  
   </g>
-  <text x="80" y="556" font-family="system-ui,Segoe UI,Arial" font-size="26" font-weight="700" fill="#ffffff">Profesyonel Büyüme Paketi</text>
-  <text x="80" y="584" font-family="system-ui,Segoe UI,Arial" font-size="16" fill="#ffffff" opacity="0.78">Masaüstü görünüm</text>
+  <!-- Monitor stand -->
+  <rect x="540" y="700" width="120" height="16" rx="8" fill="#1a3670" fill-opacity="0.5"/>
+  <rect x="510" y="716" width="180" height="8" rx="4" fill="#1a3670" fill-opacity="0.3"/>
 </svg>

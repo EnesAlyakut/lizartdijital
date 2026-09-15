@@ -1,33 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Sağlık Turizmi Dijital Paketi">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#12171a"/><stop offset="100%" stop-color="#2c3438"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#083f3b"/>
+      <stop offset="100%" stop-color="#0f6b64"/>
     </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
   </defs>
-  <rect width="800" height="600" fill="url(#g)"/>
-  <g transform="translate(80 96)">
-    <rect width="640" height="408" rx="18" fill="#ffffff" opacity="0.97"/>
-    <rect width="640" height="44" rx="18" fill="#f1f2f0"/>
-    <rect y="30" width="640" height="14" fill="#f1f2f0"/>
-    <circle cx="26" cy="22" r="6" fill="#d9dcd8"/><circle cx="48" cy="22" r="6" fill="#d9dcd8"/><circle cx="70" cy="22" r="6" fill="#d9dcd8"/>
-    <rect x="104" y="14" width="220" height="16" rx="8" fill="#e7e9e5"/>
-    <rect x="32" y="76" width="300" height="26" rx="8" fill="#2c3438" opacity="0.9"/>
-    <rect x="32" y="116" width="220" height="14" rx="7" fill="#cfd4cf"/>
-    <rect x="32" y="152" width="128" height="34" rx="17" fill="#3ed57f"/>
-    <rect x="32" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="44" y="244" width="72" height="12" rx="6" fill="#12171a" opacity="0.55"/>
-       <rect x="44" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="44" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="184" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="196" y="244" width="54" height="12" rx="6" fill="#12171a" opacity="0.55"/>
-       <rect x="196" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="196" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="336" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="348" y="244" width="88" height="12" rx="6" fill="#12171a" opacity="0.55"/>
-       <rect x="348" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="348" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/><rect x="488" y="228" width="132" height="132" rx="14" fill="#f4f5f2"/>
-       <rect x="500" y="244" width="46" height="12" rx="6" fill="#12171a" opacity="0.55"/>
-       <rect x="500" y="266" width="104" height="10" rx="5" fill="#dcdfda"/>
-       <rect x="500" y="284" width="76" height="10" rx="5" fill="#e6e8e3"/>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="680" cy="120" r="140" fill="#2dd4bf" fill-opacity="0.05"/>
+  <circle cx="100" cy="500" r="80" fill="#ccfbf1" fill-opacity="0.04"/>
+  <g filter="url(#shadow)">
+    
+    <rect x="20" y="56" width="760" height="420" rx="12" fill="#ffffff" />
+    <rect x="20" y="56" width="760" height="180" rx="0" fill="#083f3b" />
+    <circle cx="680" cy="146" r="90" fill="#2dd4bf" opacity="0.08"/>
+    <text x="44" y="120" font-family="system-ui,Segoe UI,Arial" font-size="28" font-weight="800" fill="#ffffff" >Sağlık Turizmi</text>
+    <text x="44" y="150" font-family="system-ui,Segoe UI,Arial" font-size="28" font-weight="800" fill="#2dd4bf" >Dijital Paketi</text>
+    <text x="44" y="178" font-family="system-ui,Segoe UI,Arial" font-size="13" font-weight="normal" fill="#aaaacc" >Yabancı hasta akışını dijitale taşıyın.</text>
+    <rect x="44" y="196" width="160" height="32" rx="16" fill="#2dd4bf" />
+    <text x="64" y="215" font-family="system-ui,Segoe UI,Arial" font-size="12" font-weight="600" fill="#ffffff" >Paketi İncele →</text>
+    <rect x="20" y="252" width="760" height="1" rx="0" fill="#eeeeee" />
+    <rect x="20" y="268" width="178" height="120" rx="10" fill="#f9f9f9" />
+      <circle cx="109" cy="308" r="24" fill="#ccfbf1" />
+      <text x="85" y="313" font-family="system-ui,Segoe UI,Arial" font-size="20" font-weight="normal" fill="#ffffff" >🏥</text>
+      <rect x="44" y="344" width="110" height="12" rx="4" fill="#d4d4d4" />
+      <rect x="44" y="362" width="80" height="9" rx="4" fill="#e8e8e8" /><rect x="212" y="268" width="178" height="120" rx="10" fill="#f9f9f9" />
+      <circle cx="301" cy="308" r="24" fill="#ccfbf1" />
+      <text x="277" y="313" font-family="system-ui,Segoe UI,Arial" font-size="20" font-weight="normal" fill="#ffffff" >🌍</text>
+      <rect x="236" y="344" width="110" height="12" rx="4" fill="#d4d4d4" />
+      <rect x="236" y="362" width="80" height="9" rx="4" fill="#e8e8e8" /><rect x="404" y="268" width="178" height="120" rx="10" fill="#f9f9f9" />
+      <circle cx="493" cy="308" r="24" fill="#ccfbf1" />
+      <text x="469" y="313" font-family="system-ui,Segoe UI,Arial" font-size="20" font-weight="normal" fill="#ffffff" >📱</text>
+      <rect x="428" y="344" width="110" height="12" rx="4" fill="#d4d4d4" />
+      <rect x="428" y="362" width="80" height="9" rx="4" fill="#e8e8e8" /><rect x="596" y="268" width="178" height="120" rx="10" fill="#f9f9f9" />
+      <circle cx="685" cy="308" r="24" fill="#ccfbf1" />
+      <text x="661" y="313" font-family="system-ui,Segoe UI,Arial" font-size="20" font-weight="normal" fill="#ffffff" >📊</text>
+      <rect x="620" y="344" width="110" height="12" rx="4" fill="#d4d4d4" />
+      <rect x="620" y="362" width="80" height="9" rx="4" fill="#e8e8e8" />
+  
   </g>
-  <text x="80" y="556" font-family="system-ui,Segoe UI,Arial" font-size="26" font-weight="700" fill="#ffffff">Sağlık Turizmi Dijital Paketi</text>
-  <text x="80" y="584" font-family="system-ui,Segoe UI,Arial" font-size="16" fill="#ffffff" opacity="0.78">Çok dilli site, hasta adayı toplama ve reklam yönetimi.</text>
+  <text x="20" y="576" font-family="system-ui,Segoe UI,Arial" font-size="22" font-weight="700" fill="#ffffff">Sağlık Turizmi Dijital Paketi</text>
+  <text x="20" y="596" font-family="system-ui,Segoe UI,Arial" font-size="12" fill="#ffffff" opacity="0.7">Yabancı hasta akışını dijitale taşıyın.</text>
 </svg>

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgMed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#042f2e"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <filter id="shadowMed" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bgMed)"/>
+  <circle cx="250" cy="180" r="280" fill="#14b8a6" opacity="0.1" filter="blur(80px)"/>
+  <circle cx="950" cy="450" r="300" fill="#38bdf8" opacity="0.1" filter="blur(80px)"/>
+
+  <!-- Sol Dashboard: Uluslararası Hasta Yönetim Paneli -->
+  <g transform="translate(100, 100)" filter="url(#shadowMed)">
+    <rect width="520" height="475" rx="24" fill="#0f2628" stroke="#134e4a" stroke-width="2"/>
+    <rect width="520" height="54" rx="24" fill="#081a1c"/>
+    <rect x="0" y="30" width="520" height="24" fill="#081a1c"/>
+    <circle cx="28" cy="27" r="6" fill="#ef4444"/>
+    <circle cx="48" cy="27" r="6" fill="#f59e0b"/>
+    <circle cx="68" cy="27" r="6" fill="#10b981"/>
+    <text x="94" y="32" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#2dd4bf">Global Sağlık Turizmi &amp; CRM Paneli</text>
+
+    <!-- Kart 1: Yurt Dışı Hasta Lead Akışı -->
+    <g transform="translate(30, 80)">
+      <rect width="460" height="74" rx="14" fill="#06191b"/>
+      <rect x="18" y="15" width="44" height="44" rx="12" fill="url(#tealGrad)"/>
+      <text x="40" y="43" text-anchor="middle" font-size="20" fill="#ffffff">✈️</text>
+      <text x="76" y="33" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#ffffff">Yabancı Hasta Başvuru Akışı</text>
+      <text x="76" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#5eead4">UK, Almanya, Körfez · Çok Dilli Formlar</text>
+      <rect x="360" y="24" width="80" height="26" rx="13" fill="#10b981" opacity="0.2"/>
+      <text x="400" y="41" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#34d399">140+ LEAD</text>
+    </g>
+
+    <!-- Kart 2: Çok Dilli WhatsApp & CRM -->
+    <g transform="translate(30, 170)">
+      <rect width="460" height="74" rx="14" fill="#06191b"/>
+      <rect x="18" y="15" width="44" height="44" rx="12" fill="#25d366"/>
+      <text x="40" y="43" text-anchor="middle" font-size="20" fill="#ffffff">💬</text>
+      <text x="76" y="33" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#ffffff">Hızlı WhatsApp Teklif Sistemi</text>
+      <text x="76" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#5eead4">İlk 5 Dk Yanıt · Tedavi Planı &amp; Fiyatlandırma</text>
+      <rect x="360" y="24" width="80" height="26" rx="13" fill="#10b981" opacity="0.2"/>
+      <text x="400" y="41" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#34d399">AKTİF</text>
+    </g>
+
+    <!-- Kart 3: Vaka Galerisi & Teşvikler -->
+    <g transform="translate(30, 260)">
+      <rect width="460" height="74" rx="14" fill="#06191b"/>
+      <rect x="18" y="15" width="44" height="44" rx="12" fill="url(#blueGrad)"/>
+      <text x="40" y="43" text-anchor="middle" font-size="20" fill="#ffffff">🩺</text>
+      <text x="76" y="33" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#ffffff">Video Referans &amp; Bakanlık Teşviki</text>
+      <text x="76" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#5eead4">Hasta Deneyimi · %60 Reklam Destek Uyumlu</text>
+      <rect x="360" y="24" width="80" height="26" rx="13" fill="#10b981" opacity="0.2"/>
+      <text x="400" y="41" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#34d399">ONAYLI</text>
+    </g>
+
+    <!-- Alt Metrik Çubuğu -->
+    <g transform="translate(30, 355)">
+      <rect width="460" height="90" rx="16" fill="url(#tealGrad)"/>
+      <text x="24" y="34" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#ccfbf1">Aylık Yurt Dışı Hasta Dönüşüm Oranı</text>
+      <text x="24" y="68" font-family="system-ui,sans-serif" font-size="28" font-weight="900" fill="#ffffff">%6,8</text>
+      <text x="120" y="66" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#ccfbf1">▲ Sektör Ortalamasının 2.4 Katı</text>
+    </g>
+  </g>
+
+  <!-- Sağ Bölüm: Global Harita ve Bayrak Kartı -->
+  <g transform="translate(680, 100)" filter="url(#shadowMed)">
+    <rect width="420" height="475" rx="24" fill="#0d2123" stroke="#134e4a" stroke-width="2"/>
+    <rect width="420" height="54" rx="24" fill="#071719"/>
+    <text x="30" y="34" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#2dd4bf">Hedef Ülkeler &amp; Hasta Kazanımı</text>
+
+    <!-- Ülke Kartları -->
+    <g transform="translate(30, 80)">
+      <rect width="360" height="64" rx="12" fill="#07191b"/>
+      <text x="20" y="38" font-size="22">🇬🇧</text>
+      <text x="60" y="30" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Birleşik Krallık (İngiltere)</text>
+      <text x="60" y="48" font-family="system-ui,sans-serif" font-size="11" fill="#5eead4">Diş Estetiği &amp; Saç Ekimi · 58 Hasta / Ay</text>
+    </g>
+
+    <g transform="translate(30, 155)">
+      <rect width="360" height="64" rx="12" fill="#07191b"/>
+      <text x="20" y="38" font-size="22">🇩🇪</text>
+      <text x="60" y="30" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Almanya &amp; Avusturya</text>
+      <text x="60" y="48" font-family="system-ui,sans-serif" font-size="11" fill="#5eead4">Göz &amp; Ortopedi · 42 Hasta / Ay</text>
+    </g>
+
+    <g transform="translate(30, 230)">
+      <rect width="360" height="64" rx="12" fill="#07191b"/>
+      <text x="20" y="38" font-size="22">🇦🇪</text>
+      <text x="60" y="30" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Körfez Ülkeleri (BAE, Katar)</text>
+      <text x="60" y="48" font-family="system-ui,sans-serif" font-size="11" fill="#5eead4">Plastik Cerrahi &amp; VIP Paket · 34 Hasta / Ay</text>
+    </g>
+
+    <g transform="translate(30, 315)">
+      <rect width="360" height="130" rx="14" fill="#041214"/>
+      <text x="24" y="34" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#2dd4bf">VIP Hizmet Deneyimi</text>
+      <text x="24" y="60" font-family="system-ui,sans-serif" font-size="12" fill="#99f6e4">✓ VIP Havalimanı Transferi &amp; Karşılama</text>
+      <text x="24" y="82" font-family="system-ui,sans-serif" font-size="12" fill="#99f6e4">✓ 5 Yıldızlı Anlaşmalı Otel Konaklaması</text>
+      <text x="24" y="104" font-family="system-ui,sans-serif" font-size="12" fill="#99f6e4">✓ Kendi Dilinde Kişisel Tercüman &amp; Asistan</text>
+    </g>
+  </g>
+</svg>

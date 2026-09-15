@@ -1,7 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="E-Ticaret Sitesinde Dönüşüm Artıran 7 Düzenleme">
-  <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b1580"/></linearGradient></defs>
-  <rect width="1200" height="675" fill="url(#cg)"/>
-  <circle cx="936" cy="189.00000000000003" r="202.5" fill="#ede9fe" opacity="0.22"/>
-  <circle cx="240" cy="553.5" r="148.5" fill="#ffffff" opacity="0.12"/>
-  <text x="64" y="611" font-family="system-ui,Segoe UI,Arial" font-size="46" font-weight="700" fill="#ffffff">E-Ticaret Sitesinde Dönüşüm Artıran 7 Düzenleme</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#061a12"/>
+      <stop offset="50%" stop-color="#062e1d"/>
+      <stop offset="100%" stop-color="#021c10"/>
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg2)"/>
+  <circle cx="850" cy="200" r="300" fill="#10b981" opacity="0.1" filter="blur(80px)"/>
+
+  <!-- Sol Panel: E-Ticaret Sepet & Satın Alma Simülasyonu -->
+  <g transform="translate(100, 90)">
+    <rect width="500" height="495" rx="24" fill="#0f291e" stroke="#1b4d38" stroke-width="2"/>
+    <rect width="500" height="54" rx="24" fill="#071b13"/>
+    <rect x="0" y="30" width="500" height="24" fill="#071b13"/>
+    <circle cx="28" cy="27" r="6" fill="#ef4444"/>
+    <circle cx="48" cy="27" r="6" fill="#f59e0b"/>
+    <circle cx="68" cy="27" r="6" fill="#10b981"/>
+    <text x="94" y="32" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#a7f3d0">Güvenli Ödeme Akışı (Hızlı Checkout)</text>
+
+    <!-- Ürün Kartı -->
+    <rect x="30" y="80" width="440" height="90" rx="16" fill="#092017" stroke="#164e37"/>
+    <rect x="46" y="96" width="58" height="58" rx="12" fill="#10b981" opacity="0.2"/>
+    <text x="75" y="132" text-anchor="middle" font-size="24">🛍️</text>
+    <text x="120" y="118" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#ffffff">Premium E-Ticaret Şablonu</text>
+    <text x="120" y="138" font-family="system-ui,sans-serif" font-size="12" fill="#6ee7b7">Genişletilmiş Lisans + Kurulum</text>
+    <text x="440" y="130" text-anchor="end" font-family="system-ui,sans-serif" font-size="16" font-weight="800" fill="#34d399">₺12.900</text>
+
+    <!-- 1. Kural: Şeffaf Kargo & Hızlı Sipariş -->
+    <g transform="translate(30, 190)">
+      <rect width="440" height="60" rx="12" fill="#092017"/>
+      <circle cx="30" cy="30" r="14" fill="#10b981"/>
+      <text x="30" y="35" text-anchor="middle" font-size="12" font-weight="800" fill="#022c19">✓</text>
+      <text x="56" y="27" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#ffffff">Ücretsiz ve Hızlı Kargo Bildirimi</text>
+      <text x="56" y="45" font-family="system-ui,sans-serif" font-size="11" fill="#6ee7b7">Sürpriz ek maliyet olmadan şeffaf sepet</text>
+    </g>
+
+    <!-- 2. Kural: Tek Tıkla Ödeme -->
+    <g transform="translate(30, 265)">
+      <rect width="440" height="60" rx="12" fill="#092017"/>
+      <circle cx="30" cy="30" r="14" fill="#10b981"/>
+      <text x="30" y="35" text-anchor="middle" font-size="12" font-weight="800" fill="#022c19">✓</text>
+      <text x="56" y="27" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#ffffff">Üyeliksiz Hızlı Sipariş Desteği</text>
+      <text x="56" y="45" font-family="system-ui,sans-serif" font-size="11" fill="#6ee7b7">Sepeti terk oranını %38 oranında düşürür</text>
+    </g>
+
+    <!-- Satın Al Butonu -->
+    <rect x="30" y="350" width="440" height="52" rx="26" fill="#10b981"/>
+    <text x="250" y="382" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" font-weight="800" fill="#022c19">Siparişi Güvenle Tamamla →</text>
+
+    <!-- Güven Damgaları -->
+    <text x="250" y="440" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#6ee7b7">🔒 256-Bit SSL · 3D Secure · Anında Teslimat</text>
+  </g>
+
+  <!-- Sağ Panel: Dönüşüm Grafiği & İstatistikler -->
+  <g transform="translate(650, 110)">
+    <rect width="450" height="455" rx="24" fill="#0f291e" stroke="#1b4d38" stroke-width="2"/>
+    <text x="36" y="50" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#34d399" letter-spacing="1">DÖNÜŞÜM OPTİMİZASYONU</text>
+    <text x="36" y="85" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="#ffffff">+%42 Dönüşüm</text>
+    <text x="36" y="110" font-family="system-ui,sans-serif" font-size="13" fill="#6ee7b7">Yapılan 7 UX düzenlemesi sonrası ortalama artış</text>
+
+    <!-- Grafik Çizgisi -->
+    <g transform="translate(36, 140)">
+      <path d="M0,180 L70,160 L140,140 L210,90 L280,60 L350,20 L380,10" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round"/>
+      <path d="M0,180 L70,160 L140,140 L210,90 L280,60 L350,20 L380,10 L380,200 L0,200 Z" fill="url(#chartGrad)"/>
+      <circle cx="380" cy="10" r="7" fill="#34d399"/>
+    </g>
+
+    <!-- 3 İstatistik Kutusu -->
+    <g transform="translate(36, 360)">
+      <rect width="115" height="65" rx="12" fill="#092017"/>
+      <text x="57" y="32" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="800" fill="#34d399">-%34</text>
+      <text x="57" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6ee7b7">Sepet Terk</text>
+
+      <rect x="130" width="115" height="65" rx="12" fill="#092017"/>
+      <text x="187" y="32" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="800" fill="#34d399">0.8s</text>
+      <text x="187" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6ee7b7">Sayfa Hızı</text>
+
+      <rect x="260" width="115" height="65" rx="12" fill="#092017"/>
+      <text x="317" y="32" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="800" fill="#34d399">2.8x</text>
+      <text x="317" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6ee7b7">Mobil Satış</text>
+    </g>
+  </g>
 </svg>

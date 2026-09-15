@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgMkt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#180b33"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#090514"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="violetGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <filter id="shadowMkt" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bgMkt)"/>
+  <circle cx="280" cy="180" r="280" fill="#f97316" opacity="0.1" filter="blur(80px)"/>
+  <circle cx="950" cy="450" r="300" fill="#8b5cf6" opacity="0.1" filter="blur(80px)"/>
+
+  <!-- Sol Dashboard: 360 Büyüme Hunisi -->
+  <g transform="translate(100, 100)" filter="url(#shadowMkt)">
+    <rect width="520" height="475" rx="24" fill="#1b1238" stroke="#3d1f70" stroke-width="2"/>
+    <rect width="520" height="54" rx="24" fill="#110926"/>
+    <rect x="0" y="30" width="520" height="24" fill="#110926"/>
+    <circle cx="28" cy="27" r="6" fill="#ef4444"/>
+    <circle cx="48" cy="27" r="6" fill="#f59e0b"/>
+    <circle cx="68" cy="27" r="6" fill="#10b981"/>
+    <text x="94" y="32" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#fb923c">360° Dijital Pazarlama &amp; Büyüme Ekosistemi</text>
+
+    <!-- 4 Entegre Kanal Kartı -->
+    <g transform="translate(30, 80)">
+      <rect width="460" height="62" rx="12" fill="#130a28"/>
+      <text x="20" y="38" font-size="20">🔍</text>
+      <text x="56" y="28" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Organik Arama &amp; SEO Büyümesi</text>
+      <text x="56" y="47" font-family="system-ui,sans-serif" font-size="11" fill="#fed7aa">Sıfır Medya Maliyetli Kalıcı Nitelikli Trafik</text>
+      <rect x="360" y="18" width="80" height="26" rx="13" fill="#10b981" opacity="0.2"/>
+      <text x="400" y="35" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#34d399">TEMEL</text>
+    </g>
+
+    <g transform="translate(30, 152)">
+      <rect width="460" height="62" rx="12" fill="#130a28"/>
+      <text x="20" y="38" font-size="20">🎯</text>
+      <text x="56" y="28" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Performans Reklamları (Google &amp; Meta)</text>
+      <text x="56" y="47" font-family="system-ui,sans-serif" font-size="11" fill="#fed7aa">Hızlı Lead Edinimi ve Satış Dönüşümü</text>
+      <rect x="360" y="18" width="80" height="26" rx="13" fill="#10b981" opacity="0.2"/>
+      <text x="400" y="35" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#34d399">ÖLÇEKLİ</text>
+    </g>
+
+    <g transform="translate(30, 224)">
+      <rect width="460" height="62" rx="12" fill="#130a28"/>
+      <text x="20" y="38" font-size="20">📱</text>
+      <text x="56" y="28" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Sosyal Medya &amp; Değer Odaklı İçerik</text>
+      <text x="56" y="47" font-family="system-ui,sans-serif" font-size="11" fill="#fed7aa">Marka Otoritesi, Güven ve Topluluk Bağı</text>
+      <rect x="360" y="18" width="80" height="26" rx="13" fill="#10b981" opacity="0.2"/>
+      <text x="400" y="35" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#34d399">GÜVEN</text>
+    </g>
+
+    <g transform="translate(30, 296)">
+      <rect width="460" height="62" rx="12" fill="#130a28"/>
+      <text x="20" y="38" font-size="20">📊</text>
+      <text x="56" y="28" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Veri Analitiği &amp; CRO (Dönüşüm Artırma)</text>
+      <text x="56" y="47" font-family="system-ui,sans-serif" font-size="11" fill="#fed7aa">Müşteri Edinme Maliyetini (CAC) Düşürme</text>
+      <rect x="360" y="18" width="80" height="26" rx="13" fill="#10b981" opacity="0.2"/>
+      <text x="400" y="35" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#34d399">VERİMLİ</text>
+    </g>
+
+    <!-- Alt Metrik Çubuğu -->
+    <g transform="translate(30, 370)">
+      <rect width="460" height="85" rx="16" fill="url(#orangeGrad)"/>
+      <text x="24" y="32" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#ffedd5">Ortalama Gelir Artışı (İlk 6 Ay)</text>
+      <text x="24" y="65" font-family="system-ui,sans-serif" font-size="28" font-weight="900" fill="#ffffff">+%240</text>
+      <text x="135" y="63" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#ffedd5">▲ Bütünleşik Model Etkisi</text>
+    </g>
+  </g>
+
+  <!-- Sağ Bölüm: 360 Dairesel Akış Şeması -->
+  <g transform="translate(680, 100)" filter="url(#shadowMkt)">
+    <rect width="420" height="475" rx="24" fill="#170e30" stroke="#3d1f70" stroke-width="2"/>
+    <rect width="420" height="54" rx="24" fill="#0d071c"/>
+    <text x="30" y="34" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#fb923c">Entegre Büyüme Çarkı</text>
+
+    <!-- Merkez Daire -->
+    <circle cx="210" cy="265" r="75" fill="url(#violetGrad)"/>
+    <text x="210" y="258" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" font-weight="900" fill="#ffffff">360°</text>
+    <text x="210" y="278" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#ede9fe">BÜYÜME</text>
+
+    <!-- 4 Köşe Rozet -->
+    <rect x="50" y="90" width="130" height="54" rx="14" fill="#1e113d" stroke="#f97316" stroke-width="1.5"/>
+    <text x="115" y="115" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1. Trafik</text>
+    <text x="115" y="132" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#fed7aa">SEO &amp; Reklam</text>
+
+    <rect x="240" y="90" width="130" height="54" rx="14" fill="#1e113d" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="305" y="115" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#ffffff">2. Etkileşim</text>
+    <text x="305" y="132" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#c4b5fd">Sosyal &amp; İçerik</text>
+
+    <rect x="50" y="380" width="130" height="54" rx="14" fill="#1e113d" stroke="#10b981" stroke-width="1.5"/>
+    <text x="115" y="405" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#ffffff">4. Sadakat</text>
+    <text x="115" y="422" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6ee7b7">CRM &amp; E-Posta</text>
+
+    <rect x="240" y="380" width="130" height="54" rx="14" fill="#1e113d" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="305" y="405" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#ffffff">3. Dönüşüm</text>
+    <text x="305" y="422" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#67e8f9">Satış &amp; Teklif</text>
+  </g>
+</svg>

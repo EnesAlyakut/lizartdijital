@@ -1,7 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Yapay Zekâ Destekli Müşteri Hizmetleri Ne Zaman İşe Yarar?">
-  <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b1580"/></linearGradient></defs>
-  <rect width="1200" height="675" fill="url(#cg)"/>
-  <circle cx="936" cy="189.00000000000003" r="202.5" fill="#ede9fe" opacity="0.22"/>
-  <circle cx="240" cy="553.5" r="148.5" fill="#ffffff" opacity="0.12"/>
-  <text x="64" y="611" font-family="system-ui,Segoe UI,Arial" font-size="46" font-weight="700" fill="#ffffff">Yapay Zekâ Destekli Müşteri Hizmetleri Ne Zaman İşe Yarar?</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="50%" stop-color="#0b2838"/>
+      <stop offset="100%" stop-color="#031320"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg6)"/>
+  <circle cx="400" cy="300" r="300" fill="#06b6d4" opacity="0.1" filter="blur(70px)"/>
+
+  <!-- Sol Taraf: Canlı AI Chatbot Penceresi -->
+  <g transform="translate(100, 90)">
+    <rect width="540" height="495" rx="24" fill="#0f2638" stroke="#194868" stroke-width="2"/>
+    <!-- Chat Başlığı -->
+    <rect width="540" height="65" rx="24" fill="#081824"/>
+    <rect x="0" y="30" width="540" height="35" fill="#081824"/>
+    <circle cx="36" cy="32" r="16" fill="url(#aiGrad)"/>
+    <text x="36" y="38" text-anchor="middle" font-size="16">🤖</text>
+    <text x="64" y="28" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Lizart AI Asistan</text>
+    <circle cx="68" cy="42" r="3.5" fill="#10b981"/>
+    <text x="76" y="45" font-family="system-ui,sans-serif" font-size="10" fill="#6ee7b7">Çevrimiçi · 7/24 Anında Yanıt</text>
+
+    <!-- Mesaj 1: Kullanıcı Sorusu -->
+    <g transform="translate(160, 95)">
+      <rect width="350" height="65" rx="16" fill="#1e3a5f"/>
+      <text x="20" y="28" font-family="system-ui,sans-serif" font-size="13" fill="#ffffff">Merhaba! Klinik için randevu özellikli bir</text>
+      <text x="20" y="48" font-family="system-ui,sans-serif" font-size="13" fill="#ffffff">web sitesi arıyorum, ne önerirsiniz?</text>
+      <text x="330" y="58" text-anchor="end" font-family="system-ui,sans-serif" font-size="9" fill="#94a3b8">14:32</text>
+    </g>
+
+    <!-- Mesaj 2: AI Asistan Yanıtı -->
+    <g transform="translate(30, 180)">
+      <rect width="420" height="150" rx="16" fill="#081b28" stroke="#06b6d4" stroke-width="1.5"/>
+      <text x="20" y="30" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#22d3ee">✨ Lizart AI Asistan:</text>
+      <text x="20" y="55" font-family="system-ui,sans-serif" font-size="12" fill="#e2e8f0">Harika bir tercih! Sizin için en uygun ürünümüz</text>
+      <text x="20" y="75" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#38bdf8">"Medica Klinik Web Sitesi" şablonudur.</text>
+      <text x="20" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8">• Online randevu ve doktor takvimi dahildir</text>
+      <text x="20" y="120" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8">• 3 iş gününde anahtar teslim kurulabilir</text>
+      <text x="400" y="142" text-anchor="end" font-family="system-ui,sans-serif" font-size="9" fill="#06b6d4">Anında iletildi ⚡</text>
+    </g>
+
+    <!-- Mesaj 3: Butonlu Öneri Kartı -->
+    <g transform="translate(30, 345)">
+      <rect width="480" height="70" rx="14" fill="#0b2c44"/>
+      <text x="24" y="32" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#ffffff">Medica Klinik Demosunu İnceleyin</text>
+      <text x="24" y="52" font-family="system-ui,sans-serif" font-size="11" fill="#67e8f9">Canlı demoyu şimdi test edebilirsiniz</text>
+      <rect x="360" y="18" width="100" height="34" rx="17" fill="#06b6d4"/>
+      <text x="410" y="39" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#081824">Demoyu Aç</text>
+    </g>
+
+    <!-- Chat Giriş Alanı -->
+    <g transform="translate(30, 435)">
+      <rect width="480" height="42" rx="21" fill="#081824" stroke="#1e3a5f"/>
+      <text x="24" y="26" font-family="system-ui,sans-serif" font-size="12" fill="#64748b">Bir soru yazın...</text>
+      <circle cx="455" cy="21" r="15" fill="#06b6d4"/>
+      <text x="455" y="26" text-anchor="middle" font-size="12" fill="#081824">➔</text>
+    </g>
+  </g>
+
+  <!-- Sağ Taraf: Metrikler & Avantajlar -->
+  <g transform="translate(680, 110)">
+    <rect width="420" height="455" rx="24" fill="#0f2638" stroke="#194868" stroke-width="2"/>
+    <text x="36" y="50" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#22d3ee" letter-spacing="1">MÜŞTERİ HİZMETLERİ METRİKLERİ</text>
+    <text x="36" y="85" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="#ffffff">&lt; 3 Saniye</text>
+    <text x="36" y="110" font-family="system-ui,sans-serif" font-size="13" fill="#67e8f9">Ortalama İlk Yanıt &amp; Karşılama Süresi</text>
+
+    <!-- 3 İstatistik Kutusu -->
+    <g transform="translate(36, 140)">
+      <rect width="348" height="75" rx="14" fill="#081824"/>
+      <circle cx="35" cy="37" r="18" fill="#10b981" opacity="0.2"/>
+      <text x="35" y="44" text-anchor="middle" font-size="18">⚡</text>
+      <text x="70" y="32" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">%85 Çağrı Otomasyonu</text>
+      <text x="70" y="52" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8">Sık sorulan sorular ekibe gitmeden anında çözülür</text>
+    </g>
+
+    <g transform="translate(36, 230)">
+      <rect width="348" height="75" rx="14" fill="#081824"/>
+      <circle cx="35" cy="37" r="18" fill="#06b6d4" opacity="0.2"/>
+      <text x="35" y="44" text-anchor="middle" font-size="18">⭐</text>
+      <text x="70" y="32" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">4.9/5 Memnuniyet Puanı</text>
+      <text x="70" y="52" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8">Kullanıcılar beklemeden doğru cevaba ulaşır</text>
+    </g>
+
+    <g transform="translate(36, 320)">
+      <rect width="348" height="75" rx="14" fill="#081824"/>
+      <circle cx="35" cy="37" r="18" fill="#a855f7" opacity="0.2"/>
+      <text x="35" y="44" text-anchor="middle" font-size="18">🤖</text>
+      <text x="70" y="32" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#ffffff">Çok Dilli Akıllı Destek</text>
+      <text x="70" y="52" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8">Türkçe, İngilizce ve Arapça dillerinde akıcı diyalog</text>
+    </g>
+  </g>
 </svg>

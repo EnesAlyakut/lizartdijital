@@ -43,7 +43,6 @@ next-env.d.ts
 .env.local
 .mail-outbox/
 private-files/
-public/gorseller/
 src/generated/
 prisma/bootstrap.db
 *.db
